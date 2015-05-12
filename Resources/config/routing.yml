@@ -1,0 +1,7 @@
+brother_quest_quest:
+    resource: "@BrotherQuestBundle/Resources/config/routing/quest.yml"
+    prefix:   /quest
+
+brother_quest_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: BrotherQuestBundle:Default:index }

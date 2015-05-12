@@ -1,0 +1,33 @@
+Brother\QuestBundle\Entity\Quest:
+    type: entity
+    table: null
+    repositoryClass: Brother\QuestBundle\Entity\QuestRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        name:
+            type: string
+            length: 255
+        q:
+            type: string
+            length: 255
+        a:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        executor:
+            type: string
+            length: 255
+        comment:
+            type: string
+            length: 255
+        priority:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }
