@@ -34,9 +34,9 @@ You can specify your custom guestbook mailer manager class by overriding the mai
         class:
             manager: MyProject\MyBundle\Mailer\Mailer
 
-Your custom class may extend the ``RPS\GuestbookBundle\Mailer\BaseMailer`` class. If you are not extending the
-``RPS\GuestbookBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
-``RPS\GuestbookBundle\Mailer\MailerInterface`` interface.
+Your custom class may extend the ``Brother\QuestBundle\Mailer\BaseMailer`` class. If you are not extending the
+``Brother\QuestBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
+``Brother\QuestBundle\Mailer\MailerInterface`` interface.
 
 
 Using a custom spam detection service
@@ -51,9 +51,9 @@ You can also specify a custom mailer service by setting the `` mailer service`` 
         service:
             mailer: my_mailer
 
-Your mailer service class may extend the ``RPS\GuestbookBundle\Mailer\BaseMailer`` class. If you are not extending the
-``RPS\GuestbookBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
-``RPS\GuestbookBundle\Mailer\MailerInterface`` interface.
+Your mailer service class may extend the ``Brother\QuestBundle\Mailer\BaseMailer`` class. If you are not extending the
+``Brother\QuestBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
+``Brother\QuestBundle\Mailer\MailerInterface`` interface.
 
 
 Using a custom notification template

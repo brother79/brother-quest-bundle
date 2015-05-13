@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okus <yos.okusanya@gmail.com>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Mailer;
+namespace Brother\QuestBundle\Mailer;
 
-use RPS\GuestbookBundle\Model\EntryInterface;
-use RPS\GuestbookBundle\Event\Events;
-use RPS\GuestbookBundle\Event\MailEvent;
+use Brother\QuestBundle\Model\EntryInterface;
+use Brother\QuestBundle\Event\Events;
+use Brother\QuestBundle\Event\MailEvent;
 
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\Templating\EngineInterface;

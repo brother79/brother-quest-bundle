@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -10,7 +10,7 @@
  */
 
 
-namespace RPS\GuestbookBundle\Model;
+namespace Brother\QuestBundle\Model;
 
 use Symfony\Component\Form\FormInterface;
 

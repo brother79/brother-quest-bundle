@@ -11,21 +11,21 @@ To enable spam detection, you must set the ``spam_detection`` config option.
         spam_detection: true
 
 You must either have the ``OrnicarAkismentBundle`` installed or use a different spam detector
-and integrate it with the RPSGuestbookBundle.
+and integrate it with the BrotherQuestBundle.
 
 
 Using Akismet for Spam Detection
 --------------------------------
 
-The RPSGuestbookBundle is integrated with the OrnicarAkismentBundle.
+The BrotherQuestBundle is integrated with the OrnicarAkismentBundle.
 
 To use AkismetBundle for spam detection, you must install the OrnicarAkismentBundle_
 and configure it properly (see the docs for more information).
 
 .. _OrnicarAkismentBundle: https://github.com/ornicar/OrnicarAkismetBundle
 
-The RPSGuestbookBundle automatically checks if the ``OrnicarAkismentBundle`` is installed.
-If the OrnicarAkismentBundle is not installed, the RPSGuestbookBundle will disable spam detection.
+The BrotherQuestBundle automatically checks if the ``OrnicarAkismentBundle`` is installed.
+If the OrnicarAkismentBundle is not installed, the BrotherQuestBundle will disable spam detection.
 Setting the ``spam_detection`` config option in your app/config/config file
 will override this setting.
 
@@ -43,7 +43,7 @@ You can also specify a custom spam detection service by setting the ``spam_detec
             spam_detector: my_spam_detector
 
 Your spam detector service class must implement the
-``RPS\GuestbookBundle\SpamDetection\SpamDetectorInterface`` interface.
+``Brother\QuestBundle\SpamDetection\SpamDetectorInterface`` interface.
 
 
 Other topics

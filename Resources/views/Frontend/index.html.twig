@@ -8,13 +8,13 @@
  with this source code in the file LICENSE.
 #}
 
-{% extends 'RPSGuestbookBundle:Frontend:layout.html.twig' %}
+{% extends 'BrotherQuestBundle:Frontend:layout.html.twig' %}
 
 {% block content_navbar %}
     {{  parent() }}
     <li>
         <a href="#guestbookForm">
-            <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_guestbook'|trans({}, 'RPSGuestbookBundle') }}
+            <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_guestbook'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
 {% endblock %}
@@ -47,10 +47,10 @@
 
     <div id="guestbookForm">
         <div class="page-header">
-            <h2>{{ 'title.sign_guestbook'|trans({}, 'RPSGuestbookBundle') }}</h2>
+            <h2>{{ 'title.sign_guestbook'|trans({}, 'BrotherQuestBundle') }}</h2>
         </div>
 
-        {{ include('RPSGuestbookBundle:Frontend:form.html.twig',{ 'form': form })}}
+        {{ include('BrotherQuestBundle:Frontend:form.html.twig',{ 'form': form })}}
     </div>
 {% endblock %}
 

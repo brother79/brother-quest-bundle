@@ -1,7 +1,7 @@
 <?xml version: 1.0" encoding: UTF-8" ?>
 
 <!--
- This file is part of the RPSGuestbookBundle package.
+ This file is part of the BrotherQuestBundle package.
 
  (c) Yos Okusanya <yos.okusanya@gmail.com>
 
@@ -14,8 +14,8 @@
     xsi:schemaLocation: http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd
 
     <parameters>
-brother_quest.model.entry.classRPS\GuestbookBundle\Document\Entry</parameter>
-brother_quest.manager.entry.classRPS\GuestbookBundle\Document\EntryManager</parameter>
+brother_quest.model.entry.classBrother\QuestBundle\Document\Entry</parameter>
+brother_quest.manager.entry.classBrother\QuestBundle\Document\EntryManager</parameter>
 brother_quest.pager.classRPS\CoreBundle\Pager\PagerfantaMongodb</parameter>
     </parameters>
 

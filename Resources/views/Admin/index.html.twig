@@ -1,6 +1,6 @@
 {#
 
- This file is part of the RPSGuestbookBundle package.
+ This file is part of the BrotherQuestBundle package.
 
  (c) Yos Okusanya <yos.okusanya@gmail.com>
 
@@ -8,23 +8,23 @@
  with this source code in the file LICENSE.
 #}
 
-{% extends 'RPSGuestbookBundle:Admin:layout.html.twig' %}
+{% extends 'BrotherQuestBundle:Admin:layout.html.twig' %}
 
 {% block content_navbar %}
     {{  parent() }}
     <li>
         <a href="#" onclick="publishEntries()">
-            <i class="glyphicon glyphicon-ok-sign"></i> {{ 'link.publish'|trans({}, 'RPSGuestbookBundle') }}
+            <i class="glyphicon glyphicon-ok-sign"></i> {{ 'link.publish'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
     <li>
         <a href="#" onclick="unpublishEntries()">
-            <i class="glyphicon glyphicon-minus-sign"></i> {{ 'link.unpublish'|trans({}, 'RPSGuestbookBundle') }}
+            <i class="glyphicon glyphicon-minus-sign"></i> {{ 'link.unpublish'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
     <li>
         <a href="#" onclick="deleteEntries()">
-            <i class="glyphicon glyphicon-trash"></i> {{ 'link.delete'|trans({}, 'RPSGuestbookBundle') }}
+            <i class="glyphicon glyphicon-trash"></i> {{ 'link.delete'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
 {% endblock %}
@@ -41,22 +41,22 @@
                                 <input id="rpsGuestbookMasterSelect" type="checkbox">
                             </th>
                             <th></th>
-                            <th>{{ 'title.comment'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th class="hidden-xs">{{ 'title.updated'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th>{{ 'title.state'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th class="hidden-xs">{{ 'title.replied'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th class="hidden-xs">{{ 'title.edit'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th class="hidden-xs">{{ 'title.reply'|trans({}, 'RPSGuestbookBundle') }}</th>
-                            <th class="visible-xs">{{ 'title.action'|trans({}, 'RPSGuestbookBundle') }}</th>
+                            <th>{{ 'title.comment'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th class="hidden-xs">{{ 'title.updated'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th>{{ 'title.state'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th class="hidden-xs">{{ 'title.replied'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th class="hidden-xs">{{ 'title.edit'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th class="hidden-xs">{{ 'title.reply'|trans({}, 'BrotherQuestBundle') }}</th>
+                            <th class="visible-xs">{{ 'title.action'|trans({}, 'BrotherQuestBundle') }}</th>
                         </thead>
                         <tbody>
                         {# ---- text variables ---- #}
-                        {% set never_text = 'never'|trans({}, 'RPSGuestbookBundle') %}
-                        {% set publish_text = 'link.publish'|trans({}, 'RPSGuestbookBundle') %}
-                        {% set unpublish_text = 'link.unpublish'|trans({}, 'RPSGuestbookBundle') %}
-                        {% set edit_text = 'link.edit'|trans({}, 'RPSGuestbookBundle') %}
-                        {% set delete_text = 'link.delete'|trans({}, 'RPSGuestbookBundle') %}
-                        {% set reply_text = 'link.reply'|trans({}, 'RPSGuestbookBundle') %}
+                        {% set never_text = 'never'|trans({}, 'BrotherQuestBundle') %}
+                        {% set publish_text = 'link.publish'|trans({}, 'BrotherQuestBundle') %}
+                        {% set unpublish_text = 'link.unpublish'|trans({}, 'BrotherQuestBundle') %}
+                        {% set edit_text = 'link.edit'|trans({}, 'BrotherQuestBundle') %}
+                        {% set delete_text = 'link.delete'|trans({}, 'BrotherQuestBundle') %}
+                        {% set reply_text = 'link.reply'|trans({}, 'BrotherQuestBundle') %}
 
                         {% for entry in entries %}
                             {% if( entry.state == 0) %}
@@ -166,17 +166,17 @@
 <script>
 function removeEntry()
 {
-    return confirm("{{ 'confirm_entry_remove'|trans({}, 'RPSGuestbookBundle') }}");
+    return confirm("{{ 'confirm_entry_remove'|trans({}, 'BrotherQuestBundle') }}");
 }
 
 function deleteEntries()
 {
     if ( checkEntrySelected()) {
-        alert("{{ 'flash.select_error.delete'|trans({}, 'RPSGuestbookBundle') }}");
+        alert("{{ 'flash.select_error.delete'|trans({}, 'BrotherQuestBundle') }}");
         return;
     }
 
-    if (confirm("{{ 'confirm_entries_delete'|trans({}, 'RPSGuestbookBundle') }}")) {
+    if (confirm("{{ 'confirm_entries_delete'|trans({}, 'BrotherQuestBundle') }}")) {
         submitAdminForm('{{ path('brother_quest_delete') }}');
     }
 }
@@ -196,7 +196,7 @@ function checkEntrySelected()
 function publishEntries()
 {
 	if ( checkEntrySelected()) {
-		alert("{{ 'flash.select_error.publish'|trans({}, 'RPSGuestbookBundle') }}");
+		alert("{{ 'flash.select_error.publish'|trans({}, 'BrotherQuestBundle') }}");
 		return;
 	}
     submitAdminForm('{{ path('brother_quest_publish') }}');
@@ -205,7 +205,7 @@ function publishEntries()
 function unpublishEntries()
 {
 	if ( checkEntrySelected() ) {
-		alert("{{ 'flash.select_error.unpublish'|trans({}, 'RPSGuestbookBundle') }}");
+		alert("{{ 'flash.select_error.unpublish'|trans({}, 'BrotherQuestBundle') }}");
 		return;
 	}
 	submitAdminForm('{{ path("brother_quest_unpublish") }}');

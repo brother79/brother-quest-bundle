@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okus <yos.okusanya@gmail.com>
  *
@@ -9,13 +9,13 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Document;
+namespace Brother\QuestBundle\Document;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
-use RPS\GuestbookBundle\Model\EntryInterface;
-use RPS\GuestbookBundle\Model\EntryManager as AbstractEntryManager;
+use Brother\QuestBundle\Model\EntryInterface;
+use Brother\QuestBundle\Model\EntryManager as AbstractEntryManager;
 
 /**
  * Default EntryManager ODM.

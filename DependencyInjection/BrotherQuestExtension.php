@@ -25,7 +25,7 @@ class BrotherQuestExtension extends Extension
 
         // get the RPSGuestbook configuration
         $configs = $container->getExtensionConfig($this->getAlias());
-        $guestbookConfig = $this->processConfiguration(new Configuration(), $configs);
+        $questConfig = $this->processConfiguration(new Configuration(), $configs);
 
         // enable spam detection if AkismetBundle is registered
         // else disable spam detection
@@ -36,14 +36,14 @@ class BrotherQuestExtension extends Extension
         // if not set the default pager class
         // can be overridden by setting the brother_quest.pager.class config
         if (!isset($bundles['WhiteOctoberPagerfantaBundle'])) {
-            if ( 'orm' == $guestbookConfig['db_driver']) {
+            if ( 'orm' == $questConfig['db_driver']) {
                 $rpsConfig['class']['pager'] = 'RPS\CoreBundle\Pager\DefaultORM';
             } else {
                 $rpsConfig['class']['pager'] = 'RPS\CoreBundle\Pager\DefaultMongodb';
             }
         }
 
-        // add the RPSGuestbookBundle configurations
+        // add the BrotherQuestBundle configurations
         // all options can be overridden in the app/config/config.yml file
         $container->prependExtensionConfig('brother_quest', $rpsConfig);
     }

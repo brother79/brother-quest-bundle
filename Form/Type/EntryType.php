@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle
+ * This file is part of the BrotherQuestBundle
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,7 +9,7 @@
  * file that was distributed with this source code.
  */
 
-namespace RPS\GuestbookBundle\Form\Type;
+namespace Brother\QuestBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -39,15 +39,15 @@ class EntryType extends AbstractType
 	{
         $builder->add('name', 'text', array(
                 'label' => 'form.entry.name',
-                'translation_domain' => 'RPSGuestbookBundle'
+                'translation_domain' => 'BrotherQuestBundle'
             ))
             ->add('email', 'email', array(
                 'label' => 'form.entry.email',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
             ))
             ->add('comment', 'textarea', array(
                 'label' => 'form.entry.comment',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
             ))
             ->getForm();
 	}

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Model;
+namespace Brother\QuestBundle\Model;
 
 /**
  * Interface to be implemented by the comment class.

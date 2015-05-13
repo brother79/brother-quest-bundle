@@ -1,6 +1,6 @@
 {#
 
- This file is part of the RPSGuestbookBundle package.
+ This file is part of the BrotherQuestBundle package.
 
  (c) Yos Okusanya <yos.okusanya@gmail.com>
 
@@ -13,24 +13,24 @@
         <div class="form-error">{{ form_errors(form.name) }}</div>
         <div class="input-group form-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-            {{ form_widget(form.name, {'attr': {'placeholder': 'form.entry.name'|trans({}, 'RPSGuestbookBundle'), 'class': 'form-control'}}) }}
+            {{ form_widget(form.name, {'attr': {'placeholder': 'form.entry.name'|trans({}, 'BrotherQuestBundle'), 'class': 'form-control'}}) }}
         </div>
 
         <div class="form-error">{{ form_errors(form.email) }}</div>
         <div class="input-group form-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-            {{ form_widget(form.email, {'attr': {'placeholder': 'form.entry.email'|trans({}, 'RPSGuestbookBundle'), 'class': 'form-control'}}) }}
+            {{ form_widget(form.email, {'attr': {'placeholder': 'form.entry.email'|trans({}, 'BrotherQuestBundle'), 'class': 'form-control'}}) }}
         </div>
 
         <div class="form-error">{{ form_errors(form.comment) }}</div>
         <div class="form-group">
-            {{ form_widget(form.comment, {'attr': {'class': 'form-control', 'rows': '10','placeholder': 'form.entry.enter_your_comment_here'|trans({}, 'RPSGuestbookBundle') } }) }}
+            {{ form_widget(form.comment, {'attr': {'class': 'form-control', 'rows': '10','placeholder': 'form.entry.enter_your_comment_here'|trans({}, 'BrotherQuestBundle') } }) }}
         </div>
 
         {{ form_widget(form) }}
 
         <div class="form-btns">
-            <button class="btn btn-success">{{ 'form.entry.submit'|trans({}, 'RPSGuestbookBundle') }}</button>
+            <button class="btn btn-success">{{ 'form.entry.submit'|trans({}, 'BrotherQuestBundle') }}</button>
         </div>
     {{ form_end(form) }}
 </div><!-- /rps-guestbook-form-container -->

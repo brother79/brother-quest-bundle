@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Event;
+namespace Brother\QuestBundle\Event;
 
 /**
  * Guestbook Events.
@@ -20,7 +20,7 @@ final class Events
      * The CREATE event occurs when the manager creates 
 	 * a new guestbook entry instance.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
      * @var string
      */
@@ -29,7 +29,7 @@ final class Events
     /**
      * The PRE_PERSIST occurs prior to the manager persisting the entry.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
 	 *
      * Persistence can be aborted by calling $event->isPropagationStopped()
      *
@@ -40,7 +40,7 @@ final class Events
     /**
      * The POST_PERSIST event occurs after the Guestbook is persisted.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
      * @var string
      */
@@ -50,7 +50,7 @@ final class Events
      * The PRE_REMOVE event occurs prior to the manager 
 	 * removing a guestbook entry.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
 	 *
      * Entry removal can be aborted by calling $event->isPropagationStopped().
      *
@@ -61,7 +61,7 @@ final class Events
     /**
      * The POST_REMOVE event occurs after removing a guestbook entry.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
      * @var string
      */
@@ -71,7 +71,7 @@ final class Events
      * The PRE_DELETE event occurs prior to the manager 
 	 * deleting a list of guestbook entries.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryDeleteEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryDeleteEvent instance.
 	 *
      * Entry deletion can be aborted by calling $event->isPropagationStopped().
      *
@@ -83,7 +83,7 @@ final class Events
     /**
      * The POST_DELETE event occurs after deleting a list of guestbook entries.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryDeleteEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryDeleteEvent instance.
      *
      * @var string
      */
@@ -93,7 +93,7 @@ final class Events
      * The PRE_UPDATE_STATE event occurs prior to updating 
 	 * the status of a list of guestbook entries.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryStateEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
 	 *
      * Status update can be aborted by calling $event->isPropagationStopped().
      *
@@ -105,7 +105,7 @@ final class Events
      * The POST_UPDATE_STATE event occurs after updating
 	 * the status of a list of guestbook entries.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\EntryStateEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
      *
      * @var string
      */
@@ -114,7 +114,7 @@ final class Events
     /**
      * The PRE_REPLY event occurs prior to replying a entry.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\MailEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
 	 *
      * Sending the reply can be aborted by calling $event->isPropagationStopped().
      *
@@ -125,7 +125,7 @@ final class Events
     /**
      * The POST_REPLY event occurs affer sending a reply.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\MailEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
      *
      * @var string
      */
@@ -137,7 +137,7 @@ final class Events
 	 *
      * Notification can be aborted by calling $event->isPropagationStopped().
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\MailEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
      *
      * @var string
      */
@@ -147,7 +147,7 @@ final class Events
      * The POST_NOTIFY event occurs after sending a 
 	 * guestbook entry notification email.
 	 *
-     * The listener receives a RPS\GuestbookBundle\Event\MailEvent instance.
+     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
      *
      * @var string
      */

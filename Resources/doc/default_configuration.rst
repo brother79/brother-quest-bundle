@@ -17,39 +17,39 @@ Default Configuration
             email_title: New guestbook entry from {name}            # (optional) notification email title
 
         class:
-            model: RPS\GuestbookBundle\Entity\Entry                 # (optional) guestbook model class
-            manager: RPS\GuestbookBundle\Entity\EntryManager        # (optional) guestbook manager class
+            model: Brother\QuestBundle\Entity\Entry                 # (optional) guestbook model class
+            manager: Brother\QuestBundle\Entity\EntryManager        # (optional) guestbook manager class
             pager : RPS\CoreBundle\Pager\PagerfantaORM              # (optional) pager class
-            mailer: RPS\GuestbookBundle\Mailer\Mailer               # (optional) mailer class
+            mailer: Brother\QuestBundle\Mailer\Mailer               # (optional) mailer class
 
         view:
             frontend:
-                list: RPSGuestbookBundle:Frontend:index.html.twig   # guestbook entries view
-                new: RPSGuestbookBundle:Frontend:new.html.twig      # guestbook form
+                list: BrotherQuestBundle:Frontend:index.html.twig   # guestbook entries view
+                new: BrotherQuestBundle:Frontend:new.html.twig      # guestbook form
 
             admin:
-                list: RPSGuestbookBundle:Admin:index.html.twig      # admin guestbook entries view
-                edit: RPSGuestbookBundle:Admin:edit.html.twig       # admin guestbook entry edit view
-                reply: RPSGuestbookBundle:Admin:reply.html.twig     # admin guestbook entry reply view
+                list: BrotherQuestBundle:Admin:index.html.twig      # admin guestbook entries view
+                edit: BrotherQuestBundle:Admin:edit.html.twig       # admin guestbook entry edit view
+                reply: BrotherQuestBundle:Admin:reply.html.twig     # admin guestbook entry reply view
 
             mail:
-                notify: RPSGuestbookBundle:Mail:notify.txt.twig     # notification mail template
+                notify: BrotherQuestBundle:Mail:notify.txt.twig     # notification mail template
 
         form:
             entry:
                 name: brother_quest_entry
                 type: brother_quest_entry
-                class: RPS\GuestbookBundle\Form\Type\EntryType      # guestbook entry form class
+                class: Brother\QuestBundle\Form\Type\EntryType      # guestbook entry form class
 
             edit:
                 name: brother_quest_entry_edit
                 type: brother_quest_entry_edit
-                class: RPS\GuestbookBundle\Form\Type\EntryEditType  # guestbook entry edit form class
+                class: Brother\QuestBundle\Form\Type\EntryEditType  # guestbook entry edit form class
 
             reply:
                 name: brother_quest_entry_reply
                 type: brother_quest_entry_reply
-                class: RPS\GuestbookBundle\Form\Type\EntryReplyType # guestbook entry reply form class
+                class: Brother\QuestBundle\Form\Type\EntryReplyType # guestbook entry reply form class
 
         service:
             pager: ~                                                # (optional) custom pager service

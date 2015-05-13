@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,9 +9,9 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Document;
+namespace Brother\QuestBundle\Document;
 
-use RPS\GuestbookBundle\Model\Entry as AbstractEntry;
+use Brother\QuestBundle\Model\Entry as AbstractEntry;
 
 /**
  * Default Entry ODM.

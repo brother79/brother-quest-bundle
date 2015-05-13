@@ -183,7 +183,7 @@ class QuestAdminController extends CRUDController
                 '%comment%'=> $entry->getComment(),
                 '%id%'=> $id
             ),
-            'RPSGuestbookBundle'
+            'BrotherQuestBundle'
         );
 
         $form->get('message')->setData($message);
@@ -260,7 +260,7 @@ class QuestAdminController extends CRUDController
                 'flash.delete.success',
                 $nbEntries,
                 array('%count%' => $nbEntries),
-                'RPSGuestbookBundle'
+                'BrotherQuestBundle'
             );
 
             $this->get('session')->getFlashBag()->add('notice', $translated);
@@ -298,7 +298,7 @@ class QuestAdminController extends CRUDController
                     'flash.' . $task . '.success',
                     $nbEntries,
                     array('%count%' => $nbEntries),
-                    'RPSGuestbookBundle'
+                    'BrotherQuestBundle'
                 );
 
                 $this->get('session')->getFlashBag()->add('notice', $translated);

@@ -1,7 +1,7 @@
 Doctrine configuration
 ======================
 
-The RPSGuestbookBundle supports both Doctrine ORM and Doctrine ODM.
+The BrotherQuestBundle supports both Doctrine ORM and Doctrine ODM.
 It is configured for ORM by default. To use Doctrine ODM, you must set this in the ``db_driver`` option.
 
 .. code-block:: yml
@@ -23,9 +23,9 @@ You can specify a custom model class by overriding the guestbook model class opt
         class:
             model: MyProject\MyBundle\Entity\MyGuestbook
 
-Your custom model class may extend the ``RPS\GuestbookBundle\Model\Entry`` class. If you are not extending the
-``RPS\GuestbookBundle\Model\Entry`` class, your custom manager class must implement the
-``RPS\GuestbookBundle\Model\EntryInterface`` interface.
+Your custom model class may extend the ``Brother\QuestBundle\Model\Entry`` class. If you are not extending the
+``Brother\QuestBundle\Model\Entry`` class, your custom manager class must implement the
+``Brother\QuestBundle\Model\EntryInterface`` interface.
 
 
 Using a custom manager class
@@ -40,9 +40,9 @@ You can specify a custom guestbook entry manager class by overriding the manager
         class:
             manager: MyProject\MyBundle\Entity\MyGuestbookManager
 
-Your custom class may extend the ``RPS\GuestbookBundle\Model\EntryManager`` class. If you are not extending the
-``RPS\GuestbookBundle\Model\EntryManager`` class, your custom manager class must implement the
-``RPS\GuestbookBundle\Model\EntryManagerInterface`` interface.
+Your custom class may extend the ``Brother\QuestBundle\Model\EntryManager`` class. If you are not extending the
+``Brother\QuestBundle\Model\EntryManager`` class, your custom manager class must implement the
+``Brother\QuestBundle\Model\EntryManagerInterface`` interface.
 
 
 Other topics

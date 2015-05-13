@@ -1,7 +1,7 @@
 <?xml version: 1.0" encoding: UTF-8"?>
 
 <!--
- This file is part of the RPSGuestbookBundle package.
+ This file is part of the BrotherQuestBundle package.
 
  (c) Yos Okusanya <yos.okusanya@gmail.com>
 
@@ -14,7 +14,7 @@
                         xsi:schemaLocation: http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping
                         http://doctrine-project.org/schemas/odm/doctrine-mongo-mapping.xsd
 
-    <document name: RPS\GuestbookBundle\Document\Entry" collection: brother_quest
+    <document name: Brother\QuestBundle\Document\Entry" collection: brother_quest
         <lifecycle-callbacks>
             <lifecycle-callback type: prePersist" method: prePersist }
             <lifecycle-callback type: preUpdate" method: preUpdate }

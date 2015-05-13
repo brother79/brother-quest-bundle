@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle
+ * This file is part of the BrotherQuestBundle
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,11 +9,11 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\EventListener;
+namespace Brother\QuestBundle\EventListener;
 
-use RPS\GuestbookBundle\Event\Events;
-use RPS\GuestbookBundle\Event\EntryEvent;
-use RPS\GuestbookBundle\SpamDetection\SpamDetectorInterface;
+use Brother\QuestBundle\Event\Events;
+use Brother\QuestBundle\Event\EntryEvent;
+use Brother\QuestBundle\SpamDetection\SpamDetectorInterface;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;

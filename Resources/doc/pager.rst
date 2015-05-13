@@ -1,12 +1,12 @@
 Pager Installation and Configuration
 ====================================
 
-The RPSGuestbookBundle uses the ``WhiteOctoberPagerfantaBundle_`` for pagination.
+The BrotherQuestBundle uses the ``WhiteOctoberPagerfantaBundle_`` for pagination.
 
-To use ``WhiteOctoberPagerfantaBundle`` as the RPSGuestbookBundle pager ,
+To use ``WhiteOctoberPagerfantaBundle`` as the BrotherQuestBundle pager ,
 you must install the WhiteOctoberPagerfantaBundle_.
 
-If the WhiteOctoberPagerfantaBundle is not installed, the RPSGuestbookBundle will disable pagination.
+If the WhiteOctoberPagerfantaBundle is not installed, the BrotherQuestBundle will disable pagination.
 
 To limit the number of guestbook entries shown, set the ``entry_per_page`` config option
 

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle
+ * This file is part of the BrotherQuestBundle
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,7 +9,7 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Form\Type;
+namespace Brother\QuestBundle\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -39,26 +39,26 @@ class EntryEditType extends AbstractType
 	{
         $builder->add('name', 'text', array(
                 'label' => 'form.entry.name',
-                'translation_domain' => 'RPSGuestbookBundle'
+                'translation_domain' => 'BrotherQuestBundle'
             ))
             ->add('email', 'email', array(
                 'label' => 'form.entry.email',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
             ))
             ->add('comment', 'textarea', array(
                 'label' => 'form.entry.message',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
             ))
             ->add('state', 'choice', array(
                 'label' => 'form.entry.state',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
                 'choices' => array(0 => 'no', 1 => 'yes'),
                 'multiple' => false,
                 'expanded' => false,
             ))
             ->add('createdAt', 'datetime', array(
                 'label' => 'form.entry.created',
-                'translation_domain' => 'RPSGuestbookBundle',
+                'translation_domain' => 'BrotherQuestBundle',
                 'with_seconds' => true,
             ))
             ->getForm();

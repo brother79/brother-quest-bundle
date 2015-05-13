@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of the RPSGuestbookBundle package.
+ * This file is part of the BrotherQuestBundle package.
  *
  * (c) Yos Okusanya <yos.okusanya@gmail.com>
  *
@@ -9,12 +9,12 @@
  * with this source code in the file LICENSE.
  */
 
-namespace RPS\GuestbookBundle\Model;
+namespace Brother\QuestBundle\Model;
 
-use RPS\GuestbookBundle\Event\Events;
-use RPS\GuestbookBundle\Event\EntryEvent;
-use RPS\GuestbookBundle\Event\EntryDeleteEvent;
-use RPS\GuestbookBundle\Event\EntryStateEvent;
+use Brother\QuestBundle\Event\Events;
+use Brother\QuestBundle\Event\EntryEvent;
+use Brother\QuestBundle\Event\EntryDeleteEvent;
+use Brother\QuestBundle\Event\EntryStateEvent;
 use RPS\CoreBundle\Pager\PagerInterface;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;

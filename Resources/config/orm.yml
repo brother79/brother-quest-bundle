@@ -1,6 +1,6 @@
 parameters:
-    brother_quest.model.entry.class: RPS\GuestbookBundle\Entity\Entry
-    brother_quest.manager.entry.class: RPS\GuestbookBundle\Entity\EntryManager
+    brother_quest.model.entry.class: Brother\QuestBundle\Entity\Entry
+    brother_quest.manager.entry.class: Brother\QuestBundle\Entity\EntryManager
     brother_quest.pager.class: RPS\CoreBundle\Pager\PagerfantaORM
 services:
     brother_quest.entity_manager:

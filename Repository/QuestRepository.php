@@ -1,6 +1,6 @@
 <?php
 
-namespace Brother\QuestBundle\Entity;
+namespace Brother\QuestBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
