@@ -388,4 +388,22 @@ class Quest
     {
         return $this->status;
     }
+
+    /**
+     * Pre persist
+     */
+    public function prePersist()
+    {
+        $this->createdAt = new \DateTime();
+        $this->replied = 0;
+    }
+
+    /**
+     * Pre update
+     */
+    public function preUpdate()
+    {
+        $this->updatedAt = new \DateTime();
+    }
+
 }

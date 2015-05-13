@@ -54,5 +54,5 @@ Brother\QuestBundle\Entity\Quest:
             length: 255
             nullable: true
     lifecycleCallbacks: 
-        prePersist: prePersist
-        preUpdate: preUpdate
+        prePersist: [ prePersist ]
+        preUpdate:  [ preUpdate ]
