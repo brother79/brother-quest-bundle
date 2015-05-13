@@ -10,12 +10,12 @@
 
 {% extends 'RPSCoreBundle::layout.html.twig' %}
 
-{% set title = 'title.guestbook'|trans({}, 'BrotherQuestBundle') %}
+{% set title = 'title.quest'|trans({}, 'BrotherQuestBundle') %}
 {% block title %}{{ title }}{% endblock %}
 {% block content_title %}<h2>{{ title }}</h2>{% endblock %}
 
 
 {% block stylesheets %}
     {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/rpsguestbook/css/guestbook.css') }}" />
+    <link rel="stylesheet" href="{{ asset('bundles/rpsguestbook/css/quest.css') }}" />
 {% endblock %}

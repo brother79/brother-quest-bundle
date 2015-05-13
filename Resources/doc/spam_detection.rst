@@ -61,7 +61,7 @@ Other topics
 
 #. `Views/Templates`_
 
-#. `Guestbook Administration`_
+#. `Quest Administration`_
 
 #. `Default Configuration`_
 
@@ -70,6 +70,6 @@ Other topics
 .. _`Mailer Configuration`: Resources/doc/mailer.rst
 .. _`Pager Configuration`: Resources/doc/pager.rst
 .. _`Views/Templates`: Resources/doc/views.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst
 .. _`Default Configuration`: Resources/doc/default_configuration.rst
 

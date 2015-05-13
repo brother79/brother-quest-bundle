@@ -30,10 +30,10 @@
 {% endblock %}
 
 {% block content %}
-    <div class="rps-guestbook-container">
+    <div class="brother-quest-container">
         <div class="rps-gustbook-list">
             {% if entries|length > 0 %}
-                <form method="post" action={{ path( 'brother_quest_admin') }} id="rpsGuestbookAdminList" class="rps-guestbook-admin-list">
+                <form method="post" action={{ path( 'brother_quest_admin') }} id="rpsGuestbookAdminList" class="brother-quest-admin-list">
                     <table class="table table-striped">
                         <thead>
                             <th width="5px">#</th>
@@ -75,7 +75,7 @@
                             <tr>
                                 <td>{{ loop.index }}</td>
                                 <td class="align-center">
-                                    <input type="checkbox" class="rps-guestbook-checkbox-list" name="ids[]" value="{{ entry_id }}">
+                                    <input type="checkbox" class="brother-quest-checkbox-list" name="ids[]" value="{{ entry_id }}">
                                 </td>
                                 <td>
                                     {{ entry.name }}
@@ -150,13 +150,13 @@
 
                 </form>
             {% endif %}
-        </div><!-- /rps-guestbook-list -->
+        </div><!-- /brother-quest-list -->
 
         <div class="rps-pager">
             {{ pagination_html|raw }}
         </div>
 
-    </div><!-- /rps-guestbook-container -->
+    </div><!-- /brother-quest-container -->
 
 {% endblock %}
 
@@ -183,14 +183,14 @@ function deleteEntries()
 
 function submitAdminForm(url)
 {
-    var guestbookForm = jQuery('#rpsGuestbookAdminList');
-    guestbookForm.attr("action", url);
-    guestbookForm.submit();
+    var questForm = jQuery('#rpsGuestbookAdminList');
+    questForm.attr("action", url);
+    questForm.submit();
 }
 
 function checkEntrySelected()
 {
-    return jQuery('.rps-guestbook-checkbox-list:checkbox:checked').length == 0;
+    return jQuery('.brother-quest-checkbox-list:checkbox:checked').length == 0;
 }
 
 function publishEntries()
@@ -214,7 +214,7 @@ function unpublishEntries()
 (function($){
     $(function() {
         $('#rpsGuestbookMasterSelect').change(function(){
-            $('.rps-guestbook-checkbox-list').prop('checked', $(this).prop('checked'));
+            $('.brother-quest-checkbox-list').prop('checked', $(this).prop('checked'));
         });
     });
 

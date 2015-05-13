@@ -335,7 +335,7 @@ class QuestController extends Controller
 
 
     /**
-     * Adds a new Entry/Show guestbook form.
+     * Adds a new Entry/Show quest form.
      *
      * @param \Symfony\Component\HttpFoundation\Request $request
      *

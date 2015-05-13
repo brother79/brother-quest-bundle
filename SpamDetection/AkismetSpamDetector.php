@@ -33,7 +33,7 @@ class AkismetSpamDetector implements SpamDetectorInterface
     }
 
     /**
-     * Checks if the guestbook entry is a spam.
+     * Checks if the quest entry is a spam.
      *
      * @param  EntryInterface $entry
 	 *

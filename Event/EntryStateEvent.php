@@ -15,7 +15,7 @@ use Symfony\Component\EventDispatcher\Event;
 
 /**
  * An event that occurs related to updating the state 
- * of a list of guestbook entries.
+ * of a list of quest entries.
  */
 class EntryStateEvent extends EntriesEvent
 {

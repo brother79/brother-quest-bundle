@@ -33,7 +33,7 @@ class Configuration implements ConfigurationInterface
 					->children()
 						->scalarNode('admin_email')->defaultValue('admin@localhost.com')->end()
 						->scalarNode('sender_email')->defaultValue('admin@localhost.com')->end()
-                        ->scalarNode('email_title')->defaultValue('New guestbook entry from {name}')->end()
+                        ->scalarNode('email_title')->defaultValue('New quest entry from {name}')->end()
 					->end()
                 ->end()
 				

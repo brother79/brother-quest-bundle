@@ -14,14 +14,14 @@ It is configured for ORM by default. To use Doctrine ODM, you must set this in t
 Using a custom model class
 --------------------------
 
-You can specify a custom model class by overriding the guestbook model class option e.g.
+You can specify a custom model class by overriding the quest model class option e.g.
 
 .. code-block:: yml
 
     # app/config/config.yml
     brother_quest:
         class:
-            model: MyProject\MyBundle\Entity\MyGuestbook
+            model: MyProject\MyBundle\Entity\MyQuest
 
 Your custom model class may extend the ``Brother\QuestBundle\Model\Entry`` class. If you are not extending the
 ``Brother\QuestBundle\Model\Entry`` class, your custom manager class must implement the
@@ -31,14 +31,14 @@ Your custom model class may extend the ``Brother\QuestBundle\Model\Entry`` class
 Using a custom manager class
 ----------------------------
 
-You can specify a custom guestbook entry manager class by overriding the manager class option e.g.
+You can specify a custom quest entry manager class by overriding the manager class option e.g.
 
 .. code-block:: yml
 
     # app/config/config.yml
     brother_quest:
         class:
-            manager: MyProject\MyBundle\Entity\MyGuestbookManager
+            manager: MyProject\MyBundle\Entity\MyQuestManager
 
 Your custom class may extend the ``Brother\QuestBundle\Model\EntryManager`` class. If you are not extending the
 ``Brother\QuestBundle\Model\EntryManager`` class, your custom manager class must implement the
@@ -60,7 +60,7 @@ Other topics
 
 #. `Views/Templates`_
 
-#. `Guestbook Administration`_
+#. `Quest Administration`_
 
 #. `Default Configuration`_
 
@@ -69,5 +69,5 @@ Other topics
 .. _`Pager Configuration`: Resources/doc/pager.rst
 .. _`Spam Detection`: Resources/doc/spam_detection.rst
 .. _`Views/Templates`: Resources/doc/views.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst
 .. _`Default Configuration`: Resources/doc/default_configuration.rst

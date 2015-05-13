@@ -19,7 +19,7 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Log\LoggerInterface;
 
 /**
- * A listener that checks if a guestbook entry is a spam based on a service
+ * A listener that checks if a quest entry is a spam based on a service
  * that implements SpamDetectorInterface.
  */
 class SpamListener implements EventSubscriberInterface
@@ -47,7 +47,7 @@ class SpamListener implements EventSubscriberInterface
     }
 
     /**
-     * Checks if a guestbook entry is a spam
+     * Checks if a quest entry is a spam
      *
      * @param EntryEvent $event
      */
@@ -57,7 +57,7 @@ class SpamListener implements EventSubscriberInterface
 
         if ($this->spamDetector->isSpam($entry)) {
             if (null !== $this->logger) {
-                $this->logger->info('This guestbook entry is marked as spam.');
+                $this->logger->info('This quest entry is marked as spam.');
             }
 
             $event->abortPersistence();

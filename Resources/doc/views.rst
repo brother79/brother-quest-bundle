@@ -34,7 +34,7 @@ Other topics
 
 #. `Spam Detection`_
 
-#. `Guestbook Administration`_
+#. `Quest Administration`_
 
 #. `Default Configuration`_
 
@@ -43,6 +43,6 @@ Other topics
 .. _Mailer Configuration: Resources/doc/mailer.rst
 .. _Pager Configuration: Resources/doc/pager.rst
 .. _`Spam Detection`: Resources/doc/spam_detection.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst
 .. _`Default Configuration`: Resources/doc/default_configuration.rst
 

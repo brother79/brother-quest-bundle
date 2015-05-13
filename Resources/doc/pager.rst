@@ -8,7 +8,7 @@ you must install the WhiteOctoberPagerfantaBundle_.
 
 If the WhiteOctoberPagerfantaBundle is not installed, the BrotherQuestBundle will disable pagination.
 
-To limit the number of guestbook entries shown, set the ``entry_per_page`` config option
+To limit the number of quest entries shown, set the ``entry_per_page`` config option
 
 .. code-block:: yml
 
@@ -35,7 +35,7 @@ Your custom class **must** implement the ``\RPS\CoreBundle\Pager\PagerInterface`
 Using a custom pager service
 ----------------------------
 
-You can specify a custom pager service to handle the guestbook entries pagination
+You can specify a custom pager service to handle the quest entries pagination
 by setting the pager service config option.
 
 .. code-block:: yml
@@ -61,7 +61,7 @@ Other topics
 
 #. `Views/Templates`_
 
-#. `Guestbook Administration`_
+#. `Quest Administration`_
 
 #. `Default Configuration`_
 
@@ -70,5 +70,5 @@ Other topics
 .. _`Mailer Configuration`: Resources/doc/mailer.rst
 .. _`Spam Detection`: Resources/doc/spam_detection.rst
 .. _`Views/Templates`: Resources/doc/views.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst
 .. _`Default Configuration`: Resources/doc/default_configuration.rst

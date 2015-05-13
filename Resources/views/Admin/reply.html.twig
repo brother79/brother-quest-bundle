@@ -11,8 +11,8 @@
 {% extends 'BrotherQuestBundle:Admin:layout.html.twig' %}
 
 {% block content %}
-    <div class="rps-guestbook-form-container col-xs-9 col-sm-7 col-md-4">
-        {{ form_start(form, {'action': path('brother_quest_reply', {'id': id}), 'method': 'POST', 'attr': {'class': 'form-horizontal rps-guestbook-form', 'role': 'form'} }) }}
+    <div class="brother-quest-form-container col-xs-9 col-sm-7 col-md-4">
+        {{ form_start(form, {'action': path('brother_quest_reply', {'id': id}), 'method': 'POST', 'attr': {'class': 'form-horizontal brother-quest-form', 'role': 'form'} }) }}
 
         <div class="input-group form-group">
             <span class="input-group-addon">{{ 'form.reply.from'|trans({}, 'BrotherQuestBundle') }}</span>
@@ -41,5 +41,5 @@
         </div>
 
         {{ form_end(form) }}
-    </div><!-- /rps-guestbook-form-container -->
+    </div><!-- /brother-quest-form-container -->
 {% endblock %}

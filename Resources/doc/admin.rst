@@ -1,9 +1,9 @@
-Guestbook Administration
+Quest Administration
 ========================
 
-Guestbook entries administration is done in the backend.
+Quest entries administration is done in the backend.
 You must be logged in as a user with admin privileges to
-edit, delete, reply and publish/unpublish guestbook entries.
+edit, delete, reply and publish/unpublish quest entries.
 
 For more information about user authentication and administration,
 check the `Symfony Security documentation`_

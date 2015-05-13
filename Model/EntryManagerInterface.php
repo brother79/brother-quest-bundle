@@ -15,7 +15,7 @@ namespace Brother\QuestBundle\Model;
 use Symfony\Component\Form\FormInterface;
 
 /**
- * Interface to be implemented by the guestbook manager.
+ * Interface to be implemented by the quest manager.
  */
 interface EntryManagerInterface
 {
@@ -27,7 +27,7 @@ interface EntryManagerInterface
     public function findEntryById($id);
 
     /**
-     * Finds a guestbook entry by the given criteria
+     * Finds a quest entry by the given criteria
      *
      * @param array $criteria
      *
@@ -36,7 +36,7 @@ interface EntryManagerInterface
     public function findEntryBy(array $criteria);
 
     /**
-     * Finds guestbook entries by the given criteria
+     * Finds quest entries by the given criteria
      *
      * @param array $criteria
      *
@@ -45,7 +45,7 @@ interface EntryManagerInterface
     public function findEntriesBy(array $criteria);
 
     /**
-     * Creates an empty guestbook entry instance
+     * Creates an empty quest entry instance
      *
      * @param integer $id
      *
@@ -54,35 +54,35 @@ interface EntryManagerInterface
     public function createEntry($id = null);
 
     /**
-     * Saves a guestbook entry
+     * Saves a quest entry
      *
      * @param EntryInterface $entry
      */
     public function save(EntryInterface $entry);
 
     /**
-     * Returns the guestbook fully qualified class name
+     * Returns the quest fully qualified class name
      *
      * @return string
      */
     public function getClass();
 
     /**
-     * Deletes a guestbook entry
+     * Deletes a quest entry
      *
      * @param EntryInterface $entry
      */
     public function remove(EntryInterface $entry);
 
     /**
-     * Deletes a list of guestbook entries
+     * Deletes a list of quest entries
      *
      * @param array $ids
      */
     public function delete(array $ids);
 
     /**
-     * Update the state of a list of guestbook entries
+     * Update the state of a list of quest entries
      *
      * @param array		$ids
      * @param integer	$state
@@ -90,7 +90,7 @@ interface EntryManagerInterface
     public function updateState($ids, $state);
 
     /**
-     * Update the guestbook entry replied fields
+     * Update the quest entry replied fields
      *
      * @param EntryInterface 				        $entry
      * @param \Symfony\Component\Form\FormInterface 	$form

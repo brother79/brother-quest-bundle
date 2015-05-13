@@ -8,7 +8,7 @@ check the `SwiftmailerBundle Configuration documentation`_
 
 .. _`SwiftmailerBundle Configuration documentation`: http://symfony.com/doc/current/reference/configuration/swiftmailer.html
 
-To send admin notification emails (email sent to the admin each time a new guestbook entry is saved),
+To send admin notification emails (email sent to the admin each time a new quest entry is saved),
 you must enable the mailer service and set the mail ``admin_email`` and ``sender_email`` config options
 
 .. code-block:: yml
@@ -20,12 +20,12 @@ you must enable the mailer service and set the mail ``admin_email`` and ``sender
         mailer:
             admin_email: admin@localhost.com                # email the admin notification is sent to
             sender_email: admin@localhost.com               # sender email used
-            email_title: New guestbook entry from {name}    # (optional)
+            email_title: New quest entry from {name}    # (optional)
 
 
 Using a custom mailer class
 ---------------------------
-You can specify your custom guestbook mailer manager class by overriding the mailer class option e.g.
+You can specify your custom quest mailer manager class by overriding the mailer class option e.g.
 
 .. code-block:: yml
 
@@ -83,7 +83,7 @@ Other topics
 
 #. `Views/Templates`_
 
-#. `Guestbook Administration`_
+#. `Quest Administration`_
 
 #. `Default Configuration`_
 
@@ -92,5 +92,5 @@ Other topics
 .. _`Pager Configuration`: Resources/doc/pager.rst
 .. _`Spam Detection`: Resources/doc/spam_detection.rst
 .. _`Views/Templates`: Resources/doc/views.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst
 .. _`Default Configuration`: Resources/doc/default_configuration.rst

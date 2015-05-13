@@ -15,7 +15,7 @@ use Brother\QuestBundle\Model\EntryInterface;
 use Symfony\Component\EventDispatcher\Event;
 
 /**
- * Base class for a guestbook entry related event.
+ * Base class for a quest entry related event.
  */
 class EntryEvent extends Event
 {
@@ -32,7 +32,7 @@ class EntryEvent extends Event
     }
 
     /**
-     * Returns the guestbook entry for this event.
+     * Returns the quest entry for this event.
      *
      * @return EntryInterface
      */

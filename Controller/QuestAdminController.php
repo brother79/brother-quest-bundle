@@ -128,7 +128,7 @@ class QuestAdminController extends CRUDController
      * Edits a entry/Show admin form
      *
      * @param Request	$request	Current request
-     * @param int       $id			Guestbook id
+     * @param int       $id			Quest id
      *
      * @return \Symfony\Component\HttpFoundation\Response
      *
@@ -165,7 +165,7 @@ class QuestAdminController extends CRUDController
      * Reply a entry/Show reply form
      *
      * @param Request   $request	Current request
-     * @param int   	$id			Guestbook id
+     * @param int   	$id			Quest id
      *
      * @return Response
      */
@@ -220,7 +220,7 @@ class QuestAdminController extends CRUDController
     /**
      * Delete entry
      *
-     * @param int $id Guestbook id
+     * @param int $id Quest id
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */

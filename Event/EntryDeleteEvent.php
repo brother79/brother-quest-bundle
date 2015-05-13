@@ -12,7 +12,7 @@
 namespace Brother\QuestBundle\Event;
 
 /**
- * An event that occurs related to deleting a list of guestbook entries.
+ * An event that occurs related to deleting a list of quest entries.
  */
 class EntryDeleteEvent extends EntriesEvent
 {

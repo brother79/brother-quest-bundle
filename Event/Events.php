@@ -12,13 +12,13 @@
 namespace Brother\QuestBundle\Event;
 
 /**
- * Guestbook Events.
+ * Quest Events.
  */
 final class Events
 {
     /**
      * The CREATE event occurs when the manager creates 
-	 * a new guestbook entry instance.
+	 * a new quest entry instance.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
@@ -38,7 +38,7 @@ final class Events
     const ENTRY_PRE_PERSIST = 'brother_quest.entry.prePersist';
 
     /**
-     * The POST_PERSIST event occurs after the Guestbook is persisted.
+     * The POST_PERSIST event occurs after the Quest is persisted.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
@@ -48,7 +48,7 @@ final class Events
 	
     /**
      * The PRE_REMOVE event occurs prior to the manager 
-	 * removing a guestbook entry.
+	 * removing a quest entry.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
 	 *
@@ -59,7 +59,7 @@ final class Events
     const ENTRY_PRE_REMOVE = 'brother_quest.entry.preDelete';
 
     /**
-     * The POST_REMOVE event occurs after removing a guestbook entry.
+     * The POST_REMOVE event occurs after removing a quest entry.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryEvent instance.
      *
@@ -69,7 +69,7 @@ final class Events
 
     /**
      * The PRE_DELETE event occurs prior to the manager 
-	 * deleting a list of guestbook entries.
+	 * deleting a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryDeleteEvent instance.
 	 *
@@ -81,7 +81,7 @@ final class Events
     const ENTRY_PRE_DELETE = 'brother_quest.entry.preDelete';
 
     /**
-     * The POST_DELETE event occurs after deleting a list of guestbook entries.
+     * The POST_DELETE event occurs after deleting a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryDeleteEvent instance.
      *
@@ -91,7 +91,7 @@ final class Events
 
     /**
      * The PRE_UPDATE_STATE event occurs prior to updating 
-	 * the status of a list of guestbook entries.
+	 * the status of a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
 	 *
@@ -103,7 +103,7 @@ final class Events
 
     /**
      * The POST_UPDATE_STATE event occurs after updating
-	 * the status of a list of guestbook entries.
+	 * the status of a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
      *
@@ -133,7 +133,7 @@ final class Events
 
     /**
      * The PRE_NOTIFY event occurs prior to sending a 
-	 * guestbook entry notification email.
+	 * quest entry notification email.
 	 *
      * Notification can be aborted by calling $event->isPropagationStopped().
 	 *
@@ -145,7 +145,7 @@ final class Events
 
     /**
      * The POST_NOTIFY event occurs after sending a 
-	 * guestbook entry notification email.
+	 * quest entry notification email.
 	 *
      * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
      *

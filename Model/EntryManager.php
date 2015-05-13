@@ -21,7 +21,7 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;
 
 /**
- * Base class for the guestbook manager.
+ * Base class for the quest manager.
  */
 abstract class EntryManager implements EntryManagerInterface
 {
@@ -70,7 +70,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Returns the fully qualified guestbook class name
+     * Returns the fully qualified quest class name
      *
      * @return string
      **/
@@ -80,7 +80,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Finds a guestbook entry by given id
+     * Finds a quest entry by given id
      *
      * @param  string $id
 	 *
@@ -114,7 +114,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Persists a guestbook entry.
+     * Persists a quest entry.
      *
      * @param EntryInterface $entry
      *
@@ -146,7 +146,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Removes a guestbook entry.
+     * Removes a quest entry.
      *
      * @param EntryInterface $entry
      *
@@ -169,7 +169,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Deletes a list of guestbook entries
+     * Deletes a list of quest entries
      *
      * @param array $ids
      *
@@ -192,7 +192,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Update the state of a list of guestbook entries
+     * Update the state of a list of quest entries
      *
      * @param array 	$ids
      * @param integer	$state
@@ -232,7 +232,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Update the guestbook entry replied fields.
+     * Update the quest entry replied fields.
      *
      * @param EntryInterface 							$entry
      * @param \Symfony\Component\Form\FormInterface		$form
@@ -247,7 +247,7 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Performs the persistence of the guestbook entry.
+     * Performs the persistence of the quest entry.
      *
      * @param EntryInterface $entry
      */
@@ -261,14 +261,14 @@ abstract class EntryManager implements EntryManagerInterface
     abstract protected function doRemove(EntryInterface $entry);
 	
     /**
-     * Performs the removal of a list of guestbook entries.
+     * Performs the removal of a list of quest entries.
      *
      * @param array $ids
      */
     abstract protected function doDelete($ids);
 
     /**
-     * Performs the state update of a list of guestbook entries.
+     * Performs the state update of a list of quest entries.
      *
      * @param array 	$ids
      * @param integer   $state

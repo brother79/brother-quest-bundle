@@ -14,23 +14,23 @@ Default Configuration
         mailer:
             admin_email: admin@localhost.com                        # email the admin notification is sent to
             sender_email: admin@localhost.com                       # sender email used
-            email_title: New guestbook entry from {name}            # (optional) notification email title
+            email_title: New quest entry from {name}            # (optional) notification email title
 
         class:
-            model: Brother\QuestBundle\Entity\Entry                 # (optional) guestbook model class
-            manager: Brother\QuestBundle\Entity\EntryManager        # (optional) guestbook manager class
+            model: Brother\QuestBundle\Entity\Entry                 # (optional) quest model class
+            manager: Brother\QuestBundle\Entity\EntryManager        # (optional) quest manager class
             pager : RPS\CoreBundle\Pager\PagerfantaORM              # (optional) pager class
             mailer: Brother\QuestBundle\Mailer\Mailer               # (optional) mailer class
 
         view:
             frontend:
-                list: BrotherQuestBundle:Frontend:index.html.twig   # guestbook entries view
-                new: BrotherQuestBundle:Frontend:new.html.twig      # guestbook form
+                list: BrotherQuestBundle:Frontend:index.html.twig   # quest entries view
+                new: BrotherQuestBundle:Frontend:new.html.twig      # quest form
 
             admin:
-                list: BrotherQuestBundle:Admin:index.html.twig      # admin guestbook entries view
-                edit: BrotherQuestBundle:Admin:edit.html.twig       # admin guestbook entry edit view
-                reply: BrotherQuestBundle:Admin:reply.html.twig     # admin guestbook entry reply view
+                list: BrotherQuestBundle:Admin:index.html.twig      # admin quest entries view
+                edit: BrotherQuestBundle:Admin:edit.html.twig       # admin quest entry edit view
+                reply: BrotherQuestBundle:Admin:reply.html.twig     # admin quest entry reply view
 
             mail:
                 notify: BrotherQuestBundle:Mail:notify.txt.twig     # notification mail template
@@ -39,17 +39,17 @@ Default Configuration
             entry:
                 name: brother_quest_entry
                 type: brother_quest_entry
-                class: Brother\QuestBundle\Form\Type\EntryType      # guestbook entry form class
+                class: Brother\QuestBundle\Form\Type\EntryType      # quest entry form class
 
             edit:
                 name: brother_quest_entry_edit
                 type: brother_quest_entry_edit
-                class: Brother\QuestBundle\Form\Type\EntryEditType  # guestbook entry edit form class
+                class: Brother\QuestBundle\Form\Type\EntryEditType  # quest entry edit form class
 
             reply:
                 name: brother_quest_entry_reply
                 type: brother_quest_entry_reply
-                class: Brother\QuestBundle\Form\Type\EntryReplyType # guestbook entry reply form class
+                class: Brother\QuestBundle\Form\Type\EntryReplyType # quest entry reply form class
 
         service:
             pager: ~                                                # (optional) custom pager service
@@ -81,4 +81,4 @@ Other topics
 .. _Pager Configuration: Resources/doc/pager.rst
 .. _`Spam Detection`: Resources/doc/spam_detection.rst
 .. _`Views/Templates`: Resources/doc/views.rst
-.. _`Guestbook Administration`: Resources/doc/admin.rst
+.. _`Quest Administration`: Resources/doc/admin.rst

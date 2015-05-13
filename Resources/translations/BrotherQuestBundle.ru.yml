@@ -10,11 +10,11 @@
 no:                         No
 yes:                        Yes
 never:                      Never
-brother_quest:              Guestbook
+brother_quest:              Quest
 
 toggle_navigation:          Toggle navigation
-confirm_entry_remove:     	Are you sure you want to delete this guestbook entry.
-confirm_entries_delete:    	Are you sure you want to delete these guestbook entries.
+confirm_entry_remove:     	Are you sure you want to delete this quest entry.
+confirm_entries_delete:    	Are you sure you want to delete these quest entries.
 
 #titles
 title:
@@ -22,7 +22,7 @@ title:
     add_entry:            	Add Entry
     new_entry:            	New Entry
     edit_entry:           	Edit Entry
-    sign_guestbook:         Sign guestbook
+    sign_quest:         Sign quest
 
     state:                  State
     updated:                Updated
@@ -31,7 +31,7 @@ title:
     edit:                   Edit
     comment:                Comment
     action:                 Action
-    guestbook:              Guestbook
+    quest:              Quest
 
 #links/buttons
 link:
@@ -52,7 +52,7 @@ link:
     publish:                Publish
     unpublish:              Unpublish
     send_reply:             Send
-    sign_guestbook:         Sign guestbook
+    sign_quest:         Sign quest
     post_comment:           Post a comment
 
 #messages
@@ -61,40 +61,40 @@ flash:
 
     save:
         success:            Entry saved
-        error:              Error saving guestbook entry
+        error:              Error saving quest entry
 
     remove:
-        success:            Guestbook entry deleted
-        error:              Error deleting guestbook entry with id %id%
+        success:            Quest entry deleted
+        error:              Error deleting quest entry with id %id%
 
     update:
-        success:            Guestbook entry updated
-        error:              Error updating guestbook entry with id %id%
+        success:            Quest entry updated
+        error:              Error updating quest entry with id %id%
 
     reply:
         success:            Reply sent to %name% (%email%)
         error:              Error sending reply
 
     delete:
-        success:            "{1} %count% guestbook entry deleted|[2,Inf] %count% guestbook entries deleted"
+        success:            "{1} %count% quest entry deleted|[2,Inf] %count% quest entries deleted"
         error:              Error publishing comments with id (%ids%)
 
     publish:
-        success:            "{1} %count% guestbook entry published|[2,Inf] %count% guestbook entries published"
+        success:            "{1} %count% quest entry published|[2,Inf] %count% quest entries published"
         error:              Error publishing comments with id (%ids%)
 
     unpublish:
-        success:            "{1} %count% guestbook entry unpublished|[2,Inf] %count% guestbook entries unpublished"
-        error:              Error unpublishing guestbook entries with id(s) (%ids%)
+        success:            "{1} %count% quest entry unpublished|[2,Inf] %count% quest entries unpublished"
+        error:              Error unpublishing quest entries with id(s) (%ids%)
 
     error:
         bad_request:        "Error: Bad request"
-        spam_detected:      Guestbook entry flagged as spam
+        spam_detected:      Quest entry flagged as spam
 
     select_error:
-        delete:             You must select at least one guestbook entry to delete.
-        publish:            You must select at least one guestbook entry to publish.
-        unpublish:          You must select at least one guestbook entry to unpublish.
+        delete:             You must select at least one quest entry to delete.
+        publish:            You must select at least one quest entry to publish.
+        unpublish:          You must select at least one quest entry to unpublish.
 
 #form fields
 form:

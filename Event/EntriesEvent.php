@@ -15,7 +15,7 @@ use Symfony\Component\EventDispatcher\Event;
 
 /**
  * Base class for an event that occurs related to performing 
- * a batch operation on a list of guestbook entries.
+ * a batch operation on a list of quest entries.
  */
 class EntriesEvent extends Event
 {
