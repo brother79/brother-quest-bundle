@@ -34,13 +34,12 @@ class QuestAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('name')
             ->add('q')
             ->add('a')
             ->add('email')
-            ->add('executor')
-            ->add('comment')
-            ->add('priority')
+            ->add('status')
+			->add('created_at')
+			->add('updated_at')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -82,6 +81,8 @@ class QuestAdmin extends Admin
             ->add('executor')
             ->add('comment')
             ->add('priority')
+            ->add('created_at')
+            ->add('updated_at')
         ;
     }
 }

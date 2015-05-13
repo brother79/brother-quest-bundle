@@ -1,0 +1,56 @@
+{#
+
+ This file is part of the RPSCommentBundle package.
+
+ (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+#}
+
+{% extends 'RPSGuestbookBundle:Frontend:layout.html.twig' %}
+
+{% block content_navbar %}
+    {{  parent() }}
+    <li>
+        <a href="#guestbookForm">
+            <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_guestbook'|trans({}, 'RPSGuestbookBundle') }}
+        </a>
+    </li>
+{% endblock %}
+
+{% block content %}
+    <div class="rps-guestbook-container">
+        <div class="rps-guestbook-panel-container">
+            {% if entries|length > 0 %}
+				{% for entry in entries %}
+					<div class="panel panel-default">
+						<div class="panel-heading">
+							<h3 class="panel-title">
+								<span class="rps-guestbook-author">{{ entry.name }}</span>
+								<span class="rps-guestbook-date">
+									{{ entry.createdAt is empty ? '' :  entry.createdAt|date(date_format) }}
+								</span>
+							</h3>
+						</div>
+						<div class="panel-body">
+							{{ entry.comment|nl2br }}
+						</div>
+					</div><!-- /panel -->
+				{% endfor %}
+            {% endif %}
+        </div><!-- /rps-guestbook-panel-container -->
+
+        {{ pagination_html }}
+
+    </div><!-- /rps-guestbook-container -->
+
+    <div id="guestbookForm">
+        <div class="page-header">
+            <h2>{{ 'title.sign_guestbook'|trans({}, 'RPSGuestbookBundle') }}</h2>
+        </div>
+
+        {{ include('RPSGuestbookBundle:Frontend:form.html.twig',{ 'form': form })}}
+    </div>
+{% endblock %}
+

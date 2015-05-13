@@ -1,0 +1,21 @@
+{#
+
+ This file is part of the RPSGuestbookBundle package.
+
+ (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+#}
+
+{% extends 'RPSCoreBundle::layout.html.twig' %}
+
+{% set title = 'title.guestbook'|trans({}, 'RPSGuestbookBundle') %}
+{% block title %}{{ title }}{% endblock %}
+{% block content_title %}<h2>{{ title }}</h2>{% endblock %}
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('bundles/rpsguestbook/css/guestbook.css') }}" />
+{% endblock %}

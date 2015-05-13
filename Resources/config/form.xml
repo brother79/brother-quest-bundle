@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+ This file is part of the RPSGuestbookBundle package.
+
+ (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <services>
+        <service id="rps_guestbook.form.entry.type" class="%rps_guestbook.form.entry.class%">
+            <tag name="form.type" alias="rps_guestbook_entry" />
+            <argument>%rps_guestbook.model.entry.class%</argument>
+        </service>
+
+        <service id="rps_guestbook.form_factory.entry" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>%rps_guestbook.form.entry.name%</argument>
+            <argument>%rps_guestbook.form.entry.type%</argument>
+            <argument>null</argument>
+        </service>
+
+        <service id="rps_guestbook.form.edit.type" class="%rps_guestbook.form.edit.class%">
+            <tag name="form.type" alias="rps_guestbook_entry_edit" />
+            <argument>%rps_guestbook.model.entry.class%</argument>
+        </service>
+		
+        <service id="rps_guestbook.form_factory.edit" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>%rps_guestbook.form.edit.name%</argument>
+            <argument>%rps_guestbook.form.edit.type%</argument>
+            <argument>null</argument>
+        </service>
+
+        <service id="rps_guestbook.form.reply.type" class="%rps_guestbook.form.reply.class%">
+            <tag name="form.type" alias="rps_guestbook_entry_reply" />
+            <argument>%rps_guestbook.model.entry.class%</argument>
+        </service>
+		
+        <service id="rps_guestbook.form_factory.reply" factory-method="createNamed" factory-service="form.factory" class="Symfony\Component\Form\Form">
+            <argument>%rps_guestbook.form.reply.name%</argument>
+            <argument>%rps_guestbook.form.reply.type%</argument>
+            <argument>null</argument>
+        </service>
+    </services>
+
+</container>

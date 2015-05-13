@@ -1,0 +1,39 @@
+#
+# This file is part of the RPSGuestbookBundle package.
+#
+# (c) Yos Okusanya <yos.okusanya@gmail.com>
+#
+# This source file is subject to the MIT license that is bundled
+# with this source code in the file LICENSE.
+
+RPS\GuestbookBundle\Model\Entry:
+    properties:
+        name:
+            - NotBlank:
+                message: brother_quest.name.blank
+            - Length:
+                min: 3
+                max: 100
+                #max: 255
+                minMessage: brother_quest.name.short
+                maxMessage: brother_quest.name.long
+
+        email:
+            - NotBlank:
+                message: brother_quest.email.blank
+            - Email:
+                message: brother_quest.email.invalid
+            - Length:
+                max: 100
+                #max: 255
+                minMessage: brother_quest.email.short
+                maxMessage: brother_quest.email.long
+
+        comment:
+            - NotBlank:
+                message: brother_quest.comment.blank
+            - Length:
+                min: 2
+                #max: 255
+                minMessage: brother_quest.comment.short
+                maxMessage: brother_quest.comment.long

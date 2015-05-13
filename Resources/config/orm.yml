@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!--
+ This file is part of the RPSGuestbookBundle package.
+
+ (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+-->
+
+<container xmlns="http://symfony.com/schema/dic/services"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <parameter key="rps_guestbook.model.entry.class">RPS\GuestbookBundle\Entity\Entry</parameter>
+        <parameter key="rps_guestbook.manager.entry.class">RPS\GuestbookBundle\Entity\EntryManager</parameter>
+        <parameter key="rps_guestbook.pager.class">RPS\CoreBundle\Pager\PagerfantaORM</parameter>
+    </parameters>
+
+    <services>
+        <!-- Entity manager -->
+        <service id="rps_guestbook.entity_manager" alias="doctrine.orm.default_entity_manager" />
+
+        <!-- Entry Manager -->
+        <service id="rps_guestbook.entry_manager" class="%rps_guestbook.manager.entry.class%">
+            <argument type="service" id="event_dispatcher" />
+            <argument type="service" id="rps_guestbook.entity_manager" />
+            <argument>%rps_guestbook.model.entry.class%</argument>
+			<argument>%rps_guestbook.auto_publish%</argument>
+            <call method="setPager">
+                <argument type="service" id="rps_guestbook.pager" />
+            </call>
+        </service>
+    </services>
+
+</container>

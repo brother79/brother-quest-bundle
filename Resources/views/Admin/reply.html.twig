@@ -1,0 +1,45 @@
+{#
+
+ This file is part of the RPSGuestbookBundle package.
+
+ (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+ This source file is subject to the MIT license that is bundled
+ with this source code in the file LICENSE.
+#}
+
+{% extends 'RPSGuestbookBundle:Admin:layout.html.twig' %}
+
+{% block content %}
+    <div class="rps-guestbook-form-container col-xs-9 col-sm-7 col-md-4">
+        {{ form_start(form, {'action': path('rps_guestbook_reply', {'id': id}), 'method': 'POST', 'attr': {'class': 'form-horizontal rps-guestbook-form', 'role': 'form'} }) }}
+
+        <div class="input-group form-group">
+            <span class="input-group-addon">{{ 'form.reply.from'|trans({}, 'RPSGuestbookBundle') }}</span>
+            {{ form_widget(form.senderEmail, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="input-group form-group">
+            <span class="input-group-addon">{{ 'form.reply.to'|trans({}, 'RPSGuestbookBundle') }}</span>
+            {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="input-group form-group">
+            <span class="input-group-addon">{{ 'form.reply.title'|trans({}, 'RPSGuestbookBundle') }}</span>
+            {{ form_widget(form.title, {'attr': {'class': 'form-control'}}) }}
+        </div>
+
+        <div class="form-group">
+            {{ form_widget(form.message, {'attr': {'class': 'form-control', 'rows': '10'}}) }}
+        </div>
+
+        {{ form_widget(form) }}
+
+        <div class="form-btns">
+            <button class="btn btn-success">{{ 'link.send_reply'|trans({}, 'RPSGuestbookBundle') }}</button>
+            <a class="btn btn-danger" href="{{ path('rps_guestbook_cancel') }}">{{ 'link.cancel'|trans({}, 'RPSGuestbookBundle') }}</a>
+        </div>
+
+        {{ form_end(form) }}
+    </div><!-- /rps-guestbook-form-container -->
+{% endblock %}

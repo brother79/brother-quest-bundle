@@ -1,7 +1,10 @@
 Brother\QuestBundle\Entity\Quest:
     type: entity
-    table: null
-    repositoryClass: Brother\QuestBundle\Entity\QuestRepository
+    repositoryClass: Brother\QuestBundle\Repository\QuestRepository
+    gedmo:
+        soft_deleteable:
+            field_name: deleted_at
+            time_aware: false
     id:
         id:
             type: integer
@@ -11,7 +14,8 @@ Brother\QuestBundle\Entity\Quest:
     fields:
         name:
             type: string
-            length: 255
+            length: 100
+            nullable: false
         q:
             type: string
             length: 255
@@ -30,4 +34,25 @@ Brother\QuestBundle\Entity\Quest:
         priority:
             type: string
             length: 255
-    lifecycleCallbacks: {  }
+        created_by:
+            type: integer
+            nullable: true
+        updated_by: 
+            type: integer
+            nullable: true
+        created_at:
+            type: datetime
+            nullable: true
+        updated_at:
+            type: datetime
+            nullable: true
+        deleted_at:
+            type: datetime
+            nullable: true
+        status:
+            type: string
+            length: 255
+            nullable: true
+    lifecycleCallbacks: 
+        prePersist: prePersist
+        preUpdate: preUpdate

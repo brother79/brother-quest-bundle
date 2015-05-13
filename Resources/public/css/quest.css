@@ -1,0 +1,8 @@
+
+body {padding-top: 70px;}
+.row-padded-top{margin-top:10px;}
+.row-padded-bottom{margin-bottom:10px;}
+.rps-guestbook-panel-container .rps-guestbook-author{font-weight:bold;}
+.rps-guestbook-panel-container .rps-guestbook-date{font-size: 12px; padding-left: 5px;}
+.rps-guestbook-form .form-btns{margin-top:15px; margin-bottom:10px;}
+.rps-guestbook-admin-list table tbody tr td{vertical-align:middle;}

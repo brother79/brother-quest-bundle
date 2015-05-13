@@ -1,0 +1,6 @@
+all:
+  sv_quest_plugin:
+    last_count:    2
+#    template_index: { module: main, template: quests }
+#    template_last:  main/quest_last
+#    enable_null_answer: true;

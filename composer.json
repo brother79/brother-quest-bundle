@@ -3,7 +3,7 @@
     "type": "symfony-bundle",
     "version":"1.0",
     "description": "Quest modules",
-    "keywords": ["symfony2", "common"],
+    "keywords": ["package", "symfony", "quest"],
     "homepage": "http://doc13.ru",
     "authors": [
         {
@@ -15,7 +15,8 @@
     "require": {
         "php": ">=5.3.2",
         "elao/error-notifier-bundle" : "dev-master",
-		"symfony/framework-bundle": "~2.1"
+        "brother/common-bundle" : "dev-master",
+		"symfony/framework-bundle": "~2.3"
     },
     "require-dev": {
         "doctrine/orm": "~2.3"

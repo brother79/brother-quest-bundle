@@ -221,4 +221,179 @@ class QuestController extends Controller
             ->getForm()
         ;
     }
+
+    public function preExecute()
+    {
+        $this->configuration = new svModelGeneratorConfiguration('Quest', $this->getModuleName(), array(
+            'fields' => array('name' => array('label' => 'Имя:')),
+            'new' => array(
+                'display' => array('q', 'name', 'email'),
+            ),
+            'form' => array(
+                'actions' => array('_save_and_add' => array('label' => 'Отправить'))
+            ),
+            'list' => array(
+                'title' => 'Ранее заданные вопросы(список)',
+                'is_partial' => true,
+                'layout' => 'stacked',
+                'batch_actions' => false,
+                'actions' => false,
+                'object_actions' => false,
+                'display' => array('q', 'a', 'created_at', 'updated_at'),
+                'params' => '
+			        <p class="p0" id="qqq%%id%%">
+			            <strong>Вопрос</strong>: <span class="quest">%%q%%</span><br/>
+			            <strong>Ответ</strong>: <span class="answer">%%a%%</span>
+					</p>
+				'
+            ),
+            'filter' => array(
+                'class' => false
+            ),
+            'partials' => array('form_fieldset' => '', 'form_field' => '', 'breadcrumbs' => ''),
+            'uri' => array('edit' => 'index', 'new' => 'index')
+        ));
+        parent::preExecute();
+    }
+
+
+    /**
+     * Executes index action
+     * @param \sfWebRequest $request
+     *
+     * @return string|void
+     */
+    public function executeIndex(sfWebRequest $request)
+    {
+        $this->form = new QuestForm();
+        parent::executeIndex($request);
+        parent::executeNew($request);
+        if ($t = sfConfig::get('app_sv_quest_plugin_template_index', false)) {
+            $this->setTemplate($t['template'], $t['module']);
+        }
+    }
+
+    /**
+     * @return Doctrine_Query
+     */
+
+    protected function buildQuery()
+    {
+        $query = parent::buildQuery();
+        if (!sfConfig::get('app_sv_quest_plugin_enable_null_answer')) {
+            $query->andWhere($query->getRootAlias() . '.a is not null')
+                ->andWhere($query->getRootAlias() . '.a<>?', '');
+        }
+        return $query;
+    }
+
+    /**
+     * Enter description here...
+     *
+     * @param sfWebRequest $request
+     */
+
+    public function executeCreate(sfWebRequest $request)
+    {
+        parent::executeCreate($request);
+        parent::executeIndex($request);
+        $t = sfConfig::get('app_sv_quest_plugin_template_index', array('module' => 'quest', 'template' => 'index'));
+        $this->setTemplate($t['template'], $t['module']);
+    }
+
+    /**
+     * shows login / signup form
+     *
+     */
+    public function executeLast()
+	{
+        $this->quests = dinCacheManager::getInstance()
+            ->getContent('query', 'Quest',
+            array(
+                'method' => 'createQueryLast',
+                'limit' => sfConfig::get('app_sv_quest_plugin_last_count')));
+	}
+
+    /**
+     * Shows the entries.
+     *
+     * @param int $page	query offset
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function indexAction($page=1)
+    {
+        $manager = $this->getManager();
+        $limit = $this->container->getParameter('rps_guestbook.entry_per_page');
+
+        $entries = $manager->getPaginatedList($page, $limit, array('state'=>1));
+        $pagerHtml = $manager->getPaginationHtml();
+
+        $view = $this->getView('frontend.list');
+        $form = $this->getFormFactory('entry');
+
+        return $this->render($view, array(
+                'entries'=>$entries,
+                'form' => $form->createView(),
+                'pagination_html' => $pagerHtml,
+                'date_format' => $this->container->getParameter('rps_guestbook.date_format')
+            )
+        );
+
+    }
+
+    /**
+     * Adds a new Entry/Show guestbook form.
+     *
+     * @param \Symfony\Component\HttpFoundation\Request $request
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     */
+    public function addAction(Request $request)
+    {
+        $form = $this->container->get('rps_guestbook.form_factory.entry');
+
+        if ('POST' == $request->getMethod()) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $entry = $form->getData();
+
+                // check for spam
+                if ($this->container->getParameter('rps_guestbook.enable_spam_detection')) {
+                    $spamDetector = $this->container->get('rps_guestbook.spam_detector');
+
+                    if ($spamDetector->isSpam($entry)) {
+                        $this->setFlashMessage('flash.error.spam_detected', array(), 'error');
+
+                        return $this->renderPage('new', array('form' => $form->createView()));
+                    }
+                }
+
+                // save entry
+                if ($this->getManager()->save($entry) !== false) {
+                    $this->setFlashMessage('flash.save.success');
+
+                    if(!$this->container->getParameter('rps_guestbook.auto_publish')) {
+                        $this->setFlashMessage('flash.awaiting_approval');
+                    }
+
+                    // notify admin
+                    if($this->container->getParameter('rps_guestbook.notify_admin')) {
+                        $this->get('rps_guestbook.mailer')->sendAdminNotification($entry);
+                    }
+
+                    return $this->redirect($this->generateUrl('rps_guestbook_list'));
+                } else {
+                    $this->setFlashMessage('flash.error.bad_request', array(), 'error');
+                }
+            }
+        }
+
+        $view = $this->getView('frontend.new');
+
+        return $this->render($view, array('form' => $form->createView()));
+    }
+
+
 }

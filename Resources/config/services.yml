@@ -1,7 +1,4 @@
 services:
-#    brother_quest.example:
-#        class: Brother\QuestBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
     brother_quest.admin.quest:
         class: Brother\QuestBundle\Admin\QuestAdmin
         arguments: [~, Brother\QuestBundle\Entity\Quest, BrotherQuestBundle:QuestAdmin]
