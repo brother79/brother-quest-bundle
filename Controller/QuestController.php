@@ -19,7 +19,7 @@ class QuestController extends Controller
      * Lists all Quest entities.
      *
      */
-    public function indexAction()
+    public function indexAction($page=1)
     {
         $em = $this->getDoctrine()->getManager();
 
@@ -28,7 +28,26 @@ class QuestController extends Controller
         return $this->render('BrotherQuestBundle:Quest:index.html.twig', array(
             'entities' => $entities,
         ));
+
+        $manager = $this->getManager();
+        $limit = $this->container->getParameter('brother_quest.entry_per_page');
+
+        $entries = $manager->getPaginatedList($page, $limit, array('state'=>1));
+        $pagerHtml = $manager->getPaginationHtml();
+
+        $view = $this->getView('frontend.list');
+        $form = $this->getFormFactory('entry');
+
+        return $this->render($view, array(
+                'entries'=>$entries,
+                'form' => $form->createView(),
+                'pagination_html' => $pagerHtml,
+                'date_format' => $this->container->getParameter('brother_quest.date_format')
+            )
+        );
+
     }
+
     /**
      * Creates a new Quest entity.
      *
@@ -314,33 +333,6 @@ class QuestController extends Controller
                 'limit' => sfConfig::get('app_sv_quest_plugin_last_count')));
 	}
 
-    /**
-     * Shows the entries.
-     *
-     * @param int $page	query offset
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function indexAction($page=1)
-    {
-        $manager = $this->getManager();
-        $limit = $this->container->getParameter('rps_guestbook.entry_per_page');
-
-        $entries = $manager->getPaginatedList($page, $limit, array('state'=>1));
-        $pagerHtml = $manager->getPaginationHtml();
-
-        $view = $this->getView('frontend.list');
-        $form = $this->getFormFactory('entry');
-
-        return $this->render($view, array(
-                'entries'=>$entries,
-                'form' => $form->createView(),
-                'pagination_html' => $pagerHtml,
-                'date_format' => $this->container->getParameter('rps_guestbook.date_format')
-            )
-        );
-
-    }
 
     /**
      * Adds a new Entry/Show guestbook form.
@@ -351,7 +343,7 @@ class QuestController extends Controller
      */
     public function addAction(Request $request)
     {
-        $form = $this->container->get('rps_guestbook.form_factory.entry');
+        $form = $this->container->get('brother_quest.form_factory.entry');
 
         if ('POST' == $request->getMethod()) {
             $form->bind($request);
@@ -360,8 +352,8 @@ class QuestController extends Controller
                 $entry = $form->getData();
 
                 // check for spam
-                if ($this->container->getParameter('rps_guestbook.enable_spam_detection')) {
-                    $spamDetector = $this->container->get('rps_guestbook.spam_detector');
+                if ($this->container->getParameter('brother_quest.enable_spam_detection')) {
+                    $spamDetector = $this->container->get('brother_quest.spam_detector');
 
                     if ($spamDetector->isSpam($entry)) {
                         $this->setFlashMessage('flash.error.spam_detected', array(), 'error');
@@ -374,16 +366,16 @@ class QuestController extends Controller
                 if ($this->getManager()->save($entry) !== false) {
                     $this->setFlashMessage('flash.save.success');
 
-                    if(!$this->container->getParameter('rps_guestbook.auto_publish')) {
+                    if(!$this->container->getParameter('brother_quest.auto_publish')) {
                         $this->setFlashMessage('flash.awaiting_approval');
                     }
 
                     // notify admin
-                    if($this->container->getParameter('rps_guestbook.notify_admin')) {
-                        $this->get('rps_guestbook.mailer')->sendAdminNotification($entry);
+                    if($this->container->getParameter('brother_quest.notify_admin')) {
+                        $this->get('brother_quest.mailer')->sendAdminNotification($entry);
                     }
 
-                    return $this->redirect($this->generateUrl('rps_guestbook_list'));
+                    return $this->redirect($this->generateUrl('brother_quest_list'));
                 } else {
                     $this->setFlashMessage('flash.error.bad_request', array(), 'error');
                 }

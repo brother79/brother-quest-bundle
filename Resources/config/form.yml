@@ -1,0 +1,48 @@
+services:
+    brother_quest.form.entry.type:
+        class: %brother_quest.form.entry.class%
+        tags:
+            - { name: form.type, alias: brother_quest_entry }
+        arguments:
+            - %brother_quest.model.entry.class%
+
+    brother_quest.form_factory.entry:
+        factory-method: createNamed
+        factory-service: form.factory
+        class: Symfony\Component\Form\Form
+        arguments:
+            - %brother_quest.form.entry.name%
+            - %brother_quest.form.entry.type%
+            - null
+
+    brother_quest.form.edit.type:
+        class: %brother_quest.form.edit.class%
+        tags:
+            - { name: form.type, alias: brother_quest_entry_edit }
+        argumens:
+            - %brother_quest.model.entry.class%
+
+    brother_quest.form_factory.edit:
+        factory-method: createNamed
+        factory-service: form.factory
+        class: Symfony\Component\Form\Form
+        arguments:
+            - %brother_quest.form.edit.name%
+            - %brother_quest.form.edit.type%</argument>
+            - null
+
+    brother_quest.form.reply.type:
+        class: %brother_quest.form.reply.class%
+        tags:
+            - { name: form.type, alias: brother_quest_entry_reply }
+        argumens:
+            - %brother_quest.model.entry.class%
+
+    brother_quest.form_factory.reply:
+        factory-method: createNamed
+        factory-service: form.factory
+        class: Symfony\Component\Form\Form
+        arguments:
+            - %brother_quest.form.reply.name%
+            - %brother_quest.form.reply.type%
+            - null

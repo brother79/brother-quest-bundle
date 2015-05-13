@@ -6,7 +6,7 @@ You can specify custom templates/views by overriding the corresponding view para
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         view:
             frontend:
                 list: MyprojectMyBundle:Frontend:index.html.twig

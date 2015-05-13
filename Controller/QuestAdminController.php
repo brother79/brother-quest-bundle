@@ -107,10 +107,10 @@ class QuestAdminController extends CRUDController
     public function indexAction($page=1)
     {
         $manager = $this->getManager();
-        $limit = $this->container->getParameter('rps_guestbook.entry_per_page');
+        $limit = $this->container->getParameter('brother_quest.entry_per_page');
 
         //save current page to reuse later
-        $this->get('request')->getSession()->set('rps_guestbook_page', $page);
+        $this->get('request')->getSession()->set('brother_quest_page', $page);
 
         $view = $this->getView('admin.list');
         $form = $this->getFormFactory('entry');
@@ -119,7 +119,7 @@ class QuestAdminController extends CRUDController
                 'form' => $form->createView(),
                 'entries'=> $manager->getPaginatedList($page, $limit),
                 'pagination_html' => $manager->getPaginationHtml(),
-                'date_format' => $this->container->getParameter('rps_guestbook.date_format')
+                'date_format' => $this->container->getParameter('brother_quest.date_format')
             )
         );
     }
@@ -187,14 +187,14 @@ class QuestAdminController extends CRUDController
         );
 
         $form->get('message')->setData($message);
-        $form->get('senderEmail')->setData($this->container->getParameter('rps_guestbook.mailer.admin_email'));
+        $form->get('senderEmail')->setData($this->container->getParameter('brother_quest.mailer.admin_email'));
 
         if('POST' == $request->getMethod()) {
             $form->bind($request);
 
             if ($form->isValid()) {
                 // send reply
-                if($this->get('rps_guestbook.mailer')->sendReply($form, $entry) !== false) {
+                if($this->get('brother_quest.mailer')->sendReply($form, $entry) !== false) {
 
                     // update reply fields
                     $this->getManager()->updateReplyFields($entry, $form);
@@ -330,8 +330,8 @@ class QuestAdminController extends CRUDController
     {
         return $this->redirect(
             $this->generateUrl(
-                'rps_guestbook_admin',
-                array('page' => $this->get('request')->getSession()->get('rps_guestbook_page', 1))
+                'brother_quest_admin',
+                array('page' => $this->get('request')->getSession()->get('brother_quest_page', 1))
             ));
     }
 }

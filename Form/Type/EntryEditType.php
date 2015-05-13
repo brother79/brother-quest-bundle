@@ -78,6 +78,6 @@ class EntryEditType extends AbstractType
      */
 	public function getName()
 	{
-		return 'rps_guestbook_entry_edit';
+		return 'brother_quest_entry_edit';
 	}
 }

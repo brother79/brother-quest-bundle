@@ -3,7 +3,7 @@ Default Configuration
 
 .. code-block:: yml
 
-    rps_guestbook:
+    brother_quest:
         db_driver: orm
         entry_per_page: 25                                          # number of entries to show on a page
         auto_publish: true                                          # publish new entries or wait for admin approval
@@ -37,18 +37,18 @@ Default Configuration
 
         form:
             entry:
-                name: rps_guestbook_entry
-                type: rps_guestbook_entry
+                name: brother_quest_entry
+                type: brother_quest_entry
                 class: RPS\GuestbookBundle\Form\Type\EntryType      # guestbook entry form class
 
             edit:
-                name: rps_guestbook_entry_edit
-                type: rps_guestbook_entry_edit
+                name: brother_quest_entry_edit
+                type: brother_quest_entry_edit
                 class: RPS\GuestbookBundle\Form\Type\EntryEditType  # guestbook entry edit form class
 
             reply:
-                name: rps_guestbook_entry_reply
-                type: rps_guestbook_entry_reply
+                name: brother_quest_entry_reply
+                type: brother_quest_entry_reply
                 class: RPS\GuestbookBundle\Form\Type\EntryReplyType # guestbook entry reply form class
 
         service:

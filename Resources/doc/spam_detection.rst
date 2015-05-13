@@ -7,7 +7,7 @@ To enable spam detection, you must set the ``spam_detection`` config option.
 
 .. code-block:: yml
 
-    rps_guestbook:
+    brother_quest:
         spam_detection: true
 
 You must either have the ``OrnicarAkismentBundle`` installed or use a different spam detector
@@ -38,7 +38,7 @@ You can also specify a custom spam detection service by setting the ``spam_detec
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         service:
             spam_detector: my_spam_detector
 

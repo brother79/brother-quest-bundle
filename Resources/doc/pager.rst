@@ -13,7 +13,7 @@ To limit the number of guestbook entries shown, set the ``entry_per_page`` confi
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         entry_per_page: 25
 
 
@@ -25,7 +25,7 @@ You can specify your custom pager manager class by overriding the pager class op
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         class:
             pager: MyProject\MyBundle\Pager\Pager
 
@@ -41,7 +41,7 @@ by setting the pager service config option.
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         service:
             pager: my_pager
 

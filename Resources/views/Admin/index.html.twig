@@ -33,7 +33,7 @@
     <div class="rps-guestbook-container">
         <div class="rps-gustbook-list">
             {% if entries|length > 0 %}
-                <form method="post" action={{ path( 'rps_guestbook_admin') }} id="rpsGuestbookAdminList" class="rps-guestbook-admin-list">
+                <form method="post" action={{ path( 'brother_quest_admin') }} id="rpsGuestbookAdminList" class="rps-guestbook-admin-list">
                     <table class="table table-striped">
                         <thead>
                             <th width="5px">#</th>
@@ -67,10 +67,10 @@
 
                             {# ---- entry links ---- #}
                             {% set entry_id = entry.id %}
-                            {% set edit_link = path( 'rps_guestbook_edit', {'id': entry_id}) %}
-                            {% set remove_link = path( 'rps_guestbook_remove', {'id': entry_id}) %}
-                            {% set reply_link = path( 'rps_guestbook_reply', {'id': entry_id}) %}
-                            {% set change_state_link = path( 'rps_guestbook_change_state', {'ids': entry_id, 'state':toggle_state}) %}
+                            {% set edit_link = path( 'brother_quest_edit', {'id': entry_id}) %}
+                            {% set remove_link = path( 'brother_quest_remove', {'id': entry_id}) %}
+                            {% set reply_link = path( 'brother_quest_reply', {'id': entry_id}) %}
+                            {% set change_state_link = path( 'brother_quest_change_state', {'ids': entry_id, 'state':toggle_state}) %}
 
                             <tr>
                                 <td>{{ loop.index }}</td>
@@ -177,7 +177,7 @@ function deleteEntries()
     }
 
     if (confirm("{{ 'confirm_entries_delete'|trans({}, 'RPSGuestbookBundle') }}")) {
-        submitAdminForm('{{ path('rps_guestbook_delete') }}');
+        submitAdminForm('{{ path('brother_quest_delete') }}');
     }
 }
 
@@ -199,7 +199,7 @@ function publishEntries()
 		alert("{{ 'flash.select_error.publish'|trans({}, 'RPSGuestbookBundle') }}");
 		return;
 	}
-    submitAdminForm('{{ path('rps_guestbook_publish') }}');
+    submitAdminForm('{{ path('brother_quest_publish') }}');
 }
 
 function unpublishEntries()
@@ -208,7 +208,7 @@ function unpublishEntries()
 		alert("{{ 'flash.select_error.unpublish'|trans({}, 'RPSGuestbookBundle') }}");
 		return;
 	}
-	submitAdminForm('{{ path("rps_guestbook_unpublish") }}');
+	submitAdminForm('{{ path("brother_quest_unpublish") }}');
 }
 
 (function($){

@@ -73,6 +73,6 @@ class EntryReplyType extends AbstractType
      */
 	public function getName()
 	{
-		return 'rps_guestbook_entry_reply';
+		return 'brother_quest_entry_reply';
 	}
 }

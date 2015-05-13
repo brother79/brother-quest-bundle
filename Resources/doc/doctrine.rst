@@ -7,7 +7,7 @@ It is configured for ORM by default. To use Doctrine ODM, you must set this in t
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         db_driver: mongodb
 
 
@@ -19,7 +19,7 @@ You can specify a custom model class by overriding the guestbook model class opt
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         class:
             model: MyProject\MyBundle\Entity\MyGuestbook
 
@@ -36,7 +36,7 @@ You can specify a custom guestbook entry manager class by overriding the manager
 .. code-block:: yml
 
     # app/config/config.yml
-    rps_guestbook:
+    brother_quest:
         class:
             manager: MyProject\MyBundle\Entity\MyGuestbookManager
 

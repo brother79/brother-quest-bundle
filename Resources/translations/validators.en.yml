@@ -6,7 +6,7 @@
 # This source file is subject to the MIT license that is bundled
 # with this source code in the file LICENSE.
 
-rps_guestbook:
+brother_quest:
     name:
         blank: Please enter a name
         short: "Your name must be at least {{ limit }} characters long"

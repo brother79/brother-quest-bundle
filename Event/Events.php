@@ -24,7 +24,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_CREATE = 'rps_guestbook.entry.create';
+    const ENTRY_CREATE = 'brother_quest.entry.create';
 	
     /**
      * The PRE_PERSIST occurs prior to the manager persisting the entry.
@@ -35,7 +35,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_PRE_PERSIST = 'rps_guestbook.entry.prePersist';
+    const ENTRY_PRE_PERSIST = 'brother_quest.entry.prePersist';
 
     /**
      * The POST_PERSIST event occurs after the Guestbook is persisted.
@@ -44,7 +44,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_PERSIST = 'rps_guestbook.entry.postPersist';
+    const ENTRY_POST_PERSIST = 'brother_quest.entry.postPersist';
 	
     /**
      * The PRE_REMOVE event occurs prior to the manager 
@@ -56,7 +56,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_PRE_REMOVE = 'rps_guestbook.entry.preDelete';
+    const ENTRY_PRE_REMOVE = 'brother_quest.entry.preDelete';
 
     /**
      * The POST_REMOVE event occurs after removing a guestbook entry.
@@ -65,7 +65,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_REMOVE = 'rps_guestbook.entry.postDelete';
+    const ENTRY_POST_REMOVE = 'brother_quest.entry.postDelete';
 
     /**
      * The PRE_DELETE event occurs prior to the manager 
@@ -78,7 +78,7 @@ final class Events
      * @var string
      */
 	
-    const ENTRY_PRE_DELETE = 'rps_guestbook.entry.preDelete';
+    const ENTRY_PRE_DELETE = 'brother_quest.entry.preDelete';
 
     /**
      * The POST_DELETE event occurs after deleting a list of guestbook entries.
@@ -87,7 +87,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_DELETE = 'rps_guestbook.entry.postDelete';
+    const ENTRY_POST_DELETE = 'brother_quest.entry.postDelete';
 
     /**
      * The PRE_UPDATE_STATE event occurs prior to updating 
@@ -99,7 +99,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_PRE_UPDATE_STATE = 'rps_guestbook.entry.preNotify';
+    const ENTRY_PRE_UPDATE_STATE = 'brother_quest.entry.preNotify';
 
     /**
      * The POST_UPDATE_STATE event occurs after updating
@@ -109,7 +109,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_UPDATE_STATE = 'rps_guestbook.entry.postNotify';
+    const ENTRY_POST_UPDATE_STATE = 'brother_quest.entry.postNotify';
 
     /**
      * The PRE_REPLY event occurs prior to replying a entry.
@@ -120,7 +120,7 @@ final class Events
      *
      * @var string
      */	
-    const ENTRY_PRE_REPLY = 'rps_guestbook.entry.preReply';
+    const ENTRY_PRE_REPLY = 'brother_quest.entry.preReply';
 
     /**
      * The POST_REPLY event occurs affer sending a reply.
@@ -129,7 +129,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_REPLY = 'rps_guestbook.entry.postReply';
+    const ENTRY_POST_REPLY = 'brother_quest.entry.postReply';
 
     /**
      * The PRE_NOTIFY event occurs prior to sending a 
@@ -141,7 +141,7 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_PRE_NOTIFY = 'rps_guestbook.entry.preNotify';
+    const ENTRY_PRE_NOTIFY = 'brother_quest.entry.preNotify';
 
     /**
      * The POST_NOTIFY event occurs after sending a 
@@ -151,5 +151,5 @@ final class Events
      *
      * @var string
      */
-    const ENTRY_POST_NOTIFY = 'rps_guestbook.entry.postNotify';
+    const ENTRY_POST_NOTIFY = 'brother_quest.entry.postNotify';
 }
