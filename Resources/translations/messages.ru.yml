@@ -1,15 +1,20 @@
-Q: Вопрос
-Edit QuestAdmin: Редактировать вопрос
-QuestAdmin List: Список вопросов
-Isp: Исполнитель
-Comment: Комментарий
-User: Пользователь
-Update: Обновить
-Approve: Одобрить
-Show open: Показать открытые
-Show new: Показать новые
+Q:                Вопрос
+A:                Ответ
+Email:            Email
+Executor:         Исполнитель
+Edit QuestAdmin:  Редактировать вопрос
+QuestAdmin List:  Список вопросов
+Isp:              Исполнитель
+Comment:          Комментарий
+User:             Пользователь
+Update:           Обновить
+Approve:          Одобрить
+Show open:        Показать открытые
+Show new:         Показать новые
 Show in progress: Показать "В процессе"
-Show resolved: Показать решённые
-Freeze: Заморозить
-In progress: В процессе
-Resolved: Выполнено
+Show resolved:    Показать решённые
+Freeze:           Заморозить
+In progress:      В процессе
+Resolved:         Выполнено
+Priority:         Приоритет
+Quest List:       Вопрос-ответ список

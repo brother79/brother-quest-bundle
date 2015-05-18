@@ -7,94 +7,84 @@ use Sonata\AdminBundle\Controller\CRUDController;
 class QuestAdminController extends CRUDController
 {
 
-	/**
-	 * Enter description here...
-	 *
-	 * @param sfWebRequest $request
-	 */
-
-    public function executeListShowOpen(sfWebRequest $request)
+/*    public function executeListShowOpen(sfWebRequest $request)
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['status'] = array('created');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
-    }
+    }*/
 
-    public function executeListShowNew(sfWebRequest $request)
+
+/*    public function executeListShowNew(sfWebRequest $request)
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['status'] = array('need_moderate');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
-    }
+    }*/
     
     
-    public function executeListShowInProgress(sfWebRequest $request)
+/*    public function executeListShowInProgress(sfWebRequest $request)
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['status'] = array('in_progress');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
-    }
+    }*/
 
-    public function executeListShowResolved(sfWebRequest $request)
+/*    public function executeListShowResolved(sfWebRequest $request)
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['status'] = array('resolved');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
-    }
+    }*/
     
-    public function executeListUpdate(sfWebRequest $request)
+/*    public function executeListUpdate(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
         $object->setUpdatedAt(svUtils::getDate(time()));
         $object->save();
         $this->redirect('questAdmin/index');
-    }
+    }*/
 
-    public function executeListApprove(sfWebRequest $request)
+/*    public function executeListApprove(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
     	$object->setStatus('created');
     	$object->save();
     	$this->redirect('questAdmin/index');
-    }    
+    }    */
 
-    /**
-     * Set status to freeze
-     *
-     * @param sfWebRequest $request
-     */
-    
-    public function executeListFreeze(sfWebRequest $request)
+
+/*    public function executeListFreeze(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
     	$object->setStatus('freeze');
     	$object->save();
     	$this->redirect('questAdmin/index');
-    }    
+    }    */
     
-    public function executeListInProgress(sfWebRequest $request)
+/*    public function executeListInProgress(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
     	$object->setStatus('in_progress');
     	$object->save();
     	$this->redirect('questAdmin/index');
-    }    
+    }    */
     
-    public function executeListResolved(sfWebRequest $request)
+/*    public function executeListResolved(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
     	$object->setStatus('resolved');
     	$object->save();
     	$this->redirect('questAdmin/index');
-    }    
+    }    */
     
     
     /**
@@ -104,7 +94,7 @@ class QuestAdminController extends CRUDController
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction($page=1)
+/*    public function indexAction($page=1)
     {
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
@@ -122,7 +112,7 @@ class QuestAdminController extends CRUDController
                 'date_format' => $this->container->getParameter('brother_quest.date_format')
             )
         );
-    }
+    }*/
 
     /**
      * Edits a entry/Show admin form
@@ -134,7 +124,7 @@ class QuestAdminController extends CRUDController
      *
      * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
      */
-    public function editAction(Request $request, $id)
+/*    public function editAction(Request $request, $id)
     {
         $entry = $this->getEntry($id);
         $form = $this->getFormFactory('edit');
@@ -159,7 +149,7 @@ class QuestAdminController extends CRUDController
         $view = $this->getView('admin.edit');
 
         return $this->render($view, array('form' => $form->createView(), 'id'=>$id,) );
-    }
+    }*/
 
     /**
      * Reply a entry/Show reply form
@@ -169,7 +159,7 @@ class QuestAdminController extends CRUDController
      *
      * @return Response
      */
-    public function replyAction(Request $request, $id)
+/*    public function replyAction(Request $request, $id)
     {
         $entry = $this->getEntry($id);
 
@@ -215,7 +205,7 @@ class QuestAdminController extends CRUDController
         $view = $this->getView('admin.reply');
 
         return $this->render($view, array('form' => $form->createView(), 'id'=>$id,) );
-    }
+    }*/
 
     /**
      * Delete entry
@@ -224,7 +214,7 @@ class QuestAdminController extends CRUDController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function removeAction($id)
+/*    public function removeAction($id)
     {
         $entry = $this->getEntry($id);
 
@@ -235,7 +225,7 @@ class QuestAdminController extends CRUDController
         }
 
         return $this->redirectToList();
-    }
+    }*/
 
     /**
      * Delete a list of entries
@@ -244,7 +234,7 @@ class QuestAdminController extends CRUDController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function deleteAction(Request $request)
+/*    public function deleteAction(Request $request)
     {
         $ids = $request->get('ids', array());
 
@@ -269,7 +259,7 @@ class QuestAdminController extends CRUDController
         }
 
         return $this->redirectToList();
-    }
+    }*/
 
     /**
      * Publish/Unpublish a list of entries
@@ -279,7 +269,7 @@ class QuestAdminController extends CRUDController
      *
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    public function changeStateAction(Request $request, $state)
+/*    public function changeStateAction(Request $request, $state)
     {
         $ids = $request->get('ids', array());
 
@@ -309,29 +299,29 @@ class QuestAdminController extends CRUDController
         }
 
         return $this->redirectToList();
-    }
+    }*/
 
     /**
      * Cancel edit
      * 
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    function cancelAction()
+/*    function cancelAction()
     {
         return $this->redirectToList();
-    }
+    }*/
 
     /**
      * Redirect to last viewed list page
      * 
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
-    function redirectToList()
+/*    function redirectToList()
     {
         return $this->redirect(
             $this->generateUrl(
                 'brother_quest_admin',
                 array('page' => $this->get('request')->getSession()->get('brother_quest_page', 1))
             ));
-    }
+    }*/
 }

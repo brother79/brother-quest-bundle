@@ -15,25 +15,26 @@ Brother\QuestBundle\Entity\Quest:
         name:
             type: string
             length: 100
-            nullable: false
+            nullable: true
         q:
-            type: string
-            length: 255
+            type: text
         a:
-            type: string
-            length: 255
+            type: text
         email:
             type: string
             length: 255
         executor:
             type: string
             length: 255
+            nullable: true
         comment:
             type: string
             length: 255
+            nullable: true
         priority:
             type: string
             length: 255
+            nullable: true
         created_by:
             type: integer
             nullable: true
