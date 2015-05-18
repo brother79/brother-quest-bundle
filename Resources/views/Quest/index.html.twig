@@ -20,7 +20,7 @@
         <tbody>
         {% for entity in entities %}
             <tr>
-                <td><a href="{{ path('quest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td><a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
                 <td>{{ entity.q }}</td>
                 <td>{{ entity.a }}</td>
@@ -31,10 +31,10 @@
                 <td>
                 <ul>
                     <li>
-                        <a href="{{ path('quest_show', { 'id': entity.id }) }}">show</a>
+                        <a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">show</a>
                     </li>
                     <li>
-                        <a href="{{ path('quest_edit', { 'id': entity.id }) }}">edit</a>
+                        <a href="{{ path('brother_quest_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
                 </td>

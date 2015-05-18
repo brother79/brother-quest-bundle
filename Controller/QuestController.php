@@ -63,7 +63,7 @@ class QuestController extends Controller
             $em->persist($entity);
             $em->flush();
 
-            return $this->redirect($this->generateUrl('quest_show', array('id' => $entity->getId())));
+            return $this->redirect($this->generateUrl('brother_quest_show', array('id' => $entity->getId())));
         }
 
         return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
