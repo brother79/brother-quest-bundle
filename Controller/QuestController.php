@@ -3,10 +3,11 @@
 namespace Brother\QuestBundle\Controller;
 
 use Brother\CommonBundle\AppDebug;
+use Brother\QuestBundle\Model\EntryManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
-use Brother\QuestBundle\Entity\Quest;
+use Brother\QuestBundle\Entity\Entry;
 use Brother\QuestBundle\Form\QuestType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
@@ -20,7 +21,7 @@ class QuestController extends Controller
     /**
      * Shows the entries.
      *
-     * @param int $page	query offset
+     * @param int $page query offset
      *
      * @return \Symfony\Component\HttpFoundation\Response
      */
@@ -28,9 +29,8 @@ class QuestController extends Controller
     {
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
-
-        AppDebug::_dx(get_class($manager));
         $entries = $manager->getPaginatedList($page, $limit, array('state' => 1));
+        AppDebug::_dx(1);
         $pagerHtml = $manager->getPaginationHtml();
 
         $view = $this->getView('frontend.list');
@@ -52,7 +52,7 @@ class QuestController extends Controller
      */
     public function createAction(Request $request)
     {
-        $entity = new Quest();
+        $entity = new Entry();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
 
@@ -73,11 +73,11 @@ class QuestController extends Controller
     /**
      * Creates a form to create a Quest entity.
      *
-     * @param Quest $entity The entity
+     * @param Entry $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createCreateForm(Quest $entity)
+    private function createCreateForm(Entry $entity)
     {
         $form = $this->createForm(new QuestType(), $entity, array(
             'action' => $this->generateUrl('quest_create'),
@@ -95,7 +95,7 @@ class QuestController extends Controller
      */
     public function newAction()
     {
-        $entity = new Quest();
+        $entity = new Entry();
         $form = $this->createCreateForm($entity);
 
         return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
@@ -112,7 +112,7 @@ class QuestController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BrotherQuestBundle:Quest')->find($id);
+        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Quest entity.');
@@ -134,7 +134,7 @@ class QuestController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BrotherQuestBundle:Quest')->find($id);
+        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Quest entity.');
@@ -151,13 +151,13 @@ class QuestController extends Controller
     }
 
     /**
-     * Creates a form to edit a Quest entity.
+     * Creates a form to edit a Entry entity.
      *
-     * @param Quest $entity The entity
+     * @param Entry $entity The entity
      *
      * @return \Symfony\Component\Form\Form The form
      */
-    private function createEditForm(Quest $entity)
+    private function createEditForm(Entry $entity)
     {
         $form = $this->createForm(new QuestType(), $entity, array(
             'action' => $this->generateUrl('quest_update', array('id' => $entity->getId())),
@@ -177,7 +177,7 @@ class QuestController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $entity = $em->getRepository('BrotherQuestBundle:Quest')->find($id);
+        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
 
         if (!$entity) {
             throw $this->createNotFoundException('Unable to find Quest entity.');
@@ -211,7 +211,7 @@ class QuestController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BrotherQuestBundle:Quest')->find($id);
+            $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
 
             if (!$entity) {
                 throw $this->createNotFoundException('Unable to find Quest entity.');
@@ -394,7 +394,7 @@ class QuestController extends Controller
     /**
      * Returns the quest entry manager
      *
-     * @return QuestManagerInterface
+     * @return EntryManagerInterface | \Brother\QuestBundle\Entity\EntryManager
      */
     public function getManager()
     {

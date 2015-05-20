@@ -25,7 +25,7 @@ class QuestRepository extends EntityRepository
     		$query = $this->createQuery()->orderBy('updated_at');
     	}
         return $query->andWhere('a is null')
-            ->andWhere('status =?', svBasePeer::STATUS_CREATED);
+            ->andWhere('state =?', svBasePeer::STATE_CREATED);
     }
     
     function getTasks($query = null)
@@ -41,7 +41,7 @@ class QuestRepository extends EntityRepository
     	$d = strtotime("-$month month");
 		svDebug::_dx($d);
         $q = $this->createQuery('t')
-    		->where('t.status=?', svBasePeer::STATUS_DELETED)
+    		->where('t.state=?', svBasePeer::STATE_DELETED)
     		->andWhere('t.updated_at<?', $d)
     		->delete();
         $q->execute();
@@ -51,7 +51,7 @@ class QuestRepository extends EntityRepository
     public function createQueryLast($params)
     {
         return $this->createQuery()
-            ->where('status = ?', svBasePeer::STATUS_CREATED)
+            ->where('state = ?', svBasePeer::STATE_CREATED)
             ->orderBy('created_at desc');
     }
 }

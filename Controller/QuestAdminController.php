@@ -11,7 +11,7 @@ class QuestAdminController extends CRUDController
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
-    	$filters['status'] = array('created');
+    	$filters['state'] = array('created');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
     }*/
@@ -21,7 +21,7 @@ class QuestAdminController extends CRUDController
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
-    	$filters['status'] = array('need_moderate');
+    	$filters['state'] = array('need_moderate');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
     }*/
@@ -31,7 +31,7 @@ class QuestAdminController extends CRUDController
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
-    	$filters['status'] = array('in_progress');
+    	$filters['state'] = array('in_progress');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
     }*/
@@ -40,7 +40,7 @@ class QuestAdminController extends CRUDController
     {
     	$filters = $this->getFilters();
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
-    	$filters['status'] = array('resolved');
+    	$filters['state'] = array('resolved');
     	$this->setFilters($filters);
     	$this->redirect('questAdmin/index');
     }*/
@@ -56,7 +56,7 @@ class QuestAdminController extends CRUDController
 /*    public function executeListApprove(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
-    	$object->setStatus('created');
+    	$object->setState('created');
     	$object->save();
     	$this->redirect('questAdmin/index');
     }    */
@@ -65,7 +65,7 @@ class QuestAdminController extends CRUDController
 /*    public function executeListFreeze(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
-    	$object->setStatus('freeze');
+    	$object->setState('freeze');
     	$object->save();
     	$this->redirect('questAdmin/index');
     }    */
@@ -73,7 +73,7 @@ class QuestAdminController extends CRUDController
 /*    public function executeListInProgress(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
-    	$object->setStatus('in_progress');
+    	$object->setState('in_progress');
     	$object->save();
     	$this->redirect('questAdmin/index');
     }    */
@@ -81,7 +81,7 @@ class QuestAdminController extends CRUDController
 /*    public function executeListResolved(sfWebRequest $request)
     {
     	$object = $this->getRoute()->getObject();
-    	$object->setStatus('resolved');
+    	$object->setState('resolved');
     	$object->save();
     	$this->redirect('questAdmin/index');
     }    */

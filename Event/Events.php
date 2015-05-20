@@ -91,11 +91,11 @@ final class Events
 
     /**
      * The PRE_UPDATE_STATE event occurs prior to updating 
-	 * the status of a list of quest entries.
+	 * the state of a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
 	 *
-     * Status update can be aborted by calling $event->isPropagationStopped().
+     * State update can be aborted by calling $event->isPropagationStopped().
      *
      * @var string
      */
@@ -103,7 +103,7 @@ final class Events
 
     /**
      * The POST_UPDATE_STATE event occurs after updating
-	 * the status of a list of quest entries.
+	 * the state of a list of quest entries.
 	 *
      * The listener receives a Brother\QuestBundle\Event\EntryStateEvent instance.
      *

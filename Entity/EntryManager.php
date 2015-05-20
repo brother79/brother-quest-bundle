@@ -11,6 +11,7 @@
 
 namespace Brother\QuestBundle\Entity;
 
+use Brother\CommonBundle\AppDebug;
 use Doctrine\ORM\EntityManager;
 use Brother\QuestBundle\Model\EntryInterface;
 use Brother\QuestBundle\Model\EntryManager as AbstractEntryManager;
@@ -21,28 +22,31 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
  */
 class EntryManager extends AbstractEntryManager
 {
+
+    const STATE_CREATED = 0;
+
     /**
      * @var EntityManager
      */
     protected $em;
-	
+
     /**
      * @var \Doctrine\ORM\EntityRepository
      */
     protected $repository;
-	
+
     /**
      * Constructor.
      *
-     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface 	$dispatcher
-     * @param \Doctrine\ORM\EntityManager                                 	$em
-     * @param string                                                      	$class
-     * @param boolean                                              			$autoPublish
+     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
+     * @param \Doctrine\ORM\EntityManager $em
+     * @param string $class
+     * @param boolean $autoPublish
      */
     public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class, $autoPublish)
     {
         parent::__construct($dispatcher, $em->getClassMetadata($class)->name, $autoPublish);
-		 
+
         $this->em = $em;
         $this->repository = $em->getRepository($class);
     }
@@ -110,44 +114,45 @@ class EntryManager extends AbstractEntryManager
      */
     public function getPaginatedList($offset, $limit, $criteria = array())
     {
+
         $queryBuilder = $this->repository->createQueryBuilder('c');
 
         // set state
-        if(isset($criteria['state'])) {
+        if (isset($criteria['state'])) {
             $queryBuilder->andWhere('c.state = :state')
-				->setParameter('state', $criteria['state']);
+                ->setParameter('state', $criteria['state']);
         }
 
         // set replied
-        if(isset($criteria['replied'])) {
+        if (isset($criteria['replied'])) {
             $queryBuilder->andWhere('c.replied = :replied')
-				->setParameter('replied', $criteria['replied']);
+                ->setParameter('replied', $criteria['replied']);
         }
 
         // set dates
-        if(isset($criteria['date_from'])) {
+        if (isset($criteria['date_from'])) {
             $queryBuilder->andWhere('c.createdAt >= :from')
-				->setParameter('from', $criteria['date_from']);
+                ->setParameter('from', $criteria['date_from']);
         }
-		
-        if(isset($criteria['date_to'])) {
+
+        if (isset($criteria['date_to'])) {
             $queryBuilder->andWhere('c.createdAt <= :to')
-				->setParameter('to', $criteria['date_to']);
+                ->setParameter('to', $criteria['date_to']);
         }
 
         // set ordering
-        if(isset($criteria['order'])) {
-            foreach($criteria['order'] as $ordering) {
+        if (isset($criteria['order'])) {
+            foreach ($criteria['order'] as $ordering) {
                 $queryBuilder->addOrderBy($ordering['field'], $ordering['order']);
             }
-        } else  {
-            $queryBuilder->orderBy('c.createdAt', 'DESC');	//default ordering
+        } else {
+            $queryBuilder->orderBy('c.createdAt', 'DESC');    //default ordering
         }
 
-		if (null === $this->pager) {
-			return $queryBuilder->getQuery()->getResult();
-		}
-		
+        if (null === $this->pager) {
+            return $queryBuilder->getQuery()->getResult();
+        }
+
         return $this->pager->getList($queryBuilder, $offset, $limit);
     }
 
@@ -172,9 +177,9 @@ class EntryManager extends AbstractEntryManager
         $this->em->createQueryBuilder()
             ->update($this->getClass(), 'c')
             ->set('c.state', ':state')
-            ->set('c.updatedAt', ':date' )
+            ->set('c.updatedAt', ':date')
             ->where('c.id IN (:ids)')
-            ->setParameters( array(
+            ->setParameters(array(
                 'state' => $state,
                 'ids' => $ids,
                 'date' => new \DateTime(),

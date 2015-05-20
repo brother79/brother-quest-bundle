@@ -39,7 +39,7 @@
     <label for="status1">Закрыть:</label><br/>
     <input type="radio" name="status" value="1" style="width:auto;" id="status1" />
     <label for="status2">Отложить:</label><br/>
-    <input type="radio" name="status" value="2" style="width:auto;" id="status2" />
+    <input type="radio" name="state" value="2" style="width:auto;" id="status2" />
 	<input type="submit" name="Сохранить" />
     <input type="button" value="Удалить" onclick="if (confirm('Please, confirm deletion?'))  location.href='<?php echo url_for('quest/delete?id='.$item->getId().'&refer=quest/show') ?>';return false;"/>
 	<?php echo '</form>' ?>

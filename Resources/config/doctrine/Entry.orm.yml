@@ -50,10 +50,8 @@ Brother\QuestBundle\Entity\Entry:
         deleted_at:
             type: datetime
             nullable: true
-        status:
-            type: string
-            length: 255
-            nullable: true
-    lifecycleCallbacks: 
+        state:
+            type: integer
+    lifecycleCallbacks:
         prePersist: [ prePersist ]
         preUpdate:  [ preUpdate ]

@@ -37,7 +37,7 @@ class QuestAdmin extends Admin
             ->add('q')
             ->add('a')
             ->add('email')
-            ->add('status')
+            ->add('state')
 			->add('created_at')
 			->add('updated_at')
             ->add('_action', 'actions', array(

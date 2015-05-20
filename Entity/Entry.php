@@ -81,7 +81,7 @@ class Entry
     /**
      * @var string
      */
-    private $status;
+    private $state;
 
     /**
      * Get id
@@ -376,9 +376,9 @@ class Entry
      * @param string $status
      * @return Entry
      */
-    public function setStatus($status)
+    public function setState($state)
     {
-        $this->status = $status;
+        $this->status = $state;
 
         return $this;
     }
@@ -388,9 +388,9 @@ class Entry
      *
      * @return string 
      */
-    public function getStatus()
+    public function getState()
     {
-        return $this->status;
+        return $this->state;
     }
 
     /**

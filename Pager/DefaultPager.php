@@ -19,11 +19,11 @@ abstract class DefaultPager implements PagerInterface
 {
     protected $pagerExtension = null;
 
-    public function __construct($pagerExtension)
+    public function __construct($pagerExtension = null)
     {
         $this->pagerExtension = $pagerExtension;
     }
-    
+
     /**
      * {@inheritdoc}
      */
