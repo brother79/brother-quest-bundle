@@ -81,7 +81,7 @@ class Entry
     /**
      * @var string
      */
-    private $state;
+    protected $state;
 
     /**
      * Get id
@@ -373,12 +373,13 @@ class Entry
     /**
      * Set status
      *
-     * @param string $status
+     * @param $state
+     * @internal param string $status
      * @return Entry
      */
     public function setState($state)
     {
-        $this->status = $state;
+        $this->state = $state;
 
         return $this;
     }

@@ -56,13 +56,18 @@ class QuestAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->with('General', array('class' => 'col-md-6'))
             ->add('name')
             ->add('q')
             ->add('a')
             ->add('email')
+            ->end()
+            ->with('Other', array('class' => 'col-md-6'))
             ->add('executor')
             ->add('comment')
             ->add('priority')
+            ->add('state')
+            ->end()
         ;
     }
 
