@@ -2,11 +2,13 @@
 
 namespace Brother\QuestBundle\Controller;
 
+use Brother\CommonBundle\AppDebug;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Brother\QuestBundle\Entity\Quest;
 use Brother\QuestBundle\Form\QuestType;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Quest controller.
@@ -16,30 +18,26 @@ class QuestController extends Controller
 {
 
     /**
-     * Lists all Quest entities.
+     * Shows the entries.
      *
+     * @param int $page	query offset
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction($page=1)
+    public function indexAction($page = 1)
     {
-        $em = $this->getDoctrine()->getManager();
-
-        $entities = $em->getRepository('BrotherQuestBundle:Quest')->findAll();
-
-        return $this->render('BrotherQuestBundle:Quest:index.html.twig', array(
-            'entities' => $entities,
-        ));
-
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
 
-        $entries = $manager->getPaginatedList($page, $limit, array('state'=>1));
+        AppDebug::_dx(get_class($manager));
+        $entries = $manager->getPaginatedList($page, $limit, array('state' => 1));
         $pagerHtml = $manager->getPaginationHtml();
 
         $view = $this->getView('frontend.list');
         $form = $this->getFormFactory('entry');
 
         return $this->render($view, array(
-                'entries'=>$entries,
+                'entries' => $entries,
                 'form' => $form->createView(),
                 'pagination_html' => $pagerHtml,
                 'date_format' => $this->container->getParameter('brother_quest.date_format')
@@ -68,7 +66,7 @@ class QuestController extends Controller
 
         return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -98,11 +96,11 @@ class QuestController extends Controller
     public function newAction()
     {
         $entity = new Quest();
-        $form   = $this->createCreateForm($entity);
+        $form = $this->createCreateForm($entity);
 
         return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
             'entity' => $entity,
-            'form'   => $form->createView(),
+            'form' => $form->createView(),
         ));
     }
 
@@ -123,7 +121,7 @@ class QuestController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BrotherQuestBundle:Quest:show.html.twig', array(
-            'entity'      => $entity,
+            'entity' => $entity,
             'delete_form' => $deleteForm->createView(),
         ));
     }
@@ -146,19 +144,19 @@ class QuestController extends Controller
         $deleteForm = $this->createDeleteForm($id);
 
         return $this->render('BrotherQuestBundle:Quest:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
 
     /**
-    * Creates a form to edit a Quest entity.
-    *
-    * @param Quest $entity The entity
-    *
-    * @return \Symfony\Component\Form\Form The form
-    */
+     * Creates a form to edit a Quest entity.
+     *
+     * @param Quest $entity The entity
+     *
+     * @return \Symfony\Component\Form\Form The form
+     */
     private function createEditForm(Quest $entity)
     {
         $form = $this->createForm(new QuestType(), $entity, array(
@@ -170,6 +168,7 @@ class QuestController extends Controller
 
         return $form;
     }
+
     /**
      * Edits an existing Quest entity.
      *
@@ -195,11 +194,12 @@ class QuestController extends Controller
         }
 
         return $this->render('BrotherQuestBundle:Quest:edit.html.twig', array(
-            'entity'      => $entity,
-            'edit_form'   => $editForm->createView(),
+            'entity' => $entity,
+            'edit_form' => $editForm->createView(),
             'delete_form' => $deleteForm->createView(),
         ));
     }
+
     /**
      * Deletes a Quest entity.
      *
@@ -237,8 +237,7 @@ class QuestController extends Controller
             ->setAction($this->generateUrl('quest_delete', array('id' => $id)))
             ->setMethod('DELETE')
             ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm()
-        ;
+            ->getForm();
     }
 
     public function preExecute()
@@ -325,13 +324,13 @@ class QuestController extends Controller
      *
      */
     public function executeLast()
-	{
+    {
         $this->quests = dinCacheManager::getInstance()
             ->getContent('query', 'Quest',
-            array(
-                'method' => 'createQueryLast',
-                'limit' => sfConfig::get('app_sv_quest_plugin_last_count')));
-	}
+                array(
+                    'method' => 'createQueryLast',
+                    'limit' => sfConfig::get('app_sv_quest_plugin_last_count')));
+    }
 
 
     /**
@@ -366,12 +365,12 @@ class QuestController extends Controller
                 if ($this->getManager()->save($entry) !== false) {
                     $this->setFlashMessage('flash.save.success');
 
-                    if(!$this->container->getParameter('brother_quest.auto_publish')) {
+                    if (!$this->container->getParameter('brother_quest.auto_publish')) {
                         $this->setFlashMessage('flash.awaiting_approval');
                     }
 
                     // notify admin
-                    if($this->container->getParameter('brother_quest.notify_admin')) {
+                    if ($this->container->getParameter('brother_quest.notify_admin')) {
                         $this->get('brother_quest.mailer')->sendAdminNotification($entry);
                     }
 
@@ -385,6 +384,93 @@ class QuestController extends Controller
         $view = $this->getView('frontend.new');
 
         return $this->render($view, array('form' => $form->createView()));
+    }
+
+    /**
+     * @var EntryManagerInterface
+     */
+    protected $manager = null;
+
+    /**
+     * Returns the quest entry manager
+     *
+     * @return QuestManagerInterface
+     */
+    public function getManager()
+    {
+        if (null === $this->manager) {
+            $this->manager = $this->container->get('brother_quest.entry_manager');
+        }
+
+        return $this->manager;
+    }
+
+    /**
+     * Returns the requested Form Factory service
+     *
+     * @param string $name
+     *
+     * @return \Symfony\Component\Form\Form
+     */
+    public function getFormFactory($name)
+    {
+        return $this->container->get('brother_quest.form_factory.' . $name);
+    }
+
+    /**
+     * Returns the requested View
+     *
+     * @param string $name
+     *
+     * @return string
+     */
+    public function getView($name)
+    {
+        return $this->container->getParameter('brother_quest.view.' . $name);
+    }
+
+    /**
+     * Returns the quest entry for a given id
+     *
+     * @param $id
+     *
+     * @return EntryInterface
+     *
+     * @throws \Symfony\Component\HttpKernel\Exception\NotFoundHttpException
+     */
+    public function getEntry($id)
+    {
+        $quest = $this->getManager()->findEntryById($id);
+
+        if (null === $quest) {
+            throw new NotFoundHttpException(sprintf("Quest entry with id '%s' does not exists.", $id));
+        }
+
+        return $quest;
+    }
+
+    /**
+     * Translate and set Flash bag message
+     *
+     * @param string $msg
+     * @param array $args
+     * @param string $type
+     */
+    public function setFlashMessage($msg, $args = array(), $type = 'notice')
+    {
+        $msg = $this->get('translator')->trans($msg, $args, 'BrotherQuestBundle');
+        $this->get('session')->getFlashBag()->add($type, $msg);
+    }
+
+    /**
+     * Set Flash bag message
+     *
+     * @param string $msg
+     * @param string $type
+     */
+    public function setFlashBag($msg, $type = 'notice')
+    {
+        $this->get('session')->getFlashBag()->add($type, $msg);
     }
 
 

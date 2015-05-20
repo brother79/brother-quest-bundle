@@ -9,13 +9,8 @@ You can specify custom templates/views by overriding the corresponding view para
     brother_quest:
         view:
             frontend:
-                list: MyprojectMyBundle:Frontend:index.html.twig
-                new: MyprojectMyBundle:Frontend:new.html.twig
-
-            admin:
-                list: MyprojectMyBundle:Admin:index.html.twig
-                edit: MyprojectMyBundle:Admin:edit.html.twig
-                reply: MyprojectMyBundle:Admin:reply.html.twig
+                list: MyprojectMyBundle:Quest:index.html.twig
+                new: MyprojectMyBundle:Quest:new.html.twig
 
             mail:
                 notify: MyprojectMyBundle:Mail:notify.txt.twig

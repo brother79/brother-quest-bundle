@@ -29,7 +29,7 @@ You can specify your custom pager manager class by overriding the pager class op
         class:
             pager: MyProject\MyBundle\Pager\Pager
 
-Your custom class **must** implement the ``\RPS\CoreBundle\Pager\PagerInterface`` interface.
+Your custom class **must** implement the ``\Brother\QuestBundle\Pager\PagerInterface`` interface.
 
 
 Using a custom pager service
@@ -45,7 +45,7 @@ by setting the pager service config option.
         service:
             pager: my_pager
 
-Your pager service class **must** implement the ``\RPS\CoreBundle\Pager\PagerInterface`` interface.
+Your pager service class **must** implement the ``\Brother\QuestBundle\Pager\PagerInterface`` interface.
 
 
 Other topics

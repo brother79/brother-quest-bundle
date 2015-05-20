@@ -1,6 +1,59 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Quest list</h1>
+
+    <table class="records_list">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Q</th>
+                <th>A</th>
+                <th>Email</th>
+                <th>Executor</th>
+                <th>Comment</th>
+                <th>Priority</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for entity in entities %}
+            <tr>
+                <td><a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.name }}</td>
+                <td>{{ entity.q }}</td>
+                <td>{{ entity.a }}</td>
+                <td>{{ entity.email }}</td>
+                <td>{{ entity.executor }}</td>
+                <td>{{ entity.comment }}</td>
+                <td>{{ entity.priority }}</td>
+                <td>
+                <ul>
+                    <li>
+                        <a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">show</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('brother_quest_edit', { 'id': entity.id }) }}">edit</a>
+                    </li>
+                </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+        <ul>
+        <li>
+            <a href="{{ path('brother_quest_new') }}">
+                Create a new entry
+            </a>
+        </li>
+    </ul>
+    {% endblock %}
 {#
 
- This file is part of the RPSCommentBundle package.
+ This file is part of the BrotherCommentBundle package.
 
  (c) Yos Okusanya <yos.okusanya@gmail.com>
 
@@ -13,8 +66,8 @@
 {% block content_navbar %}
     {{  parent() }}
     <li>
-        <a href="#guestbookForm">
-            <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_guestbook'|trans({}, 'BrotherQuestBundle') }}
+        <a href="#questForm">
+            <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_quest'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
 {% endblock %}
@@ -45,9 +98,9 @@
 
     </div><!-- /brother-quest-container -->
 
-    <div id="guestbookForm">
+    <div id="questForm">
         <div class="page-header">
-            <h2>{{ 'title.sign_guestbook'|trans({}, 'BrotherQuestBundle') }}</h2>
+            <h2>{{ 'title.sign_quest'|trans({}, 'BrotherQuestBundle') }}</h2>
         </div>
 
         {{ include('BrotherQuestBundle:Frontend:form.html.twig',{ 'form': form })}}

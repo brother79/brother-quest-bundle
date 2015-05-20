@@ -1,6 +1,6 @@
-Brother\QuestBundle\Entity\Quest:
+Brother\QuestBundle\Entity\Entry:
+    table: brother_quest
     type: entity
-    repositoryClass: Brother\QuestBundle\Repository\QuestRepository
     gedmo:
         soft_deleteable:
             field_name: deleted_at

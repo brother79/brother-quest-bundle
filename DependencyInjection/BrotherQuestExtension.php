@@ -21,31 +21,31 @@ class BrotherQuestExtension extends Extension
     {
         // get all Bundles
         $bundles = $container->getParameter('kernel.bundles');
-        $rpsConfig = array();
+        $brotherConfig = array();
 
-        // get the RPSGuestbook configuration
+        // get the BrotherQuest configuration
         $configs = $container->getExtensionConfig($this->getAlias());
         $questConfig = $this->processConfiguration(new Configuration(), $configs);
 
         // enable spam detection if AkismetBundle is registered
         // else disable spam detection
         // can be overridden by setting the brother_quest.spam_detection.enable config
-        $rpsConfig['spam_detection'] = isset($bundles['AkismetBundle']) ? true : false;
+        $brotherConfig['spam_detection'] = isset($bundles['AkismetBundle']) ? true : false;
 
         // check if WhiteOctoberPagerfantaBundle is registered
         // if not set the default pager class
         // can be overridden by setting the brother_quest.pager.class config
         if (!isset($bundles['WhiteOctoberPagerfantaBundle'])) {
             if ( 'orm' == $questConfig['db_driver']) {
-                $rpsConfig['class']['pager'] = 'RPS\CoreBundle\Pager\DefaultORM';
+                $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultORM';
             } else {
-                $rpsConfig['class']['pager'] = 'RPS\CoreBundle\Pager\DefaultMongodb';
+                $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultMongodb';
             }
         }
 
         // add the BrotherQuestBundle configurations
         // all options can be overridden in the app/config/config.yml file
-        $container->prependExtensionConfig('brother_quest', $rpsConfig);
+        $container->prependExtensionConfig('brother_quest', $brotherConfig);
     }
 
     /**
@@ -92,10 +92,6 @@ class BrotherQuestExtension extends Extension
         $container->setParameter('brother_quest.form.reply.class', $config['form']['reply']['class']);		
 
         // views
-        $container->setParameter('brother_quest.view.admin.list', $config['view']['admin']['list']);
-        $container->setParameter('brother_quest.view.admin.edit', $config['view']['admin']['edit']);
-        $container->setParameter('brother_quest.view.admin.reply', $config['view']['admin']['reply']);
-
         $container->setParameter('brother_quest.view.frontend.list', $config['view']['frontend']['list']);
         $container->setParameter('brother_quest.view.frontend.new', $config['view']['frontend']['new']);
         $container->setParameter('brother_quest.view.mail.notify', $config['view']['mail']['notify']);

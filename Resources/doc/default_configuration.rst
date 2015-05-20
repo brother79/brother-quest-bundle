@@ -19,18 +19,13 @@ Default Configuration
         class:
             model: Brother\QuestBundle\Entity\Entry                 # (optional) quest model class
             manager: Brother\QuestBundle\Entity\EntryManager        # (optional) quest manager class
-            pager : RPS\CoreBundle\Pager\PagerfantaORM              # (optional) pager class
+            pager : Brother\QuestBundle\Pager\PagerfantaORM              # (optional) pager class
             mailer: Brother\QuestBundle\Mailer\Mailer               # (optional) mailer class
 
         view:
             frontend:
                 list: BrotherQuestBundle:Frontend:index.html.twig   # quest entries view
                 new: BrotherQuestBundle:Frontend:new.html.twig      # quest form
-
-            admin:
-                list: BrotherQuestBundle:Admin:index.html.twig      # admin quest entries view
-                edit: BrotherQuestBundle:Admin:edit.html.twig       # admin quest entry edit view
-                reply: BrotherQuestBundle:Admin:reply.html.twig     # admin quest entry reply view
 
             mail:
                 notify: BrotherQuestBundle:Mail:notify.txt.twig     # notification mail template

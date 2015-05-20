@@ -16,13 +16,15 @@ services:
 
     brother_quest.admin.quest:
         class: Brother\QuestBundle\Admin\QuestAdmin
-        arguments: [~, Brother\QuestBundle\Entity\Quest, BrotherQuestBundle:QuestAdmin]
+        arguments: [~, Brother\QuestBundle\Entity\Entry, BrotherQuestBundle:QuestAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: Quest}
+
     brother_quest.pager.default:
         class: %brother_quest.pager.class%
         arguments:
-            - { type: service', id: twig.extension.pagerfanta, on-invalid: null}
+            - { type: service, id: twig.extension.pagerfanta, on-invalid: null}
+
     brother_quest.mailer:
         class: %brother_quest.mailer.class%
         arguments:

@@ -31,14 +31,14 @@
 
 {% block content %}
     <div class="brother-quest-container">
-        <div class="rps-gustbook-list">
+        <div class="brother-gustbook-list">
             {% if entries|length > 0 %}
-                <form method="post" action={{ path( 'brother_quest_admin') }} id="rpsGuestbookAdminList" class="brother-quest-admin-list">
+                <form method="post" action={{ path( 'brother_quest_admin') }} id="brotherQuestAdminList" class="brother-quest-admin-list">
                     <table class="table table-striped">
                         <thead>
                             <th width="5px">#</th>
                             <th width="5px">
-                                <input id="rpsGuestbookMasterSelect" type="checkbox">
+                                <input id="brotherQuestMasterSelect" type="checkbox">
                             </th>
                             <th></th>
                             <th>{{ 'title.comment'|trans({}, 'BrotherQuestBundle') }}</th>
@@ -152,7 +152,7 @@
             {% endif %}
         </div><!-- /brother-quest-list -->
 
-        <div class="rps-pager">
+        <div class="brother-pager">
             {{ pagination_html|raw }}
         </div>
 
@@ -183,7 +183,7 @@ function deleteEntries()
 
 function submitAdminForm(url)
 {
-    var questForm = jQuery('#rpsGuestbookAdminList');
+    var questForm = jQuery('#brotherQuestAdminList');
     questForm.attr("action", url);
     questForm.submit();
 }
@@ -213,7 +213,7 @@ function unpublishEntries()
 
 (function($){
     $(function() {
-        $('#rpsGuestbookMasterSelect').change(function(){
+        $('#brotherQuestMasterSelect').change(function(){
             $('.brother-quest-checkbox-list').prop('checked', $(this).prop('checked'));
         });
     });

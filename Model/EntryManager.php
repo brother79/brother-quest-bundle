@@ -15,7 +15,7 @@ use Brother\QuestBundle\Event\Events;
 use Brother\QuestBundle\Event\EntryEvent;
 use Brother\QuestBundle\Event\EntryDeleteEvent;
 use Brother\QuestBundle\Event\EntryStateEvent;
-use RPS\CoreBundle\Pager\PagerInterface;
+use Brother\QuestBundle\Pager\PagerInterface;
 
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\Form\FormInterface;

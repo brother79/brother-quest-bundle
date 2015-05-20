@@ -3,11 +3,12 @@
 namespace Brother\QuestBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Quest
  */
-class Quest
+class Entry
 {
     /**
      * @var integer
@@ -21,16 +22,19 @@ class Quest
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $q;
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $a;
 
     /**
      * @var string
+     * @Assert\NotBlank()
      */
     private $email;
 
@@ -93,7 +97,7 @@ class Quest
      * Set name
      *
      * @param string $name
-     * @return Quest
+     * @return Entry
      */
     public function setName($name)
     {
@@ -116,7 +120,7 @@ class Quest
      * Set q
      *
      * @param string $q
-     * @return Quest
+     * @return Entry
      */
     public function setQ($q)
     {
@@ -139,7 +143,7 @@ class Quest
      * Set a
      *
      * @param string $a
-     * @return Quest
+     * @return Entry
      */
     public function setA($a)
     {
@@ -162,7 +166,7 @@ class Quest
      * Set email
      *
      * @param string $email
-     * @return Quest
+     * @return Entry
      */
     public function setEmail($email)
     {
@@ -185,7 +189,7 @@ class Quest
      * Set executor
      *
      * @param string $executor
-     * @return Quest
+     * @return Entry
      */
     public function setExecutor($executor)
     {
@@ -208,7 +212,7 @@ class Quest
      * Set comment
      *
      * @param string $comment
-     * @return Quest
+     * @return Entry
      */
     public function setComment($comment)
     {
@@ -231,7 +235,7 @@ class Quest
      * Set priority
      *
      * @param string $priority
-     * @return Quest
+     * @return Entry
      */
     public function setPriority($priority)
     {
@@ -254,7 +258,7 @@ class Quest
      * Set created_at
      *
      * @param \DateTime $createdAt
-     * @return Quest
+     * @return Entry
      */
     public function setCreatedAt($createdAt)
     {
@@ -277,7 +281,7 @@ class Quest
      * Set updated_at
      *
      * @param \DateTime $updatedAt
-     * @return Quest
+     * @return Entry
      */
     public function setUpdatedAt($updatedAt)
     {
@@ -301,7 +305,7 @@ class Quest
      * Set created_by
      *
      * @param integer $createdBy
-     * @return Quest
+     * @return Entry
      */
     public function setCreatedBy($createdBy)
     {
@@ -324,7 +328,7 @@ class Quest
      * Set updated_by
      *
      * @param integer $updatedBy
-     * @return Quest
+     * @return Entry
      */
     public function setUpdatedBy($updatedBy)
     {
@@ -347,7 +351,7 @@ class Quest
      * Set deleted_at
      *
      * @param \DateTime $deletedAt
-     * @return Quest
+     * @return Entry
      */
     public function setDeletedAt($deletedAt)
     {
@@ -370,7 +374,7 @@ class Quest
      * Set status
      *
      * @param string $status
-     * @return Quest
+     * @return Entry
      */
     public function setStatus($status)
     {
