@@ -133,11 +133,11 @@ class EntryManager extends AbstractEntryManager
 
         // set dates
         if(isset($criteria['date_from'])) {
-            $queryBuilder->field('createdAt')->gte($criteria['date_from']);
+            $queryBuilder->field('created_at')->gte($criteria['date_from']);
         }
 
         if(isset($criteria['date_to'])) {
-            $queryBuilder->field('createdAt')->lte($criteria['date_from']);
+            $queryBuilder->field('created_at')->lte($criteria['date_from']);
         }
 
         // set ordering
@@ -147,7 +147,7 @@ class EntryManager extends AbstractEntryManager
                 $sorting[$ordering['field']] = $ordering['order'];
             }
         } else  {
-            $sorting['createdAt'] = 'DESC';	//default ordering
+            $sorting['created_at'] = 'DESC';	//default ordering
         }
 
         $queryBuilder->sort($sorting);

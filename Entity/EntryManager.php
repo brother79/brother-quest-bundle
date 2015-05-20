@@ -131,12 +131,12 @@ class EntryManager extends AbstractEntryManager
 
         // set dates
         if (isset($criteria['date_from'])) {
-            $queryBuilder->andWhere('c.createdAt >= :from')
+            $queryBuilder->andWhere('c.created_at >= :from')
                 ->setParameter('from', $criteria['date_from']);
         }
 
         if (isset($criteria['date_to'])) {
-            $queryBuilder->andWhere('c.createdAt <= :to')
+            $queryBuilder->andWhere('c.created_at <= :to')
                 ->setParameter('to', $criteria['date_to']);
         }
 
@@ -146,7 +146,7 @@ class EntryManager extends AbstractEntryManager
                 $queryBuilder->addOrderBy($ordering['field'], $ordering['order']);
             }
         } else {
-            $queryBuilder->orderBy('c.createdAt', 'DESC');    //default ordering
+            $queryBuilder->orderBy('c.created_at', 'DESC');    //default ordering
         }
 
         if (null === $this->pager) {

@@ -102,7 +102,7 @@ abstract class EntryManager implements EntryManagerInterface
     {
         $class = $this->getClass();
         $entry = new $class;
-
+        /* @var $entry Entry */
         if (null !== $id) {
             $entry->setId($id);
         }
