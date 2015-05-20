@@ -22,8 +22,8 @@ services:
 
     brother_quest.pager.default:
         class: %brother_quest.pager.class%
-        arguments:
-            - { type: service, id: twig.extension.pagerfanta, on-invalid: null}
+#        arguments:
+#            - { type: service, id: twig.extension.pagerfanta, on-invalid: null}
 
     brother_quest.mailer:
         class: %brother_quest.mailer.class%

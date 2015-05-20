@@ -32,15 +32,10 @@ class BrotherQuestExtension extends Extension
         // can be overridden by setting the brother_quest.spam_detection.enable config
         $brotherConfig['spam_detection'] = isset($bundles['AkismetBundle']) ? true : false;
 
-        // check if WhiteOctoberPagerfantaBundle is registered
-        // if not set the default pager class
-        // can be overridden by setting the brother_quest.pager.class config
-        if (!isset($bundles['WhiteOctoberPagerfantaBundle'])) {
-            if ( 'orm' == $questConfig['db_driver']) {
-                $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultORM';
-            } else {
-                $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultMongodb';
-            }
+        if ('orm' == $questConfig['db_driver']) {
+            $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultORM';
+        } else {
+            $brotherConfig['class']['pager'] = 'Brother\QuestBundle\Pager\DefaultMongodb';
         }
 
         // add the BrotherQuestBundle configurations
@@ -56,7 +51,7 @@ class BrotherQuestExtension extends Extension
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
-        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\YamlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.yml');
 
         if (!in_array(strtolower($config['db_driver']), array('mongodb', 'orm'))) {
@@ -83,13 +78,13 @@ class BrotherQuestExtension extends Extension
         $container->setParameter('brother_quest.form.entry.type', $config['form']['entry']['type']);
         $container->setParameter('brother_quest.form.entry.class', $config['form']['entry']['class']);
 
-        $container->setParameter('brother_quest.form.edit.name', $config['form']['edit']['name']);		
-        $container->setParameter('brother_quest.form.edit.type', $config['form']['edit']['type']);		
+        $container->setParameter('brother_quest.form.edit.name', $config['form']['edit']['name']);
+        $container->setParameter('brother_quest.form.edit.type', $config['form']['edit']['type']);
         $container->setParameter('brother_quest.form.edit.class', $config['form']['edit']['class']);
 
-        $container->setParameter('brother_quest.form.reply.name', $config['form']['reply']['name']);		
-        $container->setParameter('brother_quest.form.reply.type', $config['form']['reply']['type']);		
-        $container->setParameter('brother_quest.form.reply.class', $config['form']['reply']['class']);		
+        $container->setParameter('brother_quest.form.reply.name', $config['form']['reply']['name']);
+        $container->setParameter('brother_quest.form.reply.type', $config['form']['reply']['type']);
+        $container->setParameter('brother_quest.form.reply.class', $config['form']['reply']['class']);
 
         // views
         $container->setParameter('brother_quest.view.frontend.list', $config['view']['frontend']['list']);

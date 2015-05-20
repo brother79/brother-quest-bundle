@@ -16,7 +16,7 @@
     <parameters>
 brother_quest.model.entry.class: Brother\QuestBundle\Document\Entry</parameter>
 brother_quest.manager.entry.class: Brother\QuestBundle\Document\EntryManager</parameter>
-brother_quest.pager.class: Brother\QuestBundle\Pager\PagerfantaMongodb</parameter>
+brother_quest.pager.class: Brother\QuestBundle\Pager\DefaultMongodb</parameter>
     </parameters>
 
     <services>

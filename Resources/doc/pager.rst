@@ -1,13 +1,6 @@
 Pager Installation and Configuration
 ====================================
 
-The BrotherQuestBundle uses the ``WhiteOctoberPagerfantaBundle_`` for pagination.
-
-To use ``WhiteOctoberPagerfantaBundle`` as the BrotherQuestBundle pager ,
-you must install the WhiteOctoberPagerfantaBundle_.
-
-If the WhiteOctoberPagerfantaBundle is not installed, the BrotherQuestBundle will disable pagination.
-
 To limit the number of quest entries shown, set the ``entry_per_page`` config option
 
 .. code-block:: yml
