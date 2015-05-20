@@ -2,7 +2,6 @@
 
 namespace Brother\QuestBundle\Controller;
 
-use Brother\CommonBundle\AppDebug;
 use Brother\QuestBundle\Model\EntryManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -30,7 +29,6 @@ class QuestController extends Controller
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
         $entries = $manager->getPaginatedList($page, $limit, array('state' => 1));
-        AppDebug::_dx(1);
         $pagerHtml = $manager->getPaginationHtml();
 
         $view = $this->getView('frontend.list');

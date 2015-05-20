@@ -7,13 +7,12 @@ services:
             - %brother_quest.model.entry.class%
 
     brother_quest.form_factory.entry:
-        factory-method: createNamed
-        factory-service: form.factory
+        factory: ['@form.factory', 'createNamed']
         class: Symfony\Component\Form\Form
         arguments:
             - %brother_quest.form.entry.name%
             - %brother_quest.form.entry.type%
-            - null
+            - ~
 
     brother_quest.form.edit.type:
         class: %brother_quest.form.edit.class%
@@ -23,13 +22,12 @@ services:
             - %brother_quest.model.entry.class%
 
     brother_quest.form_factory.edit:
-        factory-method: createNamed
-        factory-service: form.factory
+        factory: ['@form.factory', 'createNamed']
         class: Symfony\Component\Form\Form
         arguments:
             - %brother_quest.form.edit.name%
             - %brother_quest.form.edit.type%</argument>
-            - null
+            - ~
 
     brother_quest.form.reply.type:
         class: %brother_quest.form.reply.class%
@@ -39,8 +37,7 @@ services:
             - %brother_quest.model.entry.class%
 
     brother_quest.form_factory.reply:
-        factory-method: createNamed
-        factory-service: form.factory
+        factory: ['@form.factory', 'createNamed']
         class: Symfony\Component\Form\Form
         arguments:
             - %brother_quest.form.reply.name%

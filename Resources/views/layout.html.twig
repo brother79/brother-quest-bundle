@@ -7,35 +7,18 @@
  This source file is subject to the MIT license that is bundled
  with this source code in the file LICENSE.
 #}
-
-{% extends 'BrotherQuestBundle::layout.html.twig' %}
+{% extends '::base.html.twig' %}
 
 {% set title = 'title.quest'|trans({}, 'BrotherQuestBundle') %}
 {% block title %}{{ title }}{% endblock %}
-{% block content_title %}<h2>{{ title }}</h2>{% endblock %}
-
-
-{% block stylesheets %}
-    {{ parent() }}
-    <link rel="stylesheet" href="{{ asset('bundles/brotherquest/css/quest.css') }}" />
-{% endblock %}
-{#
-
- This file is part of the BrotherQuestBundle package.
-
- (c) Yos Okusanya <yos.okusanya@gmail.com>
-
- This source file is subject to the MIT license that is bundled
- with this source code in the file LICENSE.
-#}
-
-{% extends "::base.html.twig" %}
 
 {% block stylesheets %}
     {{ parent() }}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/brotherquest/css/quest.css') }}" />
 {% endblock %}
+
 
 {% block javascripts %}
     {{ parent() }}
@@ -61,7 +44,7 @@
 
         <div class="row row-padded-top">
             <div class="page-header">
-                {% block content_title %}<h2>Brother</h2>{% endblock %}
+                {% block content_title %}<h2>{{ title }}</h2>{% endblock %}
             </div>
             <div class="block">
                 {% block content %}{% endblock %}
