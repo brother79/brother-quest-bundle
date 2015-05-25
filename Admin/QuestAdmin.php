@@ -67,6 +67,7 @@ class QuestAdmin extends Admin
             ->add('comment')
             ->add('priority')
             ->add('state')
+            ->add('created_at', 'sonata_type_datetime_picker')
             ->end()
         ;
     }
