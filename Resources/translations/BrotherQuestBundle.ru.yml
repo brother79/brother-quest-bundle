@@ -1,20 +1,29 @@
-#
-# This file is part of the BrotherQuestBundle package.
-#
-# (c) Yos Okusanya <yos.okusanya@gmail.com>
-#
-# This source file is subject to the MIT license that is bundled
-# with this source code in the file LICENSE.
+no:                         Нет
+yes:                        Да
+never:                      Никогда
+brother_quest:              Вопросы
 
-#text
-no:                         No
-yes:                        Yes
-never:                      Never
-brother_quest:              Quest
+toggle_navigation:          Переключить навизацию
+confirm_entry_remove:       Вы действительно хотите удалить вопрос?
+confirm_entries_delete:     Вы действительно хотите удалить эти вопросы?
 
-toggle_navigation:          Toggle navigation
-confirm_entry_remove:       Are you sure you want to delete this quest entry.
-confirm_entries_delete:     Are you sure you want to delete these quest entries.
+A:               Ответ
+Action:          Действия
+Comment:         Комментарий
+Created At:      Дата создания
+Email:           E-mail
+Entry List:      Вопросы
+Executor:        Исполнитель 
+Id:              №
+Name:            Название
+Priority:        Приоритет 
+Q:               Вопрос
+Quest:           Вопросы
+State:           Статус 
+Updated At:      Дата модификации
+
+General:         Основные
+Other:           Дополнительные
 
 #titles
 title:
@@ -31,7 +40,7 @@ title:
     edit:                   Edit
     comment:                Comment
     action:                 Action
-    quest:                  Quest
+    quest:                  Вопрос
 
 #links/buttons
 link:
@@ -57,19 +66,19 @@ link:
 
 #messages
 flash:
-    awaiting_approval:      Your comment is awaiting moderation
+    awaiting_approval:      Ваш комментарий ожидает модерацию
 
     save:
-        success:            Entry saved
-        error:              Error saving quest entry
+        success:            Запись сохранена
+        error:              Ошибка сохранения вопроса в гостевой книге
 
     remove:
-        success:            Quest entry deleted
-        error:              Error deleting quest entry with id %id%
+        success:            вопрос удалён успешно
+        error:              Ошибка удаления вопроса № %id%
 
     update:
-        success:            Quest entry updated
-        error:              Error updating quest entry with id %id%
+        success:            вопрос успешно обновлён
+        error:              Ошибка сохранения вопроса № %id%
 
     reply:
         success:            Reply sent to %name% (%email%)
@@ -88,40 +97,40 @@ flash:
         error:              Error unpublishing quest entries with id(s) (%ids%)
 
     error:
-        bad_request:        "Error: Bad request"
-        spam_detected:      Quest entry flagged as spam
+        bad_request:        "Ошибка: Неверный запрос"
+        spam_detected:      вопрос помечен как спам
 
     select_error:
-        delete:             You must select at least one quest entry to delete.
-        publish:            You must select at least one quest entry to publish.
-        unpublish:          You must select at least one quest entry to unpublish.
+        delete:             Вы должны выделить хотябы один вопрос для удаления.
+        publish:            Вы должны выделить хотябы один вопрос для публикации.
+        unpublish:          Вы должны выделить хотябы один вопрос для отмены публикации.
 
 #form fields
 form:
     entry:
-        name:                   Name
-        email:                  Email
+        name:                   Имя
+        email:                  E-mail
         comment:                Comment
-        submit:                 Post comment
-        created:                Created
+        submit:                 Отправить комментарий
+        created:                Создан
         state:                  Publish
-        enter_your_comment_here: Enter your comment here
+        enter_your_comment_here: Введите свой комментарий тут
 
     reply:
-        to:                     To
-        from:                   From
-        title:                  Title
-        message:                Message
+        to:                     Кому
+        from:                   От кого
+        title:                  Заголовок
+        message:                Сообщение
 
 #emails
 email.reply: |
-  Dear %name%
+  Уважаемый %name%
 
-  --------- original message ----------
+  --------- Исходное сообщение ----------
   %comment%
 
 email.admin_notification: |
-  New comment from %name%(%email%)
+  Новый комментарий от %name%(%email%)
 
-  Comment:
+  Комментарий:
   %comment%
