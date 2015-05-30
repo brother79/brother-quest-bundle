@@ -14,11 +14,6 @@ services:
         calls:
             - [ setAnnotationReader, [ @annotation_reader ] ]
 
-    brother_quest.admin.quest:
-        class: Brother\QuestBundle\Admin\QuestAdmin
-        arguments: [~, Brother\QuestBundle\Entity\Entry, BrotherQuestBundle:QuestAdmin]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Quest}
 
     brother_quest.pager.default:
         class: %brother_quest.pager.class%
@@ -32,3 +27,9 @@ services:
             - { type: service', id: mailer, on-invalid: null}
             - '@templating'
             - %brother_quest.mailer.config%
+
+    brother_quest.admin.entry:
+        class: Brother\QuestBundle\Admin\EntryAdmin
+        arguments: [~, Brother\QuestBundle\Entity\Entry, BrotherQuestBundle:EntryAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Quest}
