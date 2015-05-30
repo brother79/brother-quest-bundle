@@ -28,7 +28,7 @@ brother_quest.pager.class: Brother\QuestBundle\Pager\DefaultMongodb</parameter>
             <argument type: service" id: event_dispatcher }
             <argument type: service" id: brother_quest.document_manager }
             <argument>%brother_quest.model.entry.class%</argument>
-			<argument>%brother_quest.auto_publish%</argument>
+   <argument>%brother_quest.auto_publish%</argument>
             <call method: setPager
                 <argument type: service" id: brother_quest.pager }
             </call>
