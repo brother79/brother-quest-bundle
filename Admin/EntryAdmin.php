@@ -30,8 +30,7 @@ class EntryAdmin extends Admin
             ->add('email')
             ->add('executor')
             ->add('comment')
-            ->add('priority')
-        ;
+            ->add('priority');
     }
 
     /**
@@ -45,16 +44,15 @@ class EntryAdmin extends Admin
             ->add('a', null, array('editable' => true))
             ->add('email')
             ->add('state')
-			->add('created_at')
-			->add('updated_at')
+            ->add('created_at')
+            ->add('updated_at')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
                     'edit' => array(),
                     'delete' => array(),
                 )
-            ))
-        ;
+            ));
     }
 
     /**
@@ -74,9 +72,8 @@ class EntryAdmin extends Admin
             ->add('comment')
             ->add('priority')
             ->add('state')
-            ->add('created_at', 'sonata_type_datetime_picker')
-            ->end()
-        ;
+            ->add('created_at', 'sonata_type_date_picker', array('dp_language'=>'ru', 'format' => 'dd.MM.yyyy, HH:mm:ss'))
+            ->end();
     }
 
     /**
@@ -94,7 +91,6 @@ class EntryAdmin extends Admin
             ->add('comment')
             ->add('priority')
             ->add('created_at')
-            ->add('updated_at')
-        ;
+            ->add('updated_at');
     }
 }
