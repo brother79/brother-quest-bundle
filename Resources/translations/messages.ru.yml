@@ -2,8 +2,8 @@ Q:                Вопрос
 A:                Ответ
 Email:            Email
 Executor:         Исполнитель
-Edit QuestAdmin:  Редактировать вопрос
-QuestAdmin List:  Список вопросов
+#Edit QuestAdmin:  Редактировать вопрос
+#QuestAdmin List:  Список вопросов
 Isp:              Исполнитель
 Comment:          Комментарий
 User:             Пользователь

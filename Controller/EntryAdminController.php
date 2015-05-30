@@ -13,7 +13,7 @@ class EntryAdminController extends CRUDController
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['state'] = array('created');
     	$this->setFilters($filters);
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }*/
 
 
@@ -23,7 +23,7 @@ class EntryAdminController extends CRUDController
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['state'] = array('need_moderate');
     	$this->setFilters($filters);
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }*/
     
     
@@ -33,7 +33,7 @@ class EntryAdminController extends CRUDController
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['state'] = array('in_progress');
     	$this->setFilters($filters);
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }*/
 
 /*    public function executeListShowResolved(sfWebRequest $request)
@@ -42,7 +42,7 @@ class EntryAdminController extends CRUDController
     	$filters['a'] = array('text' => '', 'is_empty' => 1);
     	$filters['state'] = array('resolved');
     	$this->setFilters($filters);
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }*/
     
 /*    public function executeListUpdate(sfWebRequest $request)
@@ -50,7 +50,7 @@ class EntryAdminController extends CRUDController
     	$object = $this->getRoute()->getObject();
         $object->setUpdatedAt(svUtils::getDate(time()));
         $object->save();
-        $this->redirect('questAdmin/index');
+        $this->redirect('entryAdmin/index');
     }*/
 
 /*    public function executeListApprove(sfWebRequest $request)
@@ -58,7 +58,7 @@ class EntryAdminController extends CRUDController
     	$object = $this->getRoute()->getObject();
     	$object->setState('created');
     	$object->save();
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }    */
 
 
@@ -67,7 +67,7 @@ class EntryAdminController extends CRUDController
     	$object = $this->getRoute()->getObject();
     	$object->setState('freeze');
     	$object->save();
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }    */
     
 /*    public function executeListInProgress(sfWebRequest $request)
@@ -75,7 +75,7 @@ class EntryAdminController extends CRUDController
     	$object = $this->getRoute()->getObject();
     	$object->setState('in_progress');
     	$object->save();
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }    */
     
 /*    public function executeListResolved(sfWebRequest $request)
@@ -83,7 +83,7 @@ class EntryAdminController extends CRUDController
     	$object = $this->getRoute()->getObject();
     	$object->setState('resolved');
     	$object->save();
-    	$this->redirect('questAdmin/index');
+    	$this->redirect('entryAdmin/index');
     }    */
     
     
