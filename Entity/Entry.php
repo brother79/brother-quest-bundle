@@ -83,6 +83,12 @@ class Entry
      */
     protected $state;
 
+    function __toString()
+    {
+     return $this->q;
+    }
+
+
     /**
      * Get id
      *
