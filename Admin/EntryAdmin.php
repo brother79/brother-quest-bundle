@@ -43,7 +43,7 @@ class EntryAdmin extends Admin
             ->add('q')
             ->add('a', null, array('editable' => true))
             ->add('email')
-            ->add('state')
+            ->add('state', 'boolean', array('editable' => true))
             ->add('created_at')
             ->add('updated_at')
             ->add('_action', 'actions', array(
