@@ -81,7 +81,7 @@ class Entry
     /**
      * @var string
      */
-    protected $state;
+    protected $state=0;
 
     function __toString()
     {
