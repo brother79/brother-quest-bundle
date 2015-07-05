@@ -438,7 +438,7 @@ class QuestController extends Controller
      */
     public function getEntry($id)
     {
-        $quest = $this->getManager()->findEntryById($id);
+        $quest = $this->getManager()->findOneById($id);
 
         if (null === $quest) {
             throw new NotFoundHttpException(sprintf("Quest entry with id '%s' does not exists.", $id));

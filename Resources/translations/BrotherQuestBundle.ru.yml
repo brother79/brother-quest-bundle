@@ -1,29 +1,41 @@
-no:                         Нет
-yes:                        Да
-never:                      Никогда
-brother_quest:              Вопросы
 
-toggle_navigation:          Переключить навизацию
-confirm_entry_remove:       Вы действительно хотите удалить вопрос?
-confirm_entries_delete:     Вы действительно хотите удалить эти вопросы?
 
 A:               Ответ
 Action:          Действия
+Approve:         Одобрить      
+brother_quest:              Вопросы
 Comment:         Комментарий
+confirm_entries_delete:     Вы действительно хотите удалить эти вопросы?
+confirm_entry_remove:       Вы действительно хотите удалить вопрос?
 Created At:      Дата создания
+Edit QuestAdmin: Редактировать вопрос      
 Email:           E-mail
 Entry List:      Вопросы
 Executor:        Исполнитель 
+Freeze:          Заморозить      
+General:         Основные
 Id:              №
+In progress:     В процессе      
+Isp:             Исполнитель      
 Name:            Название
+never:                      Никогда
+no:                         Нет
+Other:           Дополнительные
 Priority:        Приоритет 
 Q:               Вопрос
 Quest:           Вопросы
+QuestAdmin List: Список вопросов      
+Resolved:         Выполнено      
+Show in progress: Показать "В процессе"      
+Show new:         Показать новые      
+Show open:        Показать открытые      
+Show resolved:    Показать решённые      
 State:           Статус 
+toggle_navigation:          Переключить навизацию
+Update:          Обновить      
 Updated At:      Дата модификации
-
-General:         Основные
-Other:           Дополнительные
+User:            Пользователь      
+yes:                        Да
 
 #titles
 title:

@@ -70,7 +70,7 @@ class EntryManager extends AbstractEntryManager
     /**
      * {@inheritDoc}
      */
-    public function findEntryBy(array $criteria)
+    public function findOneBy(array $criteria)
     {
         return $this->repository->findOneBy($criteria);
     }
@@ -78,7 +78,7 @@ class EntryManager extends AbstractEntryManager
     /**
      * {@inheritDoc}
      */
-    public function findEntriesBy(array $criteria)
+    public function findBy(array $criteria)
     {
         return $this->repository->findBy($criteria);
     }
