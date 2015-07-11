@@ -11,6 +11,5 @@ services:
             - '@event_dispatcher'
             - '@brother_quest.entity_manager'
             - %brother_quest.model.entry.class%
-            - %brother_quest.auto_publish%
         calls:
             - [setPager, ['@brother_quest.pager']]

@@ -1,34 +1,31 @@
-{% extends 'BrotherQuestBundle:Frontend:layout.html.twig' %}
+<h1>Вопросы</h1>
 
-{% block body -%}
-    <h1>Quest list</h1>
-
-    <table class="records_list">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Q</th>
-                <th>A</th>
-                <th>Email</th>
-                <th>Executor</th>
-                <th>Comment</th>
-                <th>Priority</th>
-                <th>Actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for entity in entries %}
-            <tr>
-                <td><a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
-                <td>{{ entity.name }}</td>
-                <td>{{ entity.q }}</td>
-                <td>{{ entity.a }}</td>
-                <td>{{ entity.email }}</td>
-                <td>{{ entity.executor }}</td>
-                <td>{{ entity.comment }}</td>
-                <td>{{ entity.priority }}</td>
-                <td>
+<table class="records_list">
+    <thead>
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Q</th>
+        <th>A</th>
+        <th>Email</th>
+        <th>Executor</th>
+        <th>Comment</th>
+        <th>Priority</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for entity in entries %}
+        <tr>
+            <td><a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+            <td>{{ entity.name }}</td>
+            <td>{{ entity.q }}</td>
+            <td>{{ entity.a }}</td>
+            <td>{{ entity.email }}</td>
+            <td>{{ entity.executor }}</td>
+            <td>{{ entity.comment }}</td>
+            <td>{{ entity.priority }}</td>
+            <td>
                 <ul>
                     <li>
                         <a href="{{ path('brother_quest_show', { 'id': entity.id }) }}">show</a>
@@ -37,52 +34,47 @@
                         <a href="{{ path('brother_quest_edit', { 'id': entity.id }) }}">edit</a>
                     </li>
                 </ul>
-                </td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
 
-        <ul>
-        <li>
-            <a href="{{ path('brother_quest_new') }}">
-                Create a new entry
-            </a>
-        </li>
-    </ul>
-    {% endblock %}
+<ul>
+    <li>
+        <a href="{{ path('brother_quest_new_ajax') }}">
+            Create a new entry
+        </a>
+    </li>
+</ul>
 
 
-{% block content_navbar %}
-    {{  parent() }}
     <li>
         <a href="#questForm">
             <i class="glyphicon glyphicon-plus-sign"></i>  {{ 'link.sign_quest'|trans({}, 'BrotherQuestBundle') }}
         </a>
     </li>
-{% endblock %}
-
-{% block content %}
     <div class="brother-quest-container">
         <div class="brother-quest-panel-container">
             {% if entries|length > 0 %}
-				{% for entry in entries %}
-					<div class="panel panel-default">
-						<div class="panel-heading">
-							<h3 class="panel-title">
-								<span class="brother-quest-author">{{ entry.name }}</span>
+                {% for entry in entries %}
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                <span class="brother-quest-author">{{ entry.name }}</span>
 								<span class="brother-quest-date">
 									{{ entry.createdAt is empty ? '' :  entry.createdAt|date(date_format) }}
 								</span>
-							</h3>
-						</div>
-						<div class="panel-body">
-							{{ entry.comment|nl2br }}
-						</div>
-					</div><!-- /panel -->
-				{% endfor %}
+                            </h3>
+                        </div>
+                        <div class="panel-body">
+                            {{ entry.comment|nl2br }}
+                        </div>
+                    </div><!-- /panel -->
+                {% endfor %}
             {% endif %}
-        </div><!-- /brother-quest-panel-container -->
+        </div>
+        <!-- /brother-quest-panel-container -->
 
         {{ pagination_html }}
 
@@ -93,7 +85,6 @@
             <h2>{{ 'title.sign_quest'|trans({}, 'BrotherQuestBundle') }}</h2>
         </div>
 
-        {{ include('BrotherQuestBundle:Frontend:form.html.twig',{ 'form': form })}}
+        {{ include('BrotherQuestBundle:Frontend:form.html.twig',{ 'form': form }) }}
     </div>
-{% endblock %}
 

@@ -7,18 +7,8 @@ parameters:
             view: %brother_quest.view.mail.notify%
 services:
 
-    gedmo.listener.softdeleteable:
-        class: Gedmo\SoftDeleteable\SoftDeleteableListener
-        tags:
-            - { name: doctrine.event_subscriber, connection: default }
-        calls:
-            - [ setAnnotationReader, [ @annotation_reader ] ]
-
-
     brother_quest.pager.default:
         class: %brother_quest.pager.class%
-#        arguments:
-#            - { type: service, id: twig.extension.pagerfanta, on-invalid: null}
 
     brother_quest.mailer:
         class: %brother_quest.mailer.class%

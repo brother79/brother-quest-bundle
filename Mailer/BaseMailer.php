@@ -83,30 +83,4 @@ abstract class BaseMailer implements MailerInterface
 		return true;
     }
 
-    /**
-     * @param \Symfony\Component\Form\FormInterface		$form
-     * @param EntryInterface 							$entry
-     *
-     * @return boolean
-     */
-    public function sendReply(FormInterface $form, EntryInterface $entry)
-    {
-        $mailOptions = array();
-        $mailOptions['from'] = $form->get('senderEmail')->getData();
-        $mailOptions['to'] = $form->get('email')->getData();
-        $mailOptions['body'] = $form->get('message')->getData();
-        $mailOptions['subject'] = $form->get('title')->getData();
-
-        $event = new MailEvent($entry, $mailOptions);
-        $this->dispatcher->dispatch(Events::ENTRY_PRE_REPLY, $event);
-
-        if ($event->isPropagationStopped()) {
-            return false;
-        }
-		
-		$this->sendEmail($mailOptions);
-        $this->dispatcher->dispatch(Events::ENTRY_POST_REPLY, $event);
-		
-		return true;
-    }
 }

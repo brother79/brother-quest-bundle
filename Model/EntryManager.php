@@ -232,21 +232,6 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Update the quest entry replied fields.
-     *
-     * @param EntryInterface 							$entry
-     * @param \Symfony\Component\Form\FormInterface		$form
-	 *
-     * @return boolean
-     */
-    public function updateReplyFields(EntryInterface $entry, FormInterface $form)
-    {
-        $entry->updateRepliedAt();
-
-        return $this->save($entry);
-    }
-
-    /**
      * Performs the persistence of the quest entry.
      *
      * @param EntryInterface $entry

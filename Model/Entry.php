@@ -55,16 +55,6 @@ abstract class Entry implements EntryInterface
     protected $updatedAt;
 
     /**
-     * @var boolean
-     */
-    protected $replied;
-
-    /**
-     * @var \DateTime
-     */
-    protected $repliedAt;
-	
-    /**
      * Get id
      *
      * @return integer 
@@ -199,58 +189,6 @@ abstract class Entry implements EntryInterface
     }
     
     /**
-     * Set replied
-     *
-     * @param boolean $replied
-     */
-    public function setReplied($replied)
-    {
-        $this->replied = $replied;
-    }
-
-    /**
-     * Get replied
-     *
-     * @return boolean
-     */
-    public function getReplied()
-    {
-        return $this->replied;
-    }
-
-    /**
-     * Set modified
-     *
-     * @param \DateTime $repliedAt
-     */
-    public function setRepliedAt($repliedAt)
-    {
-        $this->repliedAt = $repliedAt;
-    }
-    
-    /**
-     * Get repliedAt
-     *
-     * @return \DateTime 
-     */
-    public function getRepliedAt()
-    {
-       if(!$this->validateDate($this->repliedAt))
-            $this->repliedAt = null;
-
-        return $this->repliedAt;
-    }
-    
-    /**
-     * Update repliedAt
-     */
-    public function updateRepliedAt()
-    {
-        $this->setReplied(1);
-        $this->repliedAt = new \DateTime();
-    }
-    
-    /**
      * validate date fields
      *
      * @param mixed $date 
@@ -273,8 +211,7 @@ abstract class Entry implements EntryInterface
     public function prePersist()
     {
         $this->createdAt = new \DateTime();
-        $this->replied = 0;
-    }   
+    }
    
     /**
      * Pre update

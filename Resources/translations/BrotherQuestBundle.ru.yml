@@ -47,8 +47,6 @@ title:
 
     state:                  State
     updated:                Updated
-    reply:                  Reply
-    replied:                Replied
     edit:                   Edit
     comment:                Comment
     action:                 Action
@@ -65,14 +63,12 @@ link:
     save:                   Save
     delete:                 Delete
     state:                  State
-    reply:                  Reply
     publish:                Publish
     unpublish:              Unpublish
 
     admin:                  Admin
     publish:                Publish
     unpublish:              Unpublish
-    send_reply:             Send
     sign_quest:         Sign quest
     post_comment:           Post a comment
 
@@ -91,10 +87,6 @@ flash:
     update:
         success:            вопрос успешно обновлён
         error:              Ошибка сохранения вопроса № %id%
-
-    reply:
-        success:            Reply sent to %name% (%email%)
-        error:              Error sending reply
 
     delete:
         success:            "{1} %count% quest entry deleted|[2,Inf] %count% quest entries deleted"
@@ -128,18 +120,7 @@ form:
         state:                  Publish
         enter_your_comment_here: Введите свой комментарий тут
 
-    reply:
-        to:                     Кому
-        from:                   От кого
-        title:                  Заголовок
-        message:                Сообщение
-
 #emails
-email.reply: |
-  Уважаемый %name%
-
-  --------- Исходное сообщение ----------
-  %comment%
 
 email.admin_notification: |
   Новый комментарий от %name%(%email%)

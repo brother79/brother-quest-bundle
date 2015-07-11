@@ -1,14 +1,5 @@
 <?php
 
-/*
- * This file is part of the BrotherQuestBundle package.
- *
- * (c) Yos Okusanya <yos.okusanya@gmail.com>
- *
- * This source file is subject to the MIT license that is bundled
- * with this source code in the file LICENSE.
- */
-
 namespace Brother\QuestBundle\Entity;
 
 use Brother\CommonBundle\AppDebug;
@@ -121,12 +112,6 @@ class EntryManager extends AbstractEntryManager
         if (isset($criteria['state'])) {
             $queryBuilder->andWhere('c.state = :state')
                 ->setParameter('state', $criteria['state']);
-        }
-
-        // set replied
-        if (isset($criteria['replied'])) {
-            $queryBuilder->andWhere('c.replied = :replied')
-                ->setParameter('replied', $criteria['replied']);
         }
 
         // set dates

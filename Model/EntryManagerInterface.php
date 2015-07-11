@@ -90,14 +90,6 @@ interface EntryManagerInterface
     public function updateState($ids, $state);
 
     /**
-     * Update the quest entry replied fields
-     *
-     * @param EntryInterface 				        $entry
-     * @param \Symfony\Component\Form\FormInterface 	$form
-     */
-    public function updateReplyFields(EntryInterface $entry, FormInterface $form);
-
-    /**
      * Finds entries by the given criteria
      * and from the query offset.
      *

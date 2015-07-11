@@ -112,26 +112,6 @@ final class Events
     const ENTRY_POST_UPDATE_STATE = 'brother_quest.entry.postNotify';
 
     /**
-     * The PRE_REPLY event occurs prior to replying a entry.
-	 *
-     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
-	 *
-     * Sending the reply can be aborted by calling $event->isPropagationStopped().
-     *
-     * @var string
-     */	
-    const ENTRY_PRE_REPLY = 'brother_quest.entry.preReply';
-
-    /**
-     * The POST_REPLY event occurs affer sending a reply.
-	 *
-     * The listener receives a Brother\QuestBundle\Event\MailEvent instance.
-     *
-     * @var string
-     */
-    const ENTRY_POST_REPLY = 'brother_quest.entry.postReply';
-
-    /**
      * The PRE_NOTIFY event occurs prior to sending a 
 	 * quest entry notification email.
 	 *

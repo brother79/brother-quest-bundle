@@ -108,36 +108,4 @@ interface EntryInterface
      */
     public function getUpdatedAt();
 
-    /**
-     * Set replied
-     *
-     * @param boolean $replied
-     */
-    public function setReplied($replied);
-
-    /**
-     * Get replied
-     *
-     * @return boolean
-     */
-    public function getReplied();
-
-    /**
-     * Set repliedAt
-     *
-     * @param \DateTime $repliedAt
-     */
-    public function setRepliedAt($repliedAt);
-
-    /**
-     * Get repliedAt
-     *
-     * @return boolean
-     */
-    public function getRepliedAt();
-	
-    /**
-     * Update reply fields
-     */
-    public function updateRepliedAt();
 }

@@ -126,11 +126,6 @@ class EntryManager extends AbstractEntryManager
             $queryBuilder->field('state')->equals((bool)$criteria['state']);
         }
 
-        // set replied
-        if(isset($criteria['replied'])) {
-            $queryBuilder->field('replied')->equals((bool)$criteria['replied']);
-        }
-
         // set dates
         if(isset($criteria['date_from'])) {
             $queryBuilder->field('created_at')->gte($criteria['date_from']);

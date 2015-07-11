@@ -29,11 +29,11 @@ Brother\QuestBundle\Model\Entry:
                 minMessage: brother_quest.email.short
                 maxMessage: brother_quest.email.long
 
-        comment:
+        q:
             - NotBlank:
-                message: brother_quest.comment.blank
+                message: brother_quest.q.blank
             - Length:
                 min: 2
                 #max: 255
-                minMessage: brother_quest.comment.short
-                maxMessage: brother_quest.comment.long
+                minMessage: brother_quest.q.short
+                maxMessage: brother_quest.q.long

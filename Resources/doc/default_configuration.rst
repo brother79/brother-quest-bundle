@@ -41,11 +41,6 @@ Default Configuration
                 type: brother_quest_entry_edit
                 class: Brother\QuestBundle\Form\Type\EntryEditType  # quest entry edit form class
 
-            reply:
-                name: brother_quest_entry_reply
-                type: brother_quest_entry_reply
-                class: Brother\QuestBundle\Form\Type\EntryReplyType # quest entry reply form class
-
         service:
             pager: ~                                                # (optional) custom pager service
             mailer: ~                                               # (optional) custom mailer service

@@ -1,10 +1,13 @@
 Brother\QuestBundle\Entity\Entry:
     table: brother_quest
     type: entity
-    gedmo:
-        soft_deleteable:
-            field_name: deleted_at
-            time_aware: false
+    indexes:
+        created_at_idx:
+            columns:
+                - created_at
+        name_idx:
+            columns:
+                - name
     id:
         id:
             type: integer
