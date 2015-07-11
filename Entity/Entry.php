@@ -2,13 +2,14 @@
 
 namespace Brother\QuestBundle\Entity;
 
+use Brother\CommonBundle\Model\Entry\EntryInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Quest
+ * Entry
  */
-class Entry
+class Entry implements EntryInterface
 {
     /**
      * @var integer
@@ -86,6 +87,12 @@ class Entry
     function __toString()
     {
      return $this->q;
+    }
+
+    function __construct()
+    {
+        $this->created_at = new \DateTime();
+        $this->updated_at = new \DateTime();
     }
 
 
@@ -406,7 +413,6 @@ class Entry
     public function prePersist()
     {
         $this->createdAt = new \DateTime();
-        $this->replied = 0;
     }
 
     /**
