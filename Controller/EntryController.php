@@ -220,10 +220,6 @@ class EntryController extends Controller
                 if ($this->getManager()->save($entry) !== false) {
                     $this->setFlashMessage('flash.save.success');
 
-                    if (!$this->container->getParameter('brother_quest.auto_publish')) {
-                        $this->setFlashMessage('flash.awaiting_approval');
-                    }
-
                     // notify admin
                     if ($this->container->getParameter('brother_quest.notify_admin')) {
                         $this->get('brother_quest.mailer')->sendAdminNotification($entry);

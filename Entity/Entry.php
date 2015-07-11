@@ -423,4 +423,12 @@ class Entry implements EntryInterface
         $this->updatedAt = new \DateTime();
     }
 
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
 }

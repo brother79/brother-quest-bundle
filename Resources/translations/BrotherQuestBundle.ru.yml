@@ -63,12 +63,8 @@ link:
     save:                   Save
     delete:                 Delete
     state:                  State
-    publish:                Publish
-    unpublish:              Unpublish
 
     admin:                  Admin
-    publish:                Publish
-    unpublish:              Unpublish
     sign_quest:         Sign quest
     post_comment:           Post a comment
 
@@ -92,22 +88,12 @@ flash:
         success:            "{1} %count% quest entry deleted|[2,Inf] %count% quest entries deleted"
         error:              Error publishing comments with id (%ids%)
 
-    publish:
-        success:            "{1} %count% quest entry published|[2,Inf] %count% quest entries published"
-        error:              Error publishing comments with id (%ids%)
-
-    unpublish:
-        success:            "{1} %count% quest entry unpublished|[2,Inf] %count% quest entries unpublished"
-        error:              Error unpublishing quest entries with id(s) (%ids%)
-
     error:
         bad_request:        "Ошибка: Неверный запрос"
         spam_detected:      вопрос помечен как спам
 
     select_error:
         delete:             Вы должны выделить хотябы один вопрос для удаления.
-        publish:            Вы должны выделить хотябы один вопрос для публикации.
-        unpublish:          Вы должны выделить хотябы один вопрос для отмены публикации.
 
 #form fields
 form:
@@ -117,7 +103,6 @@ form:
         comment:                Comment
         submit:                 Отправить комментарий
         created:                Создан
-        state:                  Publish
         enter_your_comment_here: Введите свой комментарий тут
 
 #emails

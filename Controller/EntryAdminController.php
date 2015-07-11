@@ -262,46 +262,6 @@ class EntryAdminController extends CRUDController
     }*/
 
     /**
-     * Publish/Unpublish a list of entries
-     *
-     * @param Request   $request
-     * @param integer   $state
-     *
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-/*    public function changeStateAction(Request $request, $state)
-    {
-        $ids = $request->get('ids', array());
-
-        if (!is_array($ids)) {
-            $ids = array($ids);
-        }
-
-        $task = $state ? 'publish' : 'unpublish';
-
-        if (empty($ids)) {
-            $this->setFlashMessage('flash.select_error.' . $task);
-        } else {
-            if ($this->getManager()->updateState($ids, $state) !== false) {
-                $nbEntries = count($ids);
-                $translated = $this->get('translator')->transChoice(
-                    'flash.' . $task . '.success',
-                    $nbEntries,
-                    array('%count%' => $nbEntries),
-                    'BrotherQuestBundle'
-                );
-
-                $this->get('session')->getFlashBag()->add('notice', $translated);
-
-            } else {
-                $this->setFlashMessage('flash.' . $task . 'error', array('%ids%'=>implode(', ', $ids)));
-            }
-        }
-
-        return $this->redirectToList();
-    }*/
-
-    /**
      * Cancel edit
      * 
      * @return \Symfony\Component\HttpFoundation\RedirectResponse

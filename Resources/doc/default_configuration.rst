@@ -6,9 +6,7 @@ Default Configuration
     brother_quest:
         db_driver: orm
         entry_per_page: 25                                          # number of entries to show on a page
-        auto_publish: true                                          # publish new entries or wait for admin approval
         notify_admin: false                                         # send notification mail to admin when a new entry is saved
-        spam_detection: false                                       # enable/disable spam detection
         date_format: "d/m/Y H:i:s"                                  # date format used
 
         mailer:

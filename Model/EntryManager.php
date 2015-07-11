@@ -36,11 +36,6 @@ abstract class EntryManager implements EntryManagerInterface
     protected $class;
 
     /**
-     * @var boolean
-     */
-    protected $autoPublish = true;
-
-    /**
      * @var Pagination object
      */
     protected $pager = null;
@@ -50,13 +45,11 @@ abstract class EntryManager implements EntryManagerInterface
      *
      * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface 	$dispatcher
      * @param string                                              			$class
-     * @param boolean                                              			$autoPublish
      */
-    public function __construct(EventDispatcherInterface $dispatcher, $class, $autoPublish)
+    public function __construct(EventDispatcherInterface $dispatcher, $class)
     {
         $this->dispatcher = $dispatcher;
         $this->class = $class;
-        $this->autoPublish = $autoPublish;
     }
 
     /**
@@ -122,15 +115,6 @@ abstract class EntryManager implements EntryManagerInterface
      */
     public function save(EntryInterface $entry)
     {
-        // set state for new entry
-        if ($this->isNew($entry))  {
-            if($this->autoPublish) {
-                $entry->setState(1);
-            } else {
-                $entry->setState(0);
-            }
-        }
-
         $event = new EntryEvent($entry);
         $this->dispatcher->dispatch(Events::ENTRY_PRE_PERSIST, $event);
 
@@ -260,4 +244,46 @@ abstract class EntryManager implements EntryManagerInterface
      */
     abstract protected function doUpdateState($ids, $state);
 
+    /**
+     * Enter description here...
+     *
+     * @param Doctrine_Query $query
+     * @return Doctrine_Query
+     */
+    
+	function getTasksQuery($query = null)
+    {
+    	if ($query == null) {
+    		$query = $this->createQuery()->orderBy('updated_at');
+    	}
+        return $query->andWhere('a is null')
+            ->andWhere('state =?', svBasePeer::STATE_CREATED);
+    }
+    
+    function getTasks($query = null)
+    {
+        $q = $this->getTasksQuery($query);
+    	$r = $q->execute();
+        $q->free();
+        return $r;
+    }
+
+    function clearOld($month = 3)
+    {
+    	$d = strtotime("-$month month");
+		svDebug::_dx($d);
+        $q = $this->createQuery('t')
+    		->where('t.state=?', svBasePeer::STATE_DELETED)
+    		->andWhere('t.updated_at<?', $d)
+    		->delete();
+        $q->execute();
+        $q->free();
+    }
+    
+    public function createQueryLast($params)
+    {
+        return $this->createQuery()
+            ->where('state = ?', svBasePeer::STATE_CREATED)
+            ->orderBy('created_at desc');
+    }
 }

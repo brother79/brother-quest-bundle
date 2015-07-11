@@ -219,5 +219,13 @@ abstract class Entry implements EntryInterface
     public function preUpdate()
     {
         $this->updatedAt = new \DateTime();
-    }	
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 }

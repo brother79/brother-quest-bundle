@@ -3,7 +3,7 @@ Quest Administration
 
 Quest entries administration is done in the backend.
 You must be logged in as a user with admin privileges to
-edit, delete and publish/unpublish quest entries.
+edit, delete quest entries.
 
 For more information about user authentication and administration,
 check the `Symfony Security documentation`_

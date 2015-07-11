@@ -32,11 +32,10 @@ class EntryManager extends AbstractEntryManager
      * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
      * @param \Doctrine\ORM\EntityManager $em
      * @param string $class
-     * @param boolean $autoPublish
      */
-    public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class, $autoPublish)
+    public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class)
     {
-        parent::__construct($dispatcher, $em->getClassMetadata($class)->name, $autoPublish);
+        parent::__construct($dispatcher, $em->getClassMetadata($class)->name);
 
         $this->em = $em;
         $this->repository = $em->getRepository($class);

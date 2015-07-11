@@ -62,7 +62,6 @@ class BrotherQuestExtension extends Extension
         $loader->load('form.yml');
 
         // core config
-        $container->setParameter('brother_quest.auto_publish', $config['auto_publish']);
         $container->setParameter('brother_quest.entry_per_page', $config['entry_per_page']);
         $container->setParameter('brother_quest.date_format', $config['date_format']);
         $container->setParameter('brother_quest.notify_admin', $config['notify_admin']);
