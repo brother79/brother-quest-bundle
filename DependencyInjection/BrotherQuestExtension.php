@@ -77,10 +77,6 @@ class BrotherQuestExtension extends Extension
         $container->setParameter('brother_quest.form.entry.type', $config['form']['entry']['type']);
         $container->setParameter('brother_quest.form.entry.class', $config['form']['entry']['class']);
 
-        $container->setParameter('brother_quest.form.edit.name', $config['form']['edit']['name']);
-        $container->setParameter('brother_quest.form.edit.type', $config['form']['edit']['type']);
-        $container->setParameter('brother_quest.form.edit.class', $config['form']['edit']['class']);
-
         // views
         $container->setParameter('brother_quest.view.frontend.list', $config['view']['frontend']['list']);
         $container->setParameter('brother_quest.view.frontend.new', $config['view']['frontend']['new']);
@@ -111,19 +107,6 @@ class BrotherQuestExtension extends Extension
             $container->setAlias('brother_quest.pager', $config['service']['pager']);
         } else {
             $container->setAlias('brother_quest.pager', 'brother_quest.pager.default');
-        }
-
-        // spam detection
-        $container->setParameter('brother_quest.enable_spam_detection', $config['spam_detection']);
-
-        if ($config['spam_detection']) {
-            // load external spam detector if set else load default
-            if (isset($config['service']['spam_detector'])) {
-                $container->setAlias('brother_quest.spam_detector', $config['service']['spam_detector']);
-            } else {
-                $loader->load('spam_detection.xml');
-                $container->setAlias('brother_quest.spam_detector', 'brother_quest.spam_detector.akismet');
-            }
         }
 
     }

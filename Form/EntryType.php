@@ -9,19 +9,30 @@ use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 class EntryType extends AbstractType
 {
     /**
+     * @var string
+     */
+    private $entryClass;
+
+    /**
+     * Constructor
+     *
+     * @param string $entryClass
+     */
+    public function __construct($entryClass)
+    {
+        $this->entryClass = $entryClass;
+    }
+
+    /**
      * @param FormBuilderInterface $builder
      * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('name')
-            ->add('q')
-            ->add('a')
-            ->add('email')
-            ->add('executor')
-            ->add('comment')
-            ->add('priority')
+            ->add('name', null, array('label' => 'Имя'))
+            ->add('q', null, array('label' => 'Вопрос'))
+            ->add('email', null, array('label' => 'E-mail'))
         ;
     }
     
@@ -30,9 +41,8 @@ class EntryType extends AbstractType
      */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
-        $resolver->setDefaults(array(
-            'data_class' => 'Brother\QuestBundle\Entity\Quest'
-        ));
+        parent::setDefaultOptions($resolver);
+        $resolver->setDefaults(array('data_class' => $this->entryClass));
     }
 
     /**

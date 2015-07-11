@@ -78,10 +78,8 @@ class Configuration implements ConfigurationInterface
                     ->children()
 						->scalarNode('pager')->cannotBeEmpty()->end()
                         ->scalarNode('mailer')->cannotBeEmpty()->end()
-                        ->scalarNode('spam_detector')->cannotBeEmpty()->end()
                     ->end()
                 ->end()	
-				
             ->end()
         ->end();
 
