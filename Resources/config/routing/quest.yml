@@ -1,39 +1,14 @@
 brother_quest_list:
     path:     /{page}
-    defaults: { _controller: "BrotherQuestBundle:Quest:index", page: 1 }
+    defaults: { _controller: "BrotherQuestBundle:Entry:index", page: 1 }
     requirements:
         page: \d+
 
-brother_quest_show:
-    path:     /{id}/show
-    defaults: { _controller: "BrotherQuestBundle:Quest:show" }
-
-brother_quest_new:
+brother_quest_new_ajax:
     path:     /new
-    defaults: { _controller: "BrotherQuestBundle:Quest:new" }
+    defaults: { _controller: "BrotherQuestBundle:Entry:new" }
 
-brother_quest_create:
+brother_quest_create_ajax:
     path:     /create
-    defaults: { _controller: "BrotherQuestBundle:Quest:create" }
+    defaults: { _controller: "BrotherQuestBundle:Entry:create" }
     methods: [POST]
-
-
-brother_quest_edit:
-    path:     /{id}/edit
-    defaults: { _controller: "BrotherQuestBundle:Quest:edit" }
-    requirements:
-        page: \d+
-
-brother_quest_update:
-    path:     /{id}/update
-    defaults: { _controller: "BrotherQuestBundle:Quest:update" }
-    methods:  [POST, PUT]
-    requirements:
-        page: \d+
-
-brother_quest_delete:
-    path:     /{id}/delete
-    defaults: { _controller: "BrotherQuestBundle:Quest:delete" }
-    methods:  [POST, DELETE]
-    requirements:
-        page: \d+

@@ -4,7 +4,7 @@ namespace Brother\QuestBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class QuestControllerTest extends WebTestCase
+class EntryControllerTest extends WebTestCase
 {
     /*
     public function testCompleteScenario()

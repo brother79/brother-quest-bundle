@@ -11,10 +11,10 @@ use Brother\QuestBundle\Form\QuestType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
- * Quest controller.
+ * Entry controller.
  *
  */
-class QuestController extends Controller
+class EntryController extends Controller
 {
 
     /**
@@ -102,152 +102,9 @@ class QuestController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a Quest entity.
-     *
-     */
-    public function showAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Quest entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('BrotherQuestBundle:Quest:show.html.twig', array(
-            'entity' => $entity,
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Displays a form to edit an existing Quest entity.
-     *
-     */
-    public function editAction($id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Quest entity.');
-        }
-
-        $editForm = $this->createEditForm($entity);
-        $deleteForm = $this->createDeleteForm($id);
-
-        return $this->render('BrotherQuestBundle:Quest:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Creates a form to edit a Entry entity.
-     *
-     * @param Entry $entity The entity
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createEditForm(Entry $entity)
-    {
-        $form = $this->createForm(new QuestType(), $entity, array(
-            'action' => $this->generateUrl('quest_update', array('id' => $entity->getId())),
-            'method' => 'PUT',
-        ));
-
-        $form->add('submit', 'submit', array('label' => 'Update'));
-
-        return $form;
-    }
-
-    /**
-     * Edits an existing Quest entity.
-     *
-     */
-    public function updateAction(Request $request, $id)
-    {
-        $em = $this->getDoctrine()->getManager();
-
-        $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
-
-        if (!$entity) {
-            throw $this->createNotFoundException('Unable to find Quest entity.');
-        }
-
-        $deleteForm = $this->createDeleteForm($id);
-        $editForm = $this->createEditForm($entity);
-        $editForm->handleRequest($request);
-
-        if ($editForm->isValid()) {
-            $em->flush();
-
-            return $this->redirect($this->generateUrl('quest_edit', array('id' => $id)));
-        }
-
-        return $this->render('BrotherQuestBundle:Quest:edit.html.twig', array(
-            'entity' => $entity,
-            'edit_form' => $editForm->createView(),
-            'delete_form' => $deleteForm->createView(),
-        ));
-    }
-
-    /**
-     * Deletes a Quest entity.
-     *
-     */
-    public function deleteAction(Request $request, $id)
-    {
-        $form = $this->createDeleteForm($id);
-        $form->handleRequest($request);
-
-        if ($form->isValid()) {
-            $em = $this->getDoctrine()->getManager();
-            $entity = $em->getRepository('BrotherQuestBundle:Entry')->find($id);
-
-            if (!$entity) {
-                throw $this->createNotFoundException('Unable to find Quest entity.');
-            }
-
-            $em->remove($entity);
-            $em->flush();
-        }
-
-        return $this->redirect($this->generateUrl('quest'));
-    }
-
-    /**
-     * Creates a form to delete a Quest entity by id.
-     *
-     * @param mixed $id The entity id
-     *
-     * @return \Symfony\Component\Form\Form The form
-     */
-    private function createDeleteForm($id)
-    {
-        return $this->createFormBuilder()
-            ->setAction($this->generateUrl('quest_delete', array('id' => $id)))
-            ->setMethod('DELETE')
-            ->add('submit', 'submit', array('label' => 'Delete'))
-            ->getForm();
-    }
-
     public function preExecute()
     {
         $this->configuration = new svModelGeneratorConfiguration('Quest', $this->getModuleName(), array(
-            'fields' => array('name' => array('label' => 'Имя:')),
-            'new' => array(
-                'display' => array('q', 'name', 'email'),
-            ),
-            'form' => array(
-                'actions' => array('_save_and_add' => array('label' => 'Отправить'))
-            ),
             'list' => array(
                 'title' => 'Ранее заданные вопросы(список)',
                 'is_partial' => true,
