@@ -50,6 +50,6 @@ class EntryType extends AbstractType
      */
     public function getName()
     {
-        return 'brother_questbundle_quest';
+        return 'brother_quest_entry';
     }
 }

@@ -4,6 +4,7 @@ namespace Brother\QuestBundle\Controller;
 
 use Brother\CommonBundle\Controller\BaseController;
 use Brother\CommonBundle\Model\BaseApi;
+use Brother\QuestBundle\Form\EntryType;
 use Brother\QuestBundle\Model\EntryManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -78,8 +79,8 @@ class EntryController extends BaseController
      */
     private function createCreateForm(Entry $entity)
     {
-        $form = $this->createForm(new EntryType(), $entity, array(
-            'action' => $this->generateUrl('quest_create'),
+        $form = $this->createForm(new EntryType(get_class($entity)), $entity, array(
+            'action' => $this->generateUrl('brother_quest_create_ajax'),
             'method' => 'POST',
         ));
 
@@ -100,7 +101,7 @@ class EntryController extends BaseController
         $result = new BaseApi();
 
         return $this->ajaxResponse($result
-            ->addRenderDom('body', array('appendModal' => $this->render('SolNewsBundle:News:_news_dialog.html.twig', array(
+            ->addRenderDom('body', array('appendModal' => $this->render('BrotherQuestBundle:Entry:_new_dialog.html.twig', array(
                 'entity' => $entity,
                 'form' => $form->createView(),
             ))->getContent()))
