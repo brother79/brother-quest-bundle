@@ -1,4 +1,5 @@
 parameters:
+    brother_quest.view.mail.notify: 'BrotherQuestBundle:Mail:Notify.html.twig'
     brother_quest.mailer.config:
         notification:
             title: %brother_quest.mailer.email_title%

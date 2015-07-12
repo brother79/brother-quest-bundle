@@ -33,10 +33,9 @@ class EntryController extends BaseController
         $entries = $manager->getPaginatedList($page, $limit, array('state' => 1));
         $pagerHtml = $manager->getPaginationHtml();
 
-        $view = $this->getView('frontend.list');
         $form = $this->getFormFactory('entry');
 
-        return $this->render($view, array(
+        return $this->render('BrotherQuestBundle:Entry:index.html.twig', array(
                 'entries' => $entries,
                 'form' => $form->createView(),
                 'pagination_html' => $pagerHtml,
@@ -64,7 +63,7 @@ class EntryController extends BaseController
             return $this->redirect($this->generateUrl('brother_quest_index', array('id' => $entity->getId())));
         }
 
-        return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
+        return $this->render('BrotherQuestBundle:Entry:new.html.twig', array(
             'entity' => $entity,
             'form' => $form->createView(),
         ));

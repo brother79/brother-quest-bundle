@@ -77,11 +77,6 @@ class BrotherQuestExtension extends Extension
         $container->setParameter('brother_quest.form.entry.type', $config['form']['entry']['type']);
         $container->setParameter('brother_quest.form.entry.class', $config['form']['entry']['class']);
 
-        // views
-        $container->setParameter('brother_quest.view.frontend.list', $config['view']['frontend']['list']);
-        $container->setParameter('brother_quest.view.frontend.new', $config['view']['frontend']['new']);
-        $container->setParameter('brother_quest.view.mail.notify', $config['view']['mail']['notify']);
-
         // set model class
         if (isset($config['class']['model'])) {
             $container->setParameter('brother_quest.model.entry.class', $config['class']['model']);

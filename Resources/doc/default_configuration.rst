@@ -20,24 +20,11 @@ Default Configuration
             pager : Brother\QuestBundle\Pager\DefaultORM              # (optional) pager class
             mailer: Brother\QuestBundle\Mailer\Mailer               # (optional) mailer class
 
-        view:
-            frontend:
-                list: BrotherQuestBundle:Frontend:index.html.twig   # quest entries view
-                new: BrotherQuestBundle:Frontend:new.html.twig      # quest form
-
-            mail:
-                notify: BrotherQuestBundle:Mail:notify.txt.twig     # notification mail template
-
         form:
             entry:
                 name: brother_quest_entry
                 type: brother_quest_entry
-                class: Brother\QuestBundle\Form\Type\EntryType      # quest entry form class
-
-            edit:
-                name: brother_quest_entry_edit
-                type: brother_quest_entry_edit
-                class: Brother\QuestBundle\Form\Type\EntryEditType  # quest entry edit form class
+                class: Brother\QuestBundle\Form\EntryType      # quest entry form class
 
         service:
             pager: ~                                                # (optional) custom pager service
