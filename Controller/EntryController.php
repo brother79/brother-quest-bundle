@@ -2,19 +2,20 @@
 
 namespace Brother\QuestBundle\Controller;
 
+use Brother\CommonBundle\Controller\BaseController;
+use Brother\CommonBundle\Model\BaseApi;
 use Brother\QuestBundle\Model\EntryManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 use Brother\QuestBundle\Entity\Entry;
-use Brother\QuestBundle\Form\QuestType;
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 /**
  * Entry controller.
  *
  */
-class EntryController extends Controller
+class EntryController extends BaseController
 {
 
     /**
@@ -77,7 +78,7 @@ class EntryController extends Controller
      */
     private function createCreateForm(Entry $entity)
     {
-        $form = $this->createForm(new QuestType(), $entity, array(
+        $form = $this->createForm(new EntryType(), $entity, array(
             'action' => $this->generateUrl('quest_create'),
             'method' => 'POST',
         ));
@@ -91,15 +92,19 @@ class EntryController extends Controller
      * Displays a form to create a new Quest entity.
      *
      */
-    public function newAction()
+    public function newDialogAction()
     {
         $entity = new Entry();
         $form = $this->createCreateForm($entity);
 
-        return $this->render('BrotherQuestBundle:Quest:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
+        $result = new BaseApi();
+
+        return $this->ajaxResponse($result
+            ->addRenderDom('body', array('appendModal' => $this->render('SolNewsBundle:News:_news_dialog.html.twig', array(
+                'entity' => $entity,
+                'form' => $form->createView(),
+            ))->getContent()))
+            ->result());
     }
 
     public function preExecute()

@@ -19,9 +19,9 @@
             {% endfor %}
         {% endif %}
 
-        <a href="{{ path('brother_quest_new_ajax') }}" class="btn btn-success">
-            Задать вопрос
-        </a>
+        <a class="btn btn-success"
+           onclick="bindings.util.sendPost('{{ path('brother_quest_new_dialog') }}');"
+                >Задать вопрос</a>
     </div>
     <!-- /brother-quest-panel-container -->
 

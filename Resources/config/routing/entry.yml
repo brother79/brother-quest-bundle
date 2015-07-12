@@ -4,9 +4,9 @@ brother_quest_list:
     requirements:
         page: \d+
 
-brother_quest_new_ajax:
+brother_quest_new_dialog:
     path:     /new
-    defaults: { _controller: "BrotherQuestBundle:Entry:new" }
+    defaults: { _controller: "BrotherQuestBundle:Entry:newDialog" }
 
 brother_quest_create_ajax:
     path:     /create

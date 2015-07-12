@@ -1,15 +1,26 @@
-{#
+    <h1>Quest creation</h1>
 
- This file is part of the BrotherQuestBundle package.
+    {{ form(form) }}
 
- (c) Yos Okusanya <yos.okusanya@gmail.com>
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('quest') }}">
+            Back to the list
+        </a>
+    </li>
+</ul>
+    {#
 
- This source file is subject to the MIT license that is bundled
- with this source code in the file LICENSE.
-#}
+     This file is part of the BrotherQuestBundle package.
 
-<div class="brother-quest-form-container col-xs-9 col-sm-7 col-md-4">
-    {{ form_start(form, {'action': path('brother_quest_create_ajax'), 'method': 'POST', 'attr': {'class': 'form-horizontal brother-quest-form', 'role': 'form'} }) }}
+     (c) Yos Okusanya <yos.okusanya@gmail.com>
+
+     This source file is subject to the MIT license that is bundled
+     with this source code in the file LICENSE.
+    #}
+
+    <div class="brother-quest-form-container col-xs-9 col-sm-7 col-md-4">
+        {{ form_start(form, {'action': path('brother_quest_create_ajax'), 'method': 'POST', 'attr': {'class': 'form-horizontal brother-quest-form', 'role': 'form'} }) }}
         <div class="form-error">{{ form_errors(form.name) }}</div>
         <div class="input-group form-group">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
@@ -32,5 +43,5 @@
         <div class="form-btns">
             <button class="btn btn-success">{{ 'form.entry.submit'|trans({}, 'BrotherQuestBundle') }}</button>
         </div>
-    {{ form_end(form) }}
-</div><!-- /brother-quest-form-container -->
+        {{ form_end(form) }}
+    </div><!-- /brother-quest-form-container -->
