@@ -1,32 +1,29 @@
-<h1>Quest creation</h1>
-
-{{ form(form) }}
-
-<div class="brother-quest-form-container col-xs-9 col-sm-7 col-md-4">
-    {{ form_start(form, {'action': path('brother_quest_create_ajax'), 'method': 'POST', 'attr': {'class': 'form-horizontal brother-quest-form', 'role': 'form'} }) }}
-    <div class="form-error">{{ form_errors(form.name) }}</div>
-    <div class="input-group form-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-        {{ form_widget(form.name, {'attr': {'placeholder': 'form.entry.name'|trans({}, 'BrotherQuestBundle'), 'class': 'form-control' }}
-        ) }}
+<!-- Modal -->
+<div class="modal fade" id="quest_new_dialog" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            {{ form_start(form, {'action': path('brother_quest_create_ajax'), 'method': 'POST', 'attr': {
+            'onSubmit': 'bindingsUtil.formSubmit(this);return false;',
+            'class': 'form-horizontal brother-quest-form', 'role': 'form'
+            } }) }}
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Задать вопрос</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-error">{{ form_errors(form.name) }}</div>
+                {{ form_row(form.name) }}
+                {{ form_row(form.phone) }}
+                {{ form_row(form.email) }}
+                {{ form_row(form.q) }}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+                {{ form_widget(form.submit, {'attr': {'class': 'btn btn-primary btn-success' } }) }}
+            </div>
+            {{ form_end(form) }}
+        </div>
     </div>
+</div>
 
-    <div class="form-error">{{ form_errors(form.email) }}</div>
-    <div class="input-group form-group">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-        {{ form_widget(form.email, {'attr': {'placeholder': 'form.entry.email'|trans({}, 'BrotherQuestBundle'), 'class': 'form-control' }}
-        ) }}
-    </div>
-
-    <div class="form-error">{{ form_errors(form.q) }}</div>
-    <div class="form-group">
-        {{ form_widget(form.q, {'attr': {'class': 'form-control', 'rows': '10','placeholder': 'form.entry.enter_your_comment_here'|trans({}, 'BrotherQuestBundle') } }) }}
-    </div>
-
-    {{ form_widget(form) }}
-
-    <div class="form-btns">
-        <button class="btn btn-success">{{ 'form.entry.submit'|trans({}, 'BrotherQuestBundle') }}</button>
-    </div>
-    {{ form_end(form) }}
-</div><!-- /brother-quest-form-container -->

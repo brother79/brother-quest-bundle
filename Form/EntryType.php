@@ -31,8 +31,9 @@ class EntryType extends AbstractType
     {
         $builder
             ->add('name', null, array('label' => 'Имя'))
-            ->add('q', null, array('label' => 'Вопрос'))
+            ->add('phone', null, array('label' => 'Телефон'))
             ->add('email', null, array('label' => 'E-mail'))
+            ->add('q', null, array('label' => 'Вопрос'))
         ;
     }
     

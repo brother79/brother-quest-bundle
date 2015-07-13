@@ -26,6 +26,10 @@ Brother\QuestBundle\Entity\Entry:
         email:
             type: string
             length: 255
+        phone:
+            type: string
+            length: 255
+            nullable: true
         executor:
             type: string
             length: 255

@@ -11,29 +11,20 @@
 
 namespace Brother\QuestBundle\Model;
 
+use Brother\CommonBundle\Model\Entry\ORMEntryManager;
 use Brother\QuestBundle\Event\Events;
 use Brother\QuestBundle\Event\EntryEvent;
 use Brother\QuestBundle\Event\EntryDeleteEvent;
-use Brother\QuestBundle\Event\EntryStateEvent;
 use Brother\QuestBundle\Pager\PagerInterface;
 
+use Doctrine\ORM\EntityManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
-use Symfony\Component\Form\FormInterface;
 
 /**
  * Base class for the quest manager.
  */
-abstract class EntryManager implements EntryManagerInterface
+abstract class EntryManager extends ORMEntryManager implements EntryManagerInterface
 {
-    /**
-     * @var EventDispatcherInterface
-     */
-    protected $dispatcher;
-
-    /**
-     * @var string
-     */
-    protected $class;
 
     /**
      * @var Pagination object
@@ -46,10 +37,11 @@ abstract class EntryManager implements EntryManagerInterface
      * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface 	$dispatcher
      * @param string                                              			$class
      */
-    public function __construct(EventDispatcherInterface $dispatcher, $class)
+    public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class)
     {
         $this->dispatcher = $dispatcher;
         $this->class = $class;
+        parent::__construct($dispatcher, $em, $class );
     }
 
     /**
@@ -107,52 +99,6 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Persists a quest entry.
-     *
-     * @param EntryInterface $entry
-     *
-     * @return boolean
-     */
-    public function save(EntryInterface $entry)
-    {
-        $event = new EntryEvent($entry);
-        $this->dispatcher->dispatch(Events::ENTRY_PRE_PERSIST, $event);
-
-        $this->doSave($entry);
-
-        if ($event->isPropagationStopped()) {
-            return false;
-        }
-
-        $this->dispatcher->dispatch(Events::ENTRY_POST_PERSIST, $event);
-
-        return true;
-    }
-
-    /**
-     * Removes a quest entry.
-     *
-     * @param EntryInterface $entry
-     *
-     * @return boolean
-     */
-    public function remove(EntryInterface $entry)
-    {
-        $event = new EntryEvent($entry);
-        $this->dispatcher->dispatch(Events::ENTRY_PRE_REMOVE, $event);
-
-        if ($event->isPropagationStopped()) {
-            return false;
-        }
-
-        $this->doRemove($entry);
-
-        $this->dispatcher->dispatch(Events::ENTRY_POST_REMOVE, $event);
-
-        return true;
-    }
-
-    /**
      * Deletes a list of quest entries
      *
      * @param array $ids
@@ -176,30 +122,6 @@ abstract class EntryManager implements EntryManagerInterface
     }
 
     /**
-     * Update the state of a list of quest entries
-     *
-     * @param array 	$ids
-     * @param integer	$state
-     *
-     * @return boolean
-     */
-    public function updateState($ids, $state)
-    {
-        $event = new EntryStateEvent($ids, $state);
-        $this->dispatcher->dispatch(Events::ENTRY_PRE_UPDATE_STATE, $event);
-
-        if ($event->isPropagationStopped()) {
-            return false;
-        }
-
-        $this->doUpdateState($ids, $state);
-
-        $this->dispatcher->dispatch(Events::ENTRY_POST_UPDATE_STATE, $event);
-
-        return true;
-    }
-
-    /**
      * Get the pagination html
      *
      * @return string
@@ -214,35 +136,6 @@ abstract class EntryManager implements EntryManagerInterface
 
         return $html;
     }
-
-    /**
-     * Performs the persistence of the quest entry.
-     *
-     * @param EntryInterface $entry
-     */
-    abstract protected function doSave(EntryInterface $entry);
-
-    /**
-     * Performs the removal of the entry.
-     *
-     * @param EntryInterface $entry
-     */
-    abstract protected function doRemove(EntryInterface $entry);
-	
-    /**
-     * Performs the removal of a list of quest entries.
-     *
-     * @param array $ids
-     */
-    abstract protected function doDelete($ids);
-
-    /**
-     * Performs the state update of a list of quest entries.
-     *
-     * @param array 	$ids
-     * @param integer   $state
-     */
-    abstract protected function doUpdateState($ids, $state);
 
     /**
      * Enter description here...

@@ -100,8 +100,7 @@ form:
     entry:
         name:                   Имя
         email:                  E-mail
-        comment:                Comment
-        submit:                 Отправить комментарий
+        submit:                 Отправить вопрос
         created:                Создан
         enter_your_comment_here: Введите свой комментарий тут
 

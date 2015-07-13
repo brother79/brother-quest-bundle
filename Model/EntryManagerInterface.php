@@ -12,8 +12,6 @@
 
 namespace Brother\QuestBundle\Model;
 
-use Symfony\Component\Form\FormInterface;
-
 /**
  * Interface to be implemented by the quest manager.
  */
@@ -54,13 +52,6 @@ interface EntryManagerInterface
     public function createEntry($id = null);
 
     /**
-     * Saves a quest entry
-     *
-     * @param EntryInterface $entry
-     */
-    public function save(EntryInterface $entry);
-
-    /**
      * Returns the quest fully qualified class name
      *
      * @return string
@@ -68,26 +59,11 @@ interface EntryManagerInterface
     public function getClass();
 
     /**
-     * Deletes a quest entry
-     *
-     * @param EntryInterface $entry
-     */
-    public function remove(EntryInterface $entry);
-
-    /**
      * Deletes a list of quest entries
      *
      * @param array $ids
      */
     public function delete(array $ids);
-
-    /**
-     * Update the state of a list of quest entries
-     *
-     * @param array		$ids
-     * @param integer	$state
-     */
-    public function updateState($ids, $state);
 
     /**
      * Finds entries by the given criteria

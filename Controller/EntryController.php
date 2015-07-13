@@ -2,6 +2,8 @@
 
 namespace Brother\QuestBundle\Controller;
 
+use Brother\CommonBundle\AppDebug;
+use Brother\CommonBundle\AppTools;
 use Brother\CommonBundle\Controller\BaseController;
 use Brother\CommonBundle\Model\BaseApi;
 use Brother\QuestBundle\Form\EntryType;
@@ -30,7 +32,7 @@ class EntryController extends BaseController
     {
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
-        $entries = $manager->getPaginatedList($page, $limit, array('state' => 1));
+        $entries = $manager->getPaginatedList($page, $limit, array('a' => 'is not null'));
         $pagerHtml = $manager->getPaginationHtml();
 
         $form = $this->getFormFactory('entry');
@@ -54,20 +56,20 @@ class EntryController extends BaseController
         $entity = new Entry();
         $form = $this->createCreateForm($entity);
         $form->handleRequest($request);
+        $result = new BaseApi();
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
             $em->persist($entity);
             $em->flush();
-
-            return $this->redirect($this->generateUrl('brother_quest_index', array('id' => $entity->getId())));
+            return $this->ajaxResponse($result->addMessage('Ваш вопрос получен. Вы можете задать ещё один.')
+                ->addRenderDom('#quest_new_dialog', array('modal' => 'hide'))
+                ->result());
         }
-
-        return $this->render('BrotherQuestBundle:Entry:new.html.twig', array(
-            'entity' => $entity,
-            'form' => $form->createView(),
-        ));
+        $result->setErrors(AppTools::getFormErrors($form));
+        return $this->ajaxResponse($result->result());
     }
+
 
     /**
      * Creates a form to create a Quest entity.
@@ -83,7 +85,7 @@ class EntryController extends BaseController
             'method' => 'POST',
         ));
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', 'submit', array('label' => 'Отправить вопрос'));
 
         return $form;
     }
@@ -105,50 +107,6 @@ class EntryController extends BaseController
                 'form' => $form->createView(),
             ))->getContent()))
             ->result());
-    }
-
-    public function preExecute()
-    {
-        $this->configuration = new svModelGeneratorConfiguration('Quest', $this->getModuleName(), array(
-            'list' => array(
-                'title' => 'Ранее заданные вопросы(список)',
-                'is_partial' => true,
-                'layout' => 'stacked',
-                'batch_actions' => false,
-                'actions' => false,
-                'object_actions' => false,
-                'display' => array('q', 'a', 'created_at', 'updated_at'),
-                'params' => '
-			        <p class="p0" id="qqq%%id%%">
-			            <strong>Вопрос</strong>: <span class="quest">%%q%%</span><br/>
-			            <strong>Ответ</strong>: <span class="answer">%%a%%</span>
-					</p>
-				'
-            ),
-            'filter' => array(
-                'class' => false
-            ),
-            'partials' => array('form_fieldset' => '', 'form_field' => '', 'breadcrumbs' => ''),
-            'uri' => array('edit' => 'index', 'new' => 'index')
-        ));
-        parent::preExecute();
-    }
-
-
-    /**
-     * Executes index action
-     * @param \sfWebRequest $request
-     *
-     * @return string|void
-     */
-    public function executeIndex(sfWebRequest $request)
-    {
-        $this->form = new QuestForm();
-        parent::executeIndex($request);
-        parent::executeNew($request);
-        if ($t = sfConfig::get('app_sv_quest_plugin_template_index', false)) {
-            $this->setTemplate($t['template'], $t['module']);
-        }
     }
 
     /**

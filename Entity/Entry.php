@@ -431,4 +431,32 @@ class Entry implements EntryInterface
         $this->id = $id;
     }
 
+    /**
+     * @var string
+     */
+    private $phone;
+
+
+    /**
+     * Set phone
+     *
+     * @param string $phone
+     * @return Entry
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string 
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
 }
