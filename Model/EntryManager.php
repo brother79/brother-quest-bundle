@@ -12,10 +12,6 @@
 namespace Brother\QuestBundle\Model;
 
 use Brother\CommonBundle\Model\Entry\ORMEntryManager;
-use Brother\QuestBundle\Event\Events;
-use Brother\QuestBundle\Event\EntryEvent;
-use Brother\QuestBundle\Event\EntryDeleteEvent;
-use Brother\QuestBundle\Pager\PagerInterface;
 
 use Doctrine\ORM\EntityManager;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -23,13 +19,8 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 /**
  * Base class for the quest manager.
  */
-abstract class EntryManager extends ORMEntryManager implements EntryManagerInterface
+abstract class EntryManager extends ORMEntryManager
 {
-
-    /**
-     * @var Pagination object
-     */
-    protected $pager = null;
 
     /**
      * Constructor.
@@ -42,99 +33,6 @@ abstract class EntryManager extends ORMEntryManager implements EntryManagerInter
         $this->dispatcher = $dispatcher;
         $this->class = $class;
         parent::__construct($dispatcher, $em, $class );
-    }
-
-    /**
-     * Set pager
-     *
-     * @param PagerInterface $pager
-     **/
-    public function setPager(PagerInterface $pager)
-    {
-        $this->pager = $pager;
-    }
-
-    /**
-     * Returns the fully qualified quest class name
-     *
-     * @return string
-     **/
-    public function getClass()
-    {
-        return $this->class;
-    }
-
-    /**
-     * Finds a quest entry by given id
-     *
-     * @param  string $id
-	 *
-     * @return EntryInterface
-     */
-    public function findOneById($id)
-    {
-        return $this->findOneBy(array('id' => $id));
-    }
-
-    /**
-     * Creates an empty Entry instance
-     *
-     * @param integer $id
-	 *
-     * @return EntryInterface
-     */
-    public function createEntry($id = null)
-    {
-        $class = $this->getClass();
-        $entry = new $class;
-        /* @var $entry Entry */
-        if (null !== $id) {
-            $entry->setId($id);
-        }
-
-        $event = new EntryEvent($entry);
-        $this->dispatcher->dispatch(Events::ENTRY_CREATE, $event);
-
-        return $entry;
-    }
-
-    /**
-     * Deletes a list of quest entries
-     *
-     * @param array $ids
-     *
-     * @return boolean
-     */
-    public function delete(array $ids)
-    {
-        $event = new EntryDeleteEvent($ids);
-        $this->dispatcher->dispatch(Events::ENTRY_PRE_DELETE, $event);
-
-        if ($event->isPropagationStopped()) {
-            return false;
-        }
-
-        $this->doDelete($ids);
-
-        $this->dispatcher->dispatch(Events::ENTRY_POST_DELETE, $event);
-
-        return true;
-    }
-
-    /**
-     * Get the pagination html
-     *
-     * @return string
-     */
-    public function getPaginationHtml()
-    {
-        $html = '';
-        if(null !== $this->pager)
-        {
-            $html = $this->pager->getHtml();
-        }
-
-        return $html;
     }
 
     /**

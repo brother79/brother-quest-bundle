@@ -17,8 +17,8 @@ Default Configuration
         class:
             model: Brother\QuestBundle\Entity\Entry                 # (optional) quest model class
             manager: Brother\QuestBundle\Entity\EntryManager        # (optional) quest manager class
-            pager : Brother\QuestBundle\Pager\DefaultORM              # (optional) pager class
-            mailer: Brother\QuestBundle\Mailer\Mailer               # (optional) mailer class
+            pager : Brother\CommonBundle\Pager\DefaultORM              # (optional) pager class
+            mailer: Brother\CommonBundle\Mailer\Mailer               # (optional) mailer class
 
         form:
             entry:

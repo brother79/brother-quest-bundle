@@ -34,8 +34,8 @@ You can specify your custom quest mailer manager class by overriding the mailer 
         class:
             manager: MyProject\MyBundle\Mailer\Mailer
 
-Your custom class may extend the ``Brother\QuestBundle\Mailer\BaseMailer`` class. If you are not extending the
-``Brother\QuestBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
+Your custom class may extend the ``Brother\CommonBundle\Mailer\BaseMailer`` class. If you are not extending the
+``Brother\CommonBundle\Mailer\BaseMailer`` class, your custom mailer class must implement the
 ``Brother\QuestBundle\Mailer\MailerInterface`` interface.
 
 

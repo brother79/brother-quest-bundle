@@ -16,20 +16,6 @@ class EntryManager extends AbstractEntryManager
     const STATE_CREATED = 0;
 
     /**
-     * Constructor.
-     *
-     * @param \Symfony\Component\EventDispatcher\EventDispatcherInterface $dispatcher
-     * @param \Doctrine\ORM\EntityManager $em
-     * @param string $class
-     */
-    public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class)
-    {
-        parent::__construct($dispatcher, $em, $class);
-
-
-    }
-
-    /**
      * {@inheritDoc}
      */
     public function getPaginatedList($offset, $limit, $criteria = array())
@@ -54,17 +40,5 @@ class EntryManager extends AbstractEntryManager
         return $this->pager->getList($queryBuilder, $offset, $limit);
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    protected function doDelete($ids)
-    {
-        $this->em->createQueryBuilder()
-            ->delete($this->getClass(), 'c')
-            ->where('c.id IN (:ids)')
-            ->setParameter('ids', $ids)
-            ->getQuery()
-            ->execute();
-    }
 
 }

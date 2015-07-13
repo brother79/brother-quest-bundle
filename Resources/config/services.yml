@@ -1,5 +1,5 @@
 parameters:
-    brother_quest.view.mail.notify: 'BrotherQuestBundle:Mail:Notify.html.twig'
+    brother_quest.view.mail.notify: 'BrotherQuestBundle:Mail:notify.txt.twig'
     brother_quest.mailer.config:
         notification:
             title: %brother_quest.mailer.email_title%
@@ -15,7 +15,7 @@ services:
         class: %brother_quest.mailer.class%
         arguments:
             - '@event_dispatcher'
-            - { type: service', id: mailer, on-invalid: null}
+            - '@mailer'
             - '@templating'
             - %brother_quest.mailer.config%
 

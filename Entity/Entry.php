@@ -2,6 +2,7 @@
 
 namespace Brother\QuestBundle\Entity;
 
+use Brother\CommonBundle\Mailer\MailerEntryInterface;
 use Brother\CommonBundle\Model\Entry\EntryInterface;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -9,7 +10,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 /**
  * Entry
  */
-class Entry implements EntryInterface
+class Entry implements EntryInterface, MailerEntryInterface
 {
     /**
      * @var integer
@@ -416,7 +417,7 @@ class Entry implements EntryInterface
      */
     public function prePersist()
     {
-        $this->createdAt = new \DateTime();
+        $this->created_at = new \DateTime();
     }
 
     /**
@@ -424,7 +425,7 @@ class Entry implements EntryInterface
      */
     public function preUpdate()
     {
-        $this->updatedAt = new \DateTime();
+        $this->updated_at = new \DateTime();
     }
 
     /**
@@ -459,4 +460,5 @@ class Entry implements EntryInterface
     {
         return $this->phone;
     }
+
 }

@@ -1,7 +1,7 @@
 parameters:
     brother_quest.model.entry.class: Brother\QuestBundle\Entity\Entry
     brother_quest.manager.entry.class: Brother\QuestBundle\Entity\EntryManager
-    brother_quest.pager.class: Brother\QuestBundle\Pager\DefaultORM
+    brother_quest.pager.class: Brother\CommonBundle\Pager\DefaultORM
 services:
     brother_quest.entity_manager:
         alias: 'doctrine.orm.entity_manager'
