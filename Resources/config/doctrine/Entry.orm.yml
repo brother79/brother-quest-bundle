@@ -21,8 +21,10 @@ Brother\QuestBundle\Entity\Entry:
             nullable: true
         q:
             type: text
+            nullable: false
         a:
             type: text
+            nullable: true
         email:
             type: string
             length: 255

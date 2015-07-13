@@ -29,7 +29,6 @@ class Entry implements EntryInterface
 
     /**
      * @var string
-     * @Assert\NotBlank()
      */
     private $a;
 
@@ -38,6 +37,11 @@ class Entry implements EntryInterface
      * @Assert\NotBlank()
      */
     private $email;
+
+    /**
+     * @var string
+     */
+    private $phone;
 
     /**
      * @var string
@@ -431,10 +435,6 @@ class Entry implements EntryInterface
         $this->id = $id;
     }
 
-    /**
-     * @var string
-     */
-    private $phone;
 
 
     /**
