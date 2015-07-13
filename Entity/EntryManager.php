@@ -32,14 +32,6 @@ class EntryManager extends AbstractEntryManager
     /**
      * {@inheritDoc}
      */
-    public function isNew(EntryInterface $entry)
-    {
-        return !$this->em->getUnitOfWork()->isInIdentityMap($entry);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public function getPaginatedList($offset, $limit, $criteria = array())
     {
 
