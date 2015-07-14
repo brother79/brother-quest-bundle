@@ -1,12 +1,4 @@
-#
-# This file is part of the BrotherQuestBundle package.
-#
-# (c) Yos Okusanya <yos.okusanya@gmail.com>
-#
-# This source file is subject to the MIT license that is bundled
-# with this source code in the file LICENSE.
-
-Brother\QuestBundle\Model\Entry:
+Brother\QuestBundle\Entity\Entry:
     properties:
         name:
             - NotBlank:
@@ -14,7 +6,7 @@ Brother\QuestBundle\Model\Entry:
             - Length:
                 min: 3
                 max: 100
-                #max: 255
+#                max: 255
                 minMessage: brother_quest.name.short
                 maxMessage: brother_quest.name.long
 
@@ -24,8 +16,8 @@ Brother\QuestBundle\Model\Entry:
             - Email:
                 message: brother_quest.email.invalid
             - Length:
-                max: 100
-                #max: 255
+#                max: 100
+                max: 255
                 minMessage: brother_quest.email.short
                 maxMessage: brother_quest.email.long
 
