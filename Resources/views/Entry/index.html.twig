@@ -1,6 +1,7 @@
 <div class="brother-quest-container">
     <div class="brother-quest-panel-container">
         <h1>Вопросы</h1>
+        {{ sonata_block_render_event('breadcrumb', { 'context': 'cms_breadcrumbs', 'current_uri': app.request.requestUri }) }}
         {% if entries|length > 0 %}
             {% for entry in entries %}
                 <div class="panel panel-default">
