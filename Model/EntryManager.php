@@ -21,8 +21,6 @@ abstract class EntryManager extends ORMEntryManager
      */
     public function __construct(EventDispatcherInterface $dispatcher, EntityManager $em, $class)
     {
-        $this->dispatcher = $dispatcher;
-        $this->class = $class;
         parent::__construct($dispatcher, $em, $class );
     }
 
