@@ -33,11 +33,10 @@ class EntryManager extends AbstractEntryManager
             $queryBuilder->andWhere('c.a is not null');
         }
 
-        if (null === $this->pager) {
+        if (null === $this->paginator) {
             return $queryBuilder->getQuery()->getResult();
         }
-
-        return $this->pager->getList($queryBuilder, $offset, $limit);
+        return $this->makePagination($limit, array('page' => $offset, $queryBuilder->getQuery()));
     }
 
 
