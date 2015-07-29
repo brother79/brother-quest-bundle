@@ -12,4 +12,4 @@ services:
             - '@brother_quest.entity_manager'
             - %brother_quest.model.entry.class%
         calls:
-            - [setPager, ['@brother_quest.pager']]
+            - [setPaginator, ['@knp_paginator']]
