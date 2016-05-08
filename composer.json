@@ -22,11 +22,10 @@
         "doctrine/orm": "~2.3"
     },
 	"autoload": {
-		"psr-0": {
+		"psr-4": {
 			"Brother\\QuestBundle": ""
 		}
 	},
-	"target-dir": "Brother/QuestBundle",
     "extra": {
         "branch-alias": {
             "dev-master": "1.0"
