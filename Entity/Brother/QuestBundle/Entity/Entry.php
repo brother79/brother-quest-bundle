@@ -2,25 +2,15 @@
 
 namespace Brother\QuestBundle\Entity;
 
-use Brother\CommonBundle\Mailer\MailerEntryInterface;
-use Brother\CommonBundle\Model\Entry\EntryInterface;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-
 /**
  * Entry
  */
-class Entry implements EntryInterface, MailerEntryInterface
+class Entry
 {
     /**
-     * @var integer
+     * @var int
      */
     private $id;
-
-    /**
-     * @var integer
-     */
-    private $old_id;
 
     /**
      * @var string
@@ -29,7 +19,6 @@ class Entry implements EntryInterface, MailerEntryInterface
 
     /**
      * @var string
-     * @Assert\NotBlank()
      */
     private $q;
 
@@ -40,7 +29,6 @@ class Entry implements EntryInterface, MailerEntryInterface
 
     /**
      * @var string
-     * @Assert\NotBlank()
      */
     private $email;
 
@@ -65,6 +53,16 @@ class Entry implements EntryInterface, MailerEntryInterface
     private $priority;
 
     /**
+     * @var int
+     */
+    private $created_by;
+
+    /**
+     * @var int
+     */
+    private $updated_by;
+
+    /**
      * @var \DateTime
      */
     private $created_at;
@@ -75,41 +73,20 @@ class Entry implements EntryInterface, MailerEntryInterface
     private $updated_at;
 
     /**
-     * @var integer
-     */
-    private $created_by;
-
-    /**
-     * @var integer
-     */
-    private $updated_by;
-
-    /**
      * @var \DateTime
      */
     private $deleted_at;
 
     /**
-     * @var string
+     * @var int
      */
-    protected $state=0;
-
-    function __toString()
-    {
-     return $this->q;
-    }
-
-    function __construct()
-    {
-        $this->created_at = new \DateTime();
-        $this->updated_at = new \DateTime();
-    }
+    private $state;
 
 
     /**
      * Get id
      *
-     * @return integer 
+     * @return int
      */
     public function getId()
     {
@@ -120,19 +97,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set name
      *
      * @param string $name
+     *
      * @return Entry
      */
     public function setName($name)
     {
         $this->name = $name;
-
+    
         return $this;
     }
 
     /**
      * Get name
      *
-     * @return string 
+     * @return string
      */
     public function getName()
     {
@@ -143,19 +121,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set q
      *
      * @param string $q
+     *
      * @return Entry
      */
     public function setQ($q)
     {
         $this->q = $q;
-
+    
         return $this;
     }
 
     /**
      * Get q
      *
-     * @return string 
+     * @return string
      */
     public function getQ()
     {
@@ -166,19 +145,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set a
      *
      * @param string $a
+     *
      * @return Entry
      */
     public function setA($a)
     {
         $this->a = $a;
-
+    
         return $this;
     }
 
     /**
      * Get a
      *
-     * @return string 
+     * @return string
      */
     public function getA()
     {
@@ -189,19 +169,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set email
      *
      * @param string $email
+     *
      * @return Entry
      */
     public function setEmail($email)
     {
         $this->email = $email;
-
+    
         return $this;
     }
 
     /**
      * Get email
      *
-     * @return string 
+     * @return string
      */
     public function getEmail()
     {
@@ -209,22 +190,47 @@ class Entry implements EntryInterface, MailerEntryInterface
     }
 
     /**
+     * Set phone
+     *
+     * @param string $phone
+     *
+     * @return Entry
+     */
+    public function setPhone($phone)
+    {
+        $this->phone = $phone;
+    
+        return $this;
+    }
+
+    /**
+     * Get phone
+     *
+     * @return string
+     */
+    public function getPhone()
+    {
+        return $this->phone;
+    }
+
+    /**
      * Set executor
      *
      * @param string $executor
+     *
      * @return Entry
      */
     public function setExecutor($executor)
     {
         $this->executor = $executor;
-
+    
         return $this;
     }
 
     /**
      * Get executor
      *
-     * @return string 
+     * @return string
      */
     public function getExecutor()
     {
@@ -235,19 +241,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set comment
      *
      * @param string $comment
+     *
      * @return Entry
      */
     public function setComment($comment)
     {
         $this->comment = $comment;
-
+    
         return $this;
     }
 
     /**
      * Get comment
      *
-     * @return string 
+     * @return string
      */
     public function getComment()
     {
@@ -258,19 +265,20 @@ class Entry implements EntryInterface, MailerEntryInterface
      * Set priority
      *
      * @param string $priority
+     *
      * @return Entry
      */
     public function setPriority($priority)
     {
         $this->priority = $priority;
-
+    
         return $this;
     }
 
     /**
      * Get priority
      *
-     * @return string 
+     * @return string
      */
     public function getPriority()
     {
@@ -278,69 +286,23 @@ class Entry implements EntryInterface, MailerEntryInterface
     }
 
     /**
-     * Set created_at
+     * Set createdBy
      *
-     * @param \DateTime $createdAt
-     * @return Entry
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->created_at = $createdAt;
-
-        return $this;
-    }
-
-    /**
-     * Get created_at
+     * @param int $createdBy
      *
-     * @return \DateTime 
-     */
-    public function getCreatedAt()
-    {
-        return $this->created_at;
-    }
-
-    /**
-     * Set updated_at
-     *
-     * @param \DateTime $updatedAt
-     * @return Entry
-     */
-    public function setUpdatedAt($updatedAt)
-    {
-        $this->updated_at = $updatedAt;
-
-        return $this;
-    }
-
-    /**
-     * Get updated_at
-     *
-     * @return \DateTime 
-     */
-    public function getUpdatedAt()
-    {
-        return $this->updated_at;
-    }
-
-
-    /**
-     * Set created_by
-     *
-     * @param integer $createdBy
      * @return Entry
      */
     public function setCreatedBy($createdBy)
     {
         $this->created_by = $createdBy;
-
+    
         return $this;
     }
 
     /**
-     * Get created_by
+     * Get createdBy
      *
-     * @return integer 
+     * @return int
      */
     public function getCreatedBy()
     {
@@ -348,22 +310,23 @@ class Entry implements EntryInterface, MailerEntryInterface
     }
 
     /**
-     * Set updated_by
+     * Set updatedBy
      *
-     * @param integer $updatedBy
+     * @param int $updatedBy
+     *
      * @return Entry
      */
     public function setUpdatedBy($updatedBy)
     {
         $this->updated_by = $updatedBy;
-
+    
         return $this;
     }
 
     /**
-     * Get updated_by
+     * Get updatedBy
      *
-     * @return integer 
+     * @return int
      */
     public function getUpdatedBy()
     {
@@ -371,22 +334,71 @@ class Entry implements EntryInterface, MailerEntryInterface
     }
 
     /**
-     * Set deleted_at
+     * Set createdAt
+     *
+     * @param \DateTime $createdAt
+     *
+     * @return Entry
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->created_at = $createdAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return \DateTime
+     */
+    public function getCreatedAt()
+    {
+        return $this->created_at;
+    }
+
+    /**
+     * Set updatedAt
+     *
+     * @param \DateTime $updatedAt
+     *
+     * @return Entry
+     */
+    public function setUpdatedAt($updatedAt)
+    {
+        $this->updated_at = $updatedAt;
+    
+        return $this;
+    }
+
+    /**
+     * Get updatedAt
+     *
+     * @return \DateTime
+     */
+    public function getUpdatedAt()
+    {
+        return $this->updated_at;
+    }
+
+    /**
+     * Set deletedAt
      *
      * @param \DateTime $deletedAt
+     *
      * @return Entry
      */
     public function setDeletedAt($deletedAt)
     {
         $this->deleted_at = $deletedAt;
-
+    
         return $this;
     }
 
     /**
-     * Get deleted_at
+     * Get deletedAt
      *
-     * @return \DateTime 
+     * @return \DateTime
      */
     public function getDeletedAt()
     {
@@ -394,76 +406,70 @@ class Entry implements EntryInterface, MailerEntryInterface
     }
 
     /**
-     * Set status
+     * Set state
      *
-     * @param $state
-     * @internal param string $status
+     * @param int $state
+     *
      * @return Entry
      */
     public function setState($state)
     {
         $this->state = $state;
-
+    
         return $this;
     }
 
     /**
-     * Get status
+     * Get state
      *
-     * @return string 
+     * @return int
      */
     public function getState()
     {
         return $this->state;
     }
-
     /**
-     * Pre persist
+     * @ORM\PrePersist
      */
     public function prePersist()
     {
-        $this->created_at = new \DateTime();
+        // Add your code here
     }
 
     /**
-     * Pre update
+     * @ORM\PreUpdate
      */
     public function preUpdate()
     {
-        $this->updated_at = new \DateTime();
+        // Add your code here
     }
-
     /**
-     * @param int $id
+     * @var int
      */
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
-
+    private $old_id;
 
 
     /**
-     * Set phone
+     * Set oldId
      *
-     * @param string $phone
+     * @param int $oldId
+     *
      * @return Entry
      */
-    public function setPhone($phone)
+    public function setOldId($oldId)
     {
-        $this->phone = $phone;
-
+        $this->old_id = $oldId;
+    
         return $this;
     }
 
     /**
-     * Get phone
+     * Get oldId
      *
-     * @return string 
+     * @return int
      */
-    public function getPhone()
+    public function getOldId()
     {
-        return $this->phone;
+        return $this->old_id;
     }
-
 }

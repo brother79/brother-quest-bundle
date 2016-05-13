@@ -2,6 +2,7 @@
 
 namespace Brother\QuestBundle\Entity;
 
+use Brother\CommonBundle\AppDebug;
 use Doctrine\ORM\EntityManager;
 use Brother\QuestBundle\Model\EntryInterface;
 use Brother\QuestBundle\Model\EntryManager as AbstractEntryManager;
@@ -18,7 +19,7 @@ class EntryManager extends AbstractEntryManager
     /**
      * {@inheritDoc}
      */
-    public function getPaginatedList($offset, $limit, $criteria = array())
+    public function getPaginatedList($offset, $limit, $criteria = [])
     {
 
         $queryBuilder = $this->repository->createQueryBuilder('c');
@@ -36,7 +37,7 @@ class EntryManager extends AbstractEntryManager
         if (null === $this->paginator) {
             return $queryBuilder->getQuery()->getResult();
         }
-        return $this->makePagination($limit, array('page' => $offset, $queryBuilder->getQuery()));
+        return $this->makePagination($limit, array('page' => $offset, 'target' => $queryBuilder->getQuery()));
     }
 
 

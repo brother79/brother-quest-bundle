@@ -5,6 +5,7 @@ namespace Brother\QuestBundle\Controller;
 use Brother\CommonBundle\AppTools;
 use Brother\CommonBundle\Controller\BaseController;
 use Brother\CommonBundle\Model\BaseApi;
+use Brother\CommonBundle\Model\Status;
 use Brother\QuestBundle\Form\EntryType;
 use Brother\QuestBundle\Model\EntryManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,15 +30,21 @@ class EntryController extends BaseController
     {
         $manager = $this->getManager();
         $limit = $this->container->getParameter('brother_quest.entry_per_page');
-        $entries = $manager->getPaginatedList($page, $limit, array('a' => 'is not null'));
-        $pagerHtml = $manager->getPaginationHtml();
+        $entries = $manager->getPaginatedList($page, $limit, array(
+            'a' => 'is not null', 
+            'state' => Status::STATUS_VALID)
+        );
+        
+        
+//        $pagerHtml = $manager->getPaginationHtml();
 
+        
         $form = $this->getFormFactory('entry');
 
         return $this->render('BrotherQuestBundle:Entry:index.html.twig', array(
                 'entries' => $entries,
                 'form' => $form->createView(),
-                'pagination_html' => $pagerHtml,
+//                'pagination_html' => '',//$pagerHtml,
                 'date_format' => $this->container->getParameter('brother_quest.date_format')
             )
         );

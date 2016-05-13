@@ -62,6 +62,9 @@ Brother\QuestBundle\Entity\Entry:
         state:
             type: integer
             nullable: true
+        old_id:
+            type: integer
+            nullable: true
     lifecycleCallbacks:
         prePersist: [ prePersist ]
         preUpdate:  [ preUpdate ]

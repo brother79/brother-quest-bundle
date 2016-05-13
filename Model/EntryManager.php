@@ -27,7 +27,7 @@ abstract class EntryManager extends ORMEntryManager
     /**
      * Enter description here...
      *
-     * @param Doctrine_Query $query
+     * @param Query $query
      * @return Doctrine_Query
      */
     
